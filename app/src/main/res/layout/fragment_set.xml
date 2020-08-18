@@ -1,0 +1,254 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.mine.setting.SetFragment">
+
+    <data>
+
+
+        <variable
+            name="setVM"
+            type="com.jzd.jzshop.ui.mine.setting.SetViewModel" />
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/defualt"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px50dp"
+                android:background="@color/red"
+                android:fitsSystemWindows="true">
+
+                <ImageView
+                    onClickCommand="@{setVM.onClickBackListeren}"
+                    android:layout_width="@dimen/px50dp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/px18dp"
+                    android:src="@mipmap/white_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/px14dp"
+                    android:text="设置"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/px18sp" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/aiv_logo"
+                android:layout_width="@dimen/px54dp"
+                android:layout_height="@dimen/px54dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px80dp"
+                android:background="@mipmap/ic_launcher"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aiv_logo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/px6dp"
+                android:text="@{setVM.version,default=1.0}"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px17sp"
+                 />
+
+
+            <RelativeLayout
+                android:id="@+id/rl_setinfo"
+                onClickCommand="@{setVM.onClickPerfectListeren}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px50dp"
+                android:layout_below="@id/tv_version"
+                android:layout_marginTop="@dimen/px30dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_set"
+                    android:layout_width="@dimen/px18dp"
+                    android:layout_height="@dimen/px18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:src="@mipmap/setinfo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:layout_toRightOf="@id/iv_set"
+                    android:text="@string/setinfo"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px15sp" />
+
+                <ImageView
+                    android:layout_width="@dimen/px30dp"
+                    android:layout_height="@dimen/px30dp"
+                    android:padding="@dimen/px4dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/px4dp"
+                    android:src="@mipmap/arrows_right" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_aboutapp"
+                onClickCommand="@{setVM.onAboutAppClick}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px50dp"
+                android:layout_below="@id/rl_setinfo"
+                android:layout_marginTop="@dimen/px10dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_about"
+                    android:layout_width="@dimen/px18dp"
+                    android:layout_height="@dimen/px18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:src="@mipmap/ic_about_app" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:layout_toRightOf="@id/iv_about"
+                    android:text="@string/aboutapp"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px15sp" />
+
+                <ImageView
+                    android:layout_width="@dimen/px30dp"
+                    android:layout_height="@dimen/px30dp"
+                    android:padding="@dimen/px4dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/px4dp"
+                    android:src="@mipmap/arrows_right" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_clear"
+                onClickCommand="@{setVM.onClearBufferClick}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px50dp"
+                android:layout_below="@id/rl_aboutapp"
+                android:layout_marginTop="@dimen/px10dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_clear"
+                    android:layout_width="@dimen/px18dp"
+                    android:layout_height="@dimen/px18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:src="@mipmap/clear" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:layout_toRightOf="@id/iv_clear"
+                    android:text="@string/clear"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px15sp" />
+
+                <ImageView
+                    android:layout_width="@dimen/px30dp"
+                    android:layout_height="@dimen/px30dp"
+                    android:padding="@dimen/px4dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/px4dp"
+                    android:src="@mipmap/arrows_right" />
+            </RelativeLayout>
+
+            <!--新消息通知-->
+            <RelativeLayout
+                android:id="@+id/rl_message"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px50dp"
+                android:layout_below="@id/rl_clear"
+                android:layout_marginTop="@dimen/px10dp"
+                android:background="@color/white"
+                binding:onClickCommand="@{setVM.onClickOpenMessage}">
+
+                <ImageView
+                    android:id="@+id/iv_message"
+                    android:layout_width="@dimen/px18dp"
+                    android:layout_height="@dimen/px18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:src="@mipmap/ic_message_tip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:layout_toRightOf="@id/iv_message"
+                    android:text="@string/message"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px15sp" />
+
+                <TextView
+                    android:id="@+id/tv_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/px36dp"
+                    android:text="去打开"
+                    binding:onClickCommand="@{setVM.onClickOpenMessage}"
+                    android:textSize="@dimen/px15sp" />
+
+                <ImageView
+                    android:layout_width="@dimen/px30dp"
+                    android:layout_height="@dimen/px30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/px4dp"
+                    android:padding="@dimen/px4dp"
+                    android:src="@mipmap/arrows_right" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/btn_exit_login"
+                onClickCommand="@{setVM.onClickExitListeren}"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_below="@+id/rl_message"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/px10dp"
+                android:layout_marginTop="@dimen/px108dp"
+                android:layout_marginRight="@dimen/px10dp"
+                android:background="@drawable/shape_btn_red_radius"
+                android:gravity="center"
+                android:text="@string/exit_login"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

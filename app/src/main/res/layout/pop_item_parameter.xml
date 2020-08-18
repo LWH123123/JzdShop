@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="parameterIVM"
+            type="com.jzd.jzshop.ui.goods.PopGoodsParameterItemViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/px8dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/pp_key"
+            android:layout_width="@dimen/px0dp"
+            android:layout_height="wrap_content"
+            android:text='@{parameterIVM.entity.key,default=key}'
+            android:textColor="@color/black"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintEnd_toStartOf="@+id/pp_value"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/pp_value"
+            android:layout_width="@dimen/px0dp"
+            android:layout_height="wrap_content"
+            android:text='@{parameterIVM.entity.value,default=value}'
+            android:textSize="@dimen/px14sp"
+            android:textColor="@color/textColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintStart_toEndOf="@+id/pp_key" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/defualt"
+            android:layout_marginTop="@dimen/px8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pp_value" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

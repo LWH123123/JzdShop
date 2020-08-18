@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="adapter"
+            type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <variable
+            name="maVM"
+            type="com.jzd.jzshop.ui.home.merchantalliance.MerchantAllianceViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/toolbars"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{maVM.toolbarViewModel}" />
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/fma_search"
+            android:layout_width="@dimen/px350dp"
+            android:layout_height="@dimen/px34dp"
+            android:layout_below="@id/toolbars"
+            android:layout_margin="@dimen/px12dp"
+            android:background="@drawable/search_shop"
+            android:visibility="gone"
+            app:defaultQueryHint="@string/search_shop" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/mall_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbars">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/px50dp"
+                    android:background="@color/white">
+
+                    <com.stx.xhb.xbanner.XBanner
+                        android:id="@+id/fma_xbanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px160dp"
+                        app:AutoPlayTime="3000"
+                        app:isAutoPlay="true"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--自定义搜索框-->
+                    <RelativeLayout
+                        android:id="@+id/rl_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px32dp"
+                        android:layout_marginLeft="@dimen/px24dp"
+                        android:layout_marginTop="@dimen/px12dp"
+                        android:layout_marginRight="@dimen/px24dp"
+                        android:background="@drawable/search_shop"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        app:layout_constraintTop_toBottomOf="@id/fma_xbanner">
+
+                        <ImageView
+                            android:id="@+id/iv_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/px100dp"
+                            android:src="@mipmap/ic_search_shop" />
+
+                        <EditText
+                            android:id="@+id/et_search_shop"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/px22dp"
+                            android:layout_toRightOf="@id/iv_search"
+                            android:background="@null"
+                            android:gravity="center_vertical|left"
+                            android:hint="@string/search_shop"
+                            android:imeOptions="actionSearch"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/px4dp"
+                            android:singleLine="true"
+                            android:textColor="@color/textColor"
+                            android:textColorHint="#999999"
+                            android:textSize="14sp" />
+
+                    </RelativeLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/ag_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px12dp"
+                        app:adapter="@{adapter}"
+                        app:itemBinding="@{maVM.fma_merch_ib}"
+                        app:items="@{maVM.fma_merch_ob}"
+                        app:layoutManager="@{LayoutManagers.linear()}"
+                        app:layout_constraintTop_toBottomOf="@id/rl_search"
+                        app:lineManager="@{LineManagers.horizontal()}"
+                        tools:listitem="@layout/item_merchant_alliance" />
+                </android.support.constraint.ConstraintLayout>
+            </ScrollView>
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </RelativeLayout>
+</layout>

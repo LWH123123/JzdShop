@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="maIVM"
+            type="com.jzd.jzshop.ui.home.merchantalliance.MerchantAllianceItemViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/conslayout"
+            onClickCommand="@{maIVM.onClickGoTo}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/px10dp"
+            tools:ignore="MissingConstraints">
+
+
+            <ImageView
+                android:id="@+id/ima_logo_iv"
+                url="@{maIVM.entity.merch_logo}"
+                android:layout_width="@dimen/px48dp"
+                android:layout_height="@dimen/px48dp"
+                android:background="@color/white"
+                android:scaleType="fitCenter"
+                app:layout_constraintDimensionRatio="w,1:1"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/ima_title_tv"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/px10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text='@{maIVM.entity.merch_name,default="title"}'
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/img_go_tv"
+                app:layout_constraintStart_toEndOf="@+id/ima_logo_iv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/img_go_tv"
+                android:layout_width="@dimen/px60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_item_search_shop_iv_right"
+                android:gravity="center"
+                android:padding="@dimen/px4dp"
+                android:text="进店"
+                android:textColor="@color/level3text"
+                android:textSize="@dimen/px13sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ima_title_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+        <!--divder-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1dp"
+            android:layout_below="@id/conslayout"
+            android:background="@color/color_bg_default" />
+    </RelativeLayout>
+
+</layout>

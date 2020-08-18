@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/px6dp"
+    android:paddingTop="@dimen/px12dp"
+    android:paddingBottom="@dimen/px12dp"
+    android:background="@drawable/shape_order_detail_recyclev">
+
+    <!--module one-->
+    <!--state-->
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px16dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/px15sp"
+        android:textColor="@color/textColor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="提现到余额" />
+
+    <!--time-->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginBottom="@dimen/px16dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/px13sp"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_state"
+        tools:text="2020-01-19 13:56" />
+
+    <!--amount-->
+    <TextView
+        android:id="@+id/tv_result_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px16dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/levelorange"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="待打款" />
+
+    <TextView
+        android:id="@+id/tv_apply_award"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px6dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px6dp"
+        android:layout_marginBottom="@dimen/px16dp"
+        android:gravity="center|left"
+        android:text="@string/apply_award"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tv_amount"
+        app:layout_constraintTop_toBottomOf="@id/tv_result_state" />
+
+    <!--result  state-->
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:layout_marginBottom="@dimen/px16dp"
+        android:ellipsize="end"
+        android:gravity="center|right"
+        android:maxWidth="@dimen/px150dp"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_result_state"
+        tools:text="90.00" />
+
+</android.support.constraint.ConstraintLayout>

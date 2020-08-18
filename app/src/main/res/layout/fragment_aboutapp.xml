@@ -1,0 +1,176 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+
+    <variable
+        name="aboutappVM"
+        type="com.jzd.jzshop.ui.mine.setting.aboutapp.AboutappViewModel" />
+
+</data>
+
+    <LinearLayout
+        tools:context=".ui.mine.setting.aboutapp.AboutappFragment"
+        android:orientation="vertical"
+        android:background="@color/defualt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:background="@color/red">
+
+            <ImageView
+                onClickCommand="@{aboutappVM.onClickFinish}"
+                android:layout_width="@dimen/px50dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:padding="@dimen/px18dp"
+                android:src="@mipmap/white_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/aboutshopapp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px18sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/specialstatement"
+            onClickCommand="@{aboutappVM.onClickSpecialstatement}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:layout_below="@id/tv_version"
+            android:layout_marginTop="@dimen/px12dp"
+            android:background="@color/white">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:text="@string/specialstatement"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px15sp" />
+
+            <ImageView
+                android:layout_width="@dimen/px30dp"
+                android:layout_height="@dimen/px30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px4dp"
+                android:src="@mipmap/arrows_right" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/givemegrade"
+            onClickCommand="@{aboutappVM.onClickGivemegrade}"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="@dimen/px50dp"
+            android:layout_below="@id/tv_version"
+            android:layout_marginTop="@dimen/px12dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:text="@string/givemegrade"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px15sp" />
+
+            <ImageView
+                android:layout_width="@dimen/px30dp"
+                android:layout_height="@dimen/px30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px4dp"
+                android:src="@mipmap/arrows_right" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/privacypolicy"
+            onClickCommand="@{aboutappVM.onClickPrivacypolicy}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:layout_below="@id/tv_version"
+            android:layout_marginTop="@dimen/px12dp"
+            android:background="@color/white">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:text="@string/privacypolicy"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px15sp" />
+
+            <ImageView
+                android:layout_width="@dimen/px30dp"
+                android:layout_height="@dimen/px30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px4dp"
+                android:src="@mipmap/arrows_right" />
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/licence"
+            onClickCommand="@{aboutappVM.onClickLicence}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:layout_below="@id/tv_version"
+            android:layout_marginTop="@dimen/px12dp"
+            android:background="@color/white">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:text="@string/licence"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px15sp" />
+
+            <ImageView
+                android:layout_width="@dimen/px30dp"
+                android:layout_height="@dimen/px30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px4dp"
+                android:src="@mipmap/arrows_right" />
+
+        </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</layout>

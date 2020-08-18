@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <import type="android.view.View"/>
+        <import type="com.jzd.jzshop.ui.order.firmorder.FirmOrderPopViewModel"/>
+        <variable
+            name="firmpopVM"
+            type="FirmOrderPopViewModel" />
+
+    </data>
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/px76dp"
+    android:layout_marginLeft="@dimen/px20dp"
+    android:layout_marginRight="@dimen/px20dp"
+    android:layout_marginTop="@dimen/px10dp"
+    tools:ignore="MissingConstraints">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/coupon_left"
+        app:layout_constraintEnd_toStartOf="@+id/pic_get_coupon"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp">
+
+
+        <TextView
+            android:id="@+id/pic_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="@dimen/px4dp"
+            android:text='@{firmpopVM.entity.backmoneyText,default="299"}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/px40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pic_enough"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text='@{firmpopVM.entity.enoughText,default="满1000即可使用"}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/px11sp"
+            app:layout_constraintStart_toEndOf="@+id/pic_money"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--            android:text="@string/discountCoupon"-->
+        <TextView
+            android:id="@+id/textView82"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text='@{firmpopVM.entity.backtype.equals("1")?@string/discountCoupone:@string/discountCoupons,default=@string/discountCoupons}'
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/pic_money"
+            app:layout_constraintStart_toEndOf="@+id/pic_money"
+            app:layout_constraintTop_toBottomOf="@+id/pic_enough" />
+
+        <TextView
+            android:id="@+id/pic_timestr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text='@{firmpopVM.entity.timestrText,default="有效期：2018.9.28-2018.10.28"}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/px12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/pic_money" />
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/pic_get_coupon"
+        android:layout_width="@dimen/px94dp"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_coupon"
+        android:gravity="center"
+        android:text="@string/newchoice"
+        android:textColor="@color/colorred"
+        android:textSize="@dimen/px16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout2"
+        app:onClickCommand="@{firmpopVM.onClickSelectCoupon}" />
+
+    <TextView
+        android:id="@+id/pic_got_coupon"
+        android:layout_width="@dimen/px94dp"
+        android:layout_height="match_parent"
+        android:background="@mipmap/choice"
+        android:visibility='@{firmpopVM.entity.iscollect==0?View.GONE:View.VISIBLE,default=gone}'
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout2" />
+</android.support.constraint.ConstraintLayout>
+</layout>

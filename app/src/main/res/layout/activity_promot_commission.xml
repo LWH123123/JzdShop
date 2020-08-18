@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="promotCommissionVM"
+            type="com.jzd.jzshop.ui.mine.promotion.PromotCommissionViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{promotCommissionVM.toolbarViewModel}" />
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nestscroll"
+            android:visibility="gone"
+            android:layout_below="@id/ic_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/px80dp"
+            android:background="@color/defualt"
+            android:visibility="visible"
+            tools:listitem="@layout/item_rv_promot_commission" />
+
+        <TextView
+            android:id="@+id/tv_cash_withdrawal"
+            onClickCommand="@{promotCommissionVM.onCashWithdrawalClick}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px46dp"
+            android:layout_marginLeft="@dimen/px12dp"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="@dimen/px12dp"
+            android:layout_marginBottom="@dimen/px20dp"
+            android:layout_below="@id/rvc"
+            android:layout_marginTop="@dimen/px30dp"
+            android:background="@drawable/shape_btn_red_radius"
+            android:gravity="center"
+            android:text="@string/cash_withdrawal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px14sp" />
+        </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/pager_bottom_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px52dp"
+            android:background="@color/white"
+            app:elevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </RelativeLayout>
+</layout>

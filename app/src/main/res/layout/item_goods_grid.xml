@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="glItemVM"
+            type="com.jzd.jzshop.ui.goods.goodslist.GoodsListItemViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/defualt">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:cardCornerRadius="@dimen/px6dp"
+            app:cardElevation="@dimen/px0dp"
+            android:layout_margin="@dimen/px6dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/px10dp"
+            app:onClickCommand="@{glItemVM.itemClick}"
+            tools:ignore="MissingConstraints">
+
+                <ImageView
+                    android:id="@+id/igl_1_img"
+                    android:layout_width="@dimen/px0dp"
+                    android:layout_height="@dimen/px0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@mipmap/placeholder"
+                    app:url="@{glItemVM.entity.thumb}" />
+
+            <TextView
+                android:id="@+id/igl_1_title"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px10dp"
+                android:layout_marginStart="@dimen/px6dp"
+                android:layout_marginEnd="@dimen/px10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text='@{glItemVM.entity.title,default="title"}'
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/igl_1_img" />
+
+            <TextView
+                android:id="@+id/igl_1_lable"
+                isVisible="@{!(glItemVM.entity.label==null)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px6dp"
+                android:text='@{glItemVM.entity.label,default="陈年|佳酿"}'
+                android:layout_marginStart="@dimen/px6dp"
+                android:textColor="@color/level3text"
+                android:textSize="@dimen/px11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/igl_1_title" />
+
+            <TextView
+                android:id="@+id/igl_1_active1"
+                isVisible="@{glItemVM.entity.is_sendfree==1}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px6dp"
+                android:layout_marginStart="@dimen/px6dp"
+                android:background="@drawable/boder_red_textview"
+                android:gravity="center"
+                android:paddingLeft="@dimen/px4dp"
+                android:paddingRight="@dimen/px4dp"
+                android:text="包邮"
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/igl_1_lable" />
+
+            <TextView
+                android:id="@+id/igl_1_active2"
+                isVisible="@{glItemVM.entity.is_new==1}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px10dp"
+                android:background="@drawable/boder_red_textview"
+                android:gravity="center"
+                android:paddingLeft="@dimen/px4dp"
+                android:paddingRight="@dimen/px4dp"
+                android:text="满减"
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px11sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/igl_1_active1"
+                app:layout_constraintStart_toEndOf="@id/igl_1_active1" />
+
+            <TextView
+                android:id="@+id/tv_priceTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px14dp"
+                android:text="¥"
+                android:layout_marginStart="@dimen/px6dp"
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px10sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/igl_1_active1" />
+
+            <TextView
+                android:id="@+id/igl_1_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:layout_marginTop="@dimen/px6dp"
+                android:layout_marginRight="@dimen/px6dp"
+                android:text='@{glItemVM.entity.priceText,default="200"}'
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px16sp"
+                app:layout_constraintStart_toStartOf="@id/tv_priceTip"
+                app:layout_constraintTop_toBottomOf="@+id/igl_1_active1" />
+
+            <TextView
+                android:id="@+id/igl_1_sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/px14dp"
+                android:text='@{"销量"+glItemVM.entity.sales_realText,default="销量 300"}'
+                android:textSize="@dimen/px12sp"
+                app:layout_constraintBaseline_toBaselineOf="@id/igl_1_price"
+                app:layout_constraintStart_toEndOf="@id/igl_1_price" />
+
+        </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+</layout>

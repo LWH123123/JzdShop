@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="adapter"
+            type="com.jzd.jzshop.ui.mine.mineteam.MineTeamAdapter" />
+
+        <variable
+            name="mineteamVM"
+            type="com.jzd.jzshop.ui.mine.mineteam.MineTeamViewModel" />
+
+    </data>
+
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context="com.jzd.jzshop.ui.mine.mineteam.MineTeamActivity">
+
+    <include
+        android:id="@+id/ic_toolbar"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:toolbarViewModel="@{mineteamVM.toolbarViewModel}" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/mall_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ic_toolbar">
+
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:id="@+id/mall_refresh_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/con_sign"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px40dp"
+                android:background="@color/light3pink">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/ic_big_tick"
+                    android:drawablePadding="@dimen/px4dp"
+                    android:gravity="center"
+                    android:text="@string/mine_team_sign"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/px14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/con_sign"
+                android:focusable="false"
+                app:adapter="@{adapter}"
+                app:itemBinding="@{mineteamVM.mineteamview}"
+                app:items="@{mineteamVM.mineteamlist}"
+                app:layoutManager="@{LayoutManagers.linear()}" />
+
+        </RelativeLayout>
+
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:id="@+id/mall_refresh_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
+</layout>

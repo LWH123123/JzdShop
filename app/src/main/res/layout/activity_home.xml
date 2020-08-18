@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+     <!--   <import type="android.support.v7.widget.StaggeredGridLayoutManager" />
+
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />-->
+
+        <import type="com.jzd.jzshop.ui.home.HomeViewModel" />
+
+        <variable
+            name="homeVM"
+            type="com.jzd.jzshop.ui.home.HomeViewModel" />
+
+      <!--  <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />-->
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:background="@mipmap/mine_bg" />
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px32dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="@dimen/px30dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="@dimen/px12dp"
+            android:background="@drawable/searchview_line"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            app:defaultQueryHint="@string/search" />
+        <!--SearchView 样式修改麻烦，后期再处理，先自定义写搜索框-->
+        <RelativeLayout
+            android:id="@+id/rl_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px32dp"
+            android:layout_below="@id/searchView"
+            android:layout_marginLeft="@dimen/px30dp"
+            android:layout_marginTop="@dimen/px40dp"
+            android:layout_marginRight="@dimen/px30dp"
+            android:layout_marginBottom="@dimen/px6dp"
+            android:background="@drawable/search_shop">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:src="@mipmap/ic_search_shop" />
+
+            <TextView
+                android:id="@+id/et_search_shop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px22dp"
+                android:layout_toRightOf="@id/iv_search"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint="@string/search"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/px4dp"
+                android:singleLine="true"
+                android:textColor="@color/textColor"
+                android:textColorHint="#999999"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/mall_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_search">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/constraintLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:background="@mipmap/mine_bg"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px162dp"
+                            android:layout_marginStart="@dimen/px16dp"
+                            android:layout_marginLeft="@dimen/px16dp"
+                            android:layout_marginTop="@dimen/px6dp"
+                            android:layout_marginEnd="@dimen/px16dp"
+                            android:layout_marginRight="@dimen/px16dp"
+                            android:background="@color/colorPrimary"
+                            app:cardCornerRadius="@dimen/px10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/constraintLayout">
+
+                            <!--                    url="@{homeVM.bannlist.imgurl}"-->
+                            <com.stx.xhb.xbanner.XBanner
+                                android:id="@+id/xbanner"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:AutoPlayTime="3000"
+                                app:isAutoPlay="true" />
+                        </android.support.v7.widget.CardView>
+                    </android.support.constraint.ConstraintLayout>
+
+<!--                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="@dimen/px64dp"
+                        android:layout_height="@dimen/px64dp"
+                        android:layout_marginEnd="20dp"
+                        android:onClick="@{()->homeVM.getLinkUrl(0)}"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="@dimen/px64dp"
+                        android:layout_height="@dimen/px64dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/white"
+                        android:onClick="@{()->homeVM.getLinkUrl(1)}"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                        app:layout_constraintStart_toEndOf="@+id/imageView" />
+
+                    &lt;!&ndash;                        android:src="@mipmap/chat"
+                            app:url="@{homeVM.homebtn.snsImg}"&ndash;&gt;
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="@dimen/px64dp"
+                        android:layout_height="@dimen/px64dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@color/white"
+                        android:onClick="@{()->homeVM.getLinkUrl(2)}"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+                    &lt;!&ndash;                        android:src="@mipmap/store_alliance"
+                            app:url="@{homeVM.homebtn.merchImg}"&ndash;&gt;
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        onClickCommand="@{homeVM.onstoreAllianceClick}"
+                        android:layout_width="@dimen/px64dp"
+                        android:layout_height="@dimen/px64dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@color/white"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.647"
+                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintTop_toTopOf="@+id/imageView2"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        onClickCommand="@{homeVM.onintegralStoreClick}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->homeVM.getLinkUrl(0)}"
+                        android:text="@{homeVM.homebtn.creditshop}"
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/px13sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView"
+                        app:layout_constraintStart_toStartOf="@+id/imageView"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        onClickCommand="@{homeVM.onseckillClick}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->homeVM.getLinkUrl(1)}"
+                        android:text="@{homeVM.homebtn.seckill}"
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/px13sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                        app:layout_constraintHorizontal_bias="0.515"
+                        app:layout_constraintStart_toStartOf="@+id/imageView4"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        onClickCommand="@{homeVM.onallCommuntiyClick}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:onClick="@{()->homeVM.getLinkUrl(2)}"
+                        android:text="@{homeVM.homebtn.sns}"
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/px13sp"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                        app:layout_constraintHorizontal_bias="0.515"
+                        app:layout_constraintStart_toStartOf="@+id/imageView2"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        onClickCommand="@{homeVM.onstoreAllianceClick}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{homeVM.homebtn.merch}"
+                        android:textColor="@color/textcolor"
+                        android:textSize="@dimen/px13sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                        app:layout_constraintStart_toStartOf="@+id/imageView3"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                        app:layout_constraintVertical_bias="1.0" />-->
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/defualt"
+                        android:paddingBottom="@dimen/px60dp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                        tools:listitem="@layout/item_home_shop" />
+
+                        <!--binding:adapter="@{adapter}"
+                        binding:itemBinding="@{homeVM.product}"
+                        binding:items="@{homeVM.productlist}"
+                        binding:layoutManager="@{LayoutManagers.grid(2)}"-->
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+            android:id="@+id/pager_bottom_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px52dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:elevation="8dp" />
+    </RelativeLayout>
+
+
+</layout>

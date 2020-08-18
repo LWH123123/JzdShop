@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.jzd.jzshop.ui.home.HomeProductItemViewModel" />
+
+        <variable
+            name="productVM"
+            type="com.jzd.jzshop.ui.home.HomeProductItemViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px6dp"
+        android:layout_marginTop="@dimen/px10dp"
+        android:layout_marginRight="@dimen/px6dp"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/px6dp"
+        app:cardElevation="@dimen/px0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/consl_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/px12dp">
+
+            <ImageView
+                android:id="@+id/pic"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/px172dp"
+                android:scaleType="centerCrop"
+                android:background="@mipmap/placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+<!--            binding:url="@{productVM.entity.thumb}"-->
+            <View
+                android:id="@+id/viewSeckills"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px172dp"
+                android:background="@mipmap/seckills"
+                android:visibility="@{productVM.entity.seckill==0?View.GONE:View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="@dimen/px140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="@dimen/px22dp"
+                android:lineHeight="@dimen/px18dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{productVM.entity.title}"
+                android:textColor="@color/textcolor"
+                android:textSize="@dimen/px12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pic" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px24dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="3dp"
+                android:gravity="center"
+                android:text='@{""+productVM.entity.price,default="100"}'
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px16sp"
+                app:layout_constraintStart_toEndOf="@+id/textView9"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/tv_full_reduction"
+                android:layout_width="@dimen/px30dp"
+                android:layout_height="@dimen/px16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/boder_red_textview"
+                android:gravity="center"
+                android:lineHeight="@dimen/px14dp"
+                android:text="@string/enoughs"
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px11sp"
+                android:visibility="@{productVM.entity.enoughs==0?View.GONE:View.VISIBLE}"
+                app:layout_constraintStart_toEndOf="@+id/price"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/tv_full_gift"
+                android:layout_width="@dimen/px30dp"
+                android:layout_height="@dimen/px16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/boder_red_textview"
+                android:gravity="center"
+                android:lineHeight="@dimen/px14dp"
+                android:text="@string/salegit"
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px11sp"
+                android:visibility="@{productVM.entity.salegit==0?View.GONE:View.VISIBLE}"
+                app:layout_constraintStart_toEndOf="@+id/tv_full_reduction"
+                app:layout_constraintTop_toBottomOf="@+id/name" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="¥"
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px10sp"
+                app:layout_constraintStart_toStartOf="@+id/name"
+                app:layout_constraintTop_toTopOf="@+id/price" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+</layout>

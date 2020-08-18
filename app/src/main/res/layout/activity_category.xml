@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="adapter"
+            type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="com.jzd.jzshop.ui.category.CategoryViewModel" />
+
+        <variable
+            name="categoryVM"
+            type="com.jzd.jzshop.ui.category.CategoryViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/page_bottom_tab"
+            android:background="@color/colorPrimary"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            tools:ignore="MissingConstraints">
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/ac_include_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px32dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="@dimen/px26dp"
+                android:layout_marginTop="@dimen/px40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="@dimen/px26dp"
+                android:background="@drawable/bg_radio"
+                android:visibility="gone"
+                app:defaultQueryHint="@string/search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--SearchView 样式修改麻烦，后期再处理，先自定义写搜索框-->
+            <RelativeLayout
+                android:id="@+id/rl_search"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/px32dp"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px40dp"
+                android:layout_marginRight="@dimen/px80dp"
+                android:background="@drawable/search_shop"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px60dp"
+                    android:src="@mipmap/ic_search_shop" />
+
+                <TextView
+                    android:id="@+id/et_search_shop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px6dp"
+                    android:layout_marginRight="@dimen/px22dp"
+                    android:layout_toRightOf="@id/iv_search"
+                    android:background="@null"
+                    android:gravity="center_vertical|left"
+                    android:hint="@string/search"
+                    android:imeOptions="actionSearch"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/px4dp"
+                    android:singleLine="true"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="#999999"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <!--消息-->
+            <ImageView
+                android:id="@+id/iv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:layout_marginTop="@dimen/px40dp"
+                android:layout_marginRight="@dimen/px30dp"
+                android:src="@mipmap/ic_message_center"
+                app:layout_constraintLeft_toRightOf="@id/rl_search"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--消息数-->
+            <TextView
+                android:id="@+id/iv_message_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:layout_marginTop="@dimen/px30dp"
+                android:layout_marginRight="@dimen/px20dp"
+                android:background="@drawable/shape_bg_message_number_oval"
+                android:gravity="center"
+                android:text=""
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="9" />
+
+            <!-- app:lineManager="@{LineManagers.horizontal()}"-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ac_category"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px0dp"
+                android:layout_marginTop="@dimen/px10dp"
+                android:background="#fff"
+                app:adapter="@{adapter}"
+                app:itemBinding="@{categoryVM.ac_category_ib}"
+                app:items="@{categoryVM.ac_category_ob}"
+                app:layoutManager="@{LayoutManagers.linear()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ac_container"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rl_search"
+                app:layout_constraintVertical_bias="0.0"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_category_left" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/ac_container"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px0dp"
+                android:layout_marginTop="@dimen/px10dp"
+                android:background="@color/white"
+                android:overScrollMode="never"
+                android:padding="@dimen/px10dp"
+                app:itemBinding="@{categoryVM.ac_container_ib}"
+                app:items="@{categoryVM.ac_container_ob}"
+                app:layoutManager="@{LayoutManagers.grid(3)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="3"
+                app:layout_constraintStart_toEndOf="@id/ac_category"
+                app:layout_constraintTop_toBottomOf="@id/rl_search"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_category_left" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+            android:id="@+id/page_bottom_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px52dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:elevation="8dp" />
+    </RelativeLayout>
+</layout>

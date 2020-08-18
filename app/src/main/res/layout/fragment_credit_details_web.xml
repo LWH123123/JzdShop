@@ -1,0 +1,39 @@
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="creditwebViewModel"
+            type="com.jzd.jzshop.ui.home.creditsstore.goods_details.details.CreditDetailsWebViewModel" />
+    </data>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/textColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jzd.jzshop.ui.home.creditsstore.goods_details.details.CreditDetailsWebFrag">
+
+    <WebView
+        android:id="@+id/web"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/tv_default"
+        android:text="暂无商品详情"
+        android:textSize="@dimen/px14sp"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/px20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+</android.support.constraint.ConstraintLayout>
+</layout>

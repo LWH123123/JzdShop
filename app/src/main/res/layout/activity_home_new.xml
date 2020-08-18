@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="homeVM"
+            type="com.jzd.jzshop.ui.home.news.HomePageViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--260dp-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@mipmap/mine_bg"
+            android:visibility="visible"/>
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px32dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="@dimen/px30dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="@dimen/px12dp"
+            android:background="@drawable/searchview_line"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            app:defaultQueryHint="@string/search" />
+        <!--SearchView 样式修改麻烦，后期再处理，先自定义写搜索框-->
+        <RelativeLayout
+            android:id="@+id/rl_search"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px32dp"
+            android:layout_below="@id/searchView"
+            android:layout_marginLeft="@dimen/px20dp"
+            android:layout_marginTop="@dimen/px40dp"
+            android:layout_marginRight="@dimen/px6dp"
+            android:layout_marginBottom="@dimen/px6dp"
+            android:layout_toLeftOf="@id/iv_message"
+            android:background="@drawable/search_shop">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:src="@mipmap/ic_search_shop" />
+
+            <TextView
+                android:id="@+id/et_search_shop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px22dp"
+                android:layout_toRightOf="@id/iv_search"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint="@string/search"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/px4dp"
+                android:singleLine="true"
+                android:textColor="@color/textColor"
+                android:textColorHint="#999999"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+        <!--消息-->
+        <ImageView
+            android:id="@+id/iv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="@dimen/px10dp"
+            android:layout_marginTop="@dimen/px40dp"
+            android:layout_marginEnd="@dimen/px12dp"
+            android:paddingEnd="@dimen/px16dp"
+            android:src="@mipmap/ic_message_center" />
+        <!--消息数-->
+        <TextView
+            android:id="@+id/iv_message_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/px12dp"
+            android:layout_marginTop="@dimen/px30dp"
+            android:layout_marginRight="@dimen/px20dp"
+            android:background="@drawable/shape_bg_message_number_oval"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/px14sp"
+            android:paddingLeft="@dimen/px3dp"
+            android:paddingRight="@dimen/px3dp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="99+" />
+<!--   android:layout_above="@id/pager_bottom_tab"-->
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/mall_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:layout_below="@id/rl_search">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--            <android.support.v4.widget.NestedScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="fill_parent"
+                            android:fillViewport="true">
+
+                            <android.support.constraint.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">-->
+
+            <!-- V2.3以前版本，即未做商品组分页前 使用 recyclerView-->
+            <!-- module three 需要动态实例化 menu -->
+            <!--                 <android.support.v7.widget.RecyclerView
+                                 android:id="@+id/recyclerView"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:background="@color/defualt"
+                                 app:layout_constraintLeft_toLeftOf="parent"
+                                 app:layout_constraintRight_toRightOf="parent"
+                                 app:layout_constraintTop_toTopOf="parent" />-->
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcy_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/defualt"
+                android:visibility="gone" />
+
+            <!-- </android.support.constraint.ConstraintLayout>
+                 </android.support.v4.widget.NestedScrollView>-->
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:background="@color/defualt"
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/px52dp"/>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        <!--一键置顶-->
+        <ImageView
+            android:id="@+id/iv_goTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="70dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_one_touch_top"
+            android:visibility="gone"
+            app:elevation="@dimen/px8dp"
+            app:onClickCommand="@{homeVM.onClickGoTop}"/>
+
+        <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+            android:id="@+id/pager_bottom_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px52dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:elevation="8dp" />
+    </RelativeLayout>
+
+
+</layout>

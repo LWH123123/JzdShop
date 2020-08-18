@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/consl_junzhiq"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/defualt"
+    android:paddingTop="@dimen/px6dp"
+    android:paddingLeft="@dimen/px12dp"
+    android:paddingRight="@dimen/px12dp">
+
+    <!--君子权 广告位-->
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/iv_junzhiBanner"
+        android:layout_width="320dp"
+        android:layout_height="124.80dp"
+        android:src="@mipmap/ic_home_banner_junzhi"
+        android:scaleType="fitCenter"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--滚动文字-->
+    <com.sunfusheng.marqueeview.MarqueeView
+        android:id="@+id/notice"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/px8dp"
+        android:layout_marginRight="@dimen/px12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:mvAnimDuration="1000"
+        app:mvDirection="right_to_left"
+        app:mvGravity="left"
+        app:mvInterval="3000"
+        app:mvSingleLine="true"
+        android:textStyle="bold"
+        app:mvTextColor="@color/white"
+        app:mvTextSize="@dimen/px13sp"
+        tools:ignore="MissingConstraints" />
+    <!--权数-->
+
+    <TextView
+        android:id="@+id/tv_junzhiNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px70dp"
+        android:layout_marginTop="@dimen/px24dp"
+        android:layout_marginRight="@dimen/px60dp"
+        android:gravity="center"
+        android:paddingLeft="@dimen/px6dp"
+        android:paddingRight="@dimen/px6dp"
+        android:singleLine="true"
+        android:textStyle="bold"
+        android:textScaleX="1.3"
+        android:text="0.00000000000"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

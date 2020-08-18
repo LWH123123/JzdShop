@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="feedbackVM"
+            type="com.jzd.jzshop.ui.mine.feedback.FeedBackViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{feedbackVM.toolbarViewModel}" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nv_scroll"
+            android:layout_below="@id/ic_toolbar"
+            android:layout_marginBottom="@dimen/px50dp"
+            android:overScrollMode="never"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlReturnGoods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ic_toolbar"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+
+            <!--module one -->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_quest_classific"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/cons_two"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_rv_feedback_quest" />
+            <!--module two-->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px16dp"
+                android:background="@drawable/boder_bg_edittext"
+                app:layout_constraintTop_toBottomOf="@id/rv_quest_classific">
+
+                <TextView
+                    android:id="@+id/tv_Tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/px12dp"
+                    android:paddingTop="@dimen/px12dp"
+                    android:paddingBottom="@dimen/px12dp"
+                    android:text="*"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/px15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/feedback_input_phone"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:padding="@dimen/px12dp"
+                    android:gravity="center_vertical"
+                    android:text="@={feedbackVM.etPhone}"
+                    android:textSize="@dimen/px14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tv_Tip"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_three"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px200dp"
+                android:layout_marginTop="@dimen/px16dp"
+                android:background="@drawable/boder_bg_edittext"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cons_two">
+
+                <EditText
+                    android:id="@+id/et_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_horizontal|left"
+                    android:hint="@string/feedback_input_content"
+                    android:inputType="text"
+                    android:padding="@dimen/px16dp"
+                    android:text="@={feedbackVM.etContent}"
+                    android:textSize="@dimen/px14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <!-- module four -->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_addimage"
+                android:layout_marginTop="@dimen/px20dp"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="@dimen/px40dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/px30dp"
+                app:layout_constraintTop_toBottomOf="@+id/cons_three"
+                tools:layout_editor_absoluteX="12dp" />
+            <!--module four-->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/px1dp"
+                android:layout_marginTop="@dimen/px16dp"
+                android:background="@drawable/boder_bg_edittext"
+                android:padding="@dimen/px10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cons_three"
+                android:visibility="gone">
+
+                <!--退款原因-->
+                <TextView
+                    android:id="@+id/tv_reasonWay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="原因"
+                    android:gravity="center"
+                    android:textSize="@dimen/px14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_reason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px16dp"
+                    android:text=""
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px14sp"
+                    android:gravity="center"
+                    android:hint="点选原因"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tv_reasonWay"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="点选原因" />
+
+                <ImageView
+                    android:id="@+id/iv_reasonWay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:paddingLeft="@dimen/px24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@mipmap/arrows_right"
+                    onClickCommand="@{feedbackVM.onClikcReason}"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <!--提交-->
+        <TextView
+            android:id="@+id/submit"
+            onClickCommand="@{feedbackVM.onClikcSubmit}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/px14dp"
+            android:layout_marginRight="@dimen/px14dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/boder_radius_buttom"
+            android:gravity="center"
+            android:text="@string/feedback_submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px15sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="681dp" />
+
+    </RelativeLayout>
+</layout>

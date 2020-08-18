@@ -1,0 +1,28 @@
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="aftersaleplanVM"
+            type="com.jzd.jzshop.ui.order.aftersale.AfterSalePlanViewModel"/>
+
+    </data>
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.jzd.jzshop.ui.order.aftersale.AftersalePlanFragment">
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarViewModel="@{aftersaleplanVM.toolbarViewModel}" />
+
+    </LinearLayout>
+</layout>

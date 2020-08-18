@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.jzd.jzshop.ui.mine.MyViewModel" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="myVM"
+            type="MyViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/mall_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:overScrollMode="never">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/px50dp"
+                    android:background="@color/white">
+
+                    <!-- 9.0 手机刷新时 圆形logo  NiceImageView bug 处理-->
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px200dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/mine_bg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/am_avatar_iv"
+                        android:layout_width="@dimen/px60dp"
+                        android:layout_height="@dimen/px60dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="38dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="@dimen/px30dp"
+                        app:cardElevation="10dp"
+                        app:cardPreventCornerOverlap="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:onClickCommand="@{myVM.onClickLoginWeXin}">
+
+                        <com.shehuan.niv.NiceImageView
+                            android:id="@+id/icon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@mipmap/ic_launcher_round"
+                            app:border_color="@color/white"
+                            app:is_circle="true"
+                            app:url='@{myVM.user.usericon??null}' />
+
+
+                    </android.support.v7.widget.CardView>
+
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_marginTop="38dp"
+                        android:layout_marginEnd="68dp"
+                        android:layout_marginRight="68dp"
+                        android:text="@string/balance"
+                        android:textColor="@color/level7text"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@+id/am_avatar_iv"
+                        app:layout_constraintTop_toTopOf="@+id/am_avatar_iv" />
+
+                    <TextView
+                        android:id="@+id/am_money_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text='@{myVM.user.money+"",default="0.00"}'
+                        android:textColor="@color/yellow"
+                        android:textSize="@dimen/px20sp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView5"
+                        app:layout_constraintStart_toStartOf="@+id/textView5"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                    <!--充值-->
+                    <TextView
+                        android:id="@+id/textView7"
+                        onClickCommand="@{myVM.onRecharageClick}"
+                        android:layout_width="@dimen/px62dp"
+                        android:layout_height="@dimen/px22dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/tixian_boder"
+                        android:gravity="center"
+                        android:text="@string/recharage"
+                        android:textColor="@color/level7text"
+                        app:layout_constraintEnd_toEndOf="@+id/am_money_tv"
+                        app:layout_constraintStart_toStartOf="@+id/am_money_tv"
+                        app:layout_constraintTop_toBottomOf="@+id/am_money_tv" />
+
+                    <TextView
+                        android:id="@+id/am_nicke_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text='@{myVM.user.nickname??@string/unLogin}'
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/am_avatar_iv"
+                        app:layout_constraintStart_toStartOf="@+id/am_avatar_iv"
+                        app:layout_constraintTop_toBottomOf="@+id/am_avatar_iv"
+                        app:onClickCommand="@{myVM.onClickLoginWeXin}" />
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_marginStart="68dp"
+                        android:layout_marginLeft="68dp"
+                        android:layout_marginTop="38dp"
+                        android:text="@string/integral"
+                        android:textColor="@color/level7text"
+                        app:layout_constraintStart_toEndOf="@+id/am_avatar_iv"
+                        app:layout_constraintTop_toTopOf="@+id/am_avatar_iv" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text='@{myVM.user.showPoints,default="0.00"}'
+                        android:textColor="@color/yellow"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="@+id/textView10"
+                        app:layout_constraintStart_toStartOf="@+id/textView10"
+                        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="[普通会员]"
+                        android:textColor="@color/level7text"
+                        android:textSize="@dimen/px12sp"
+                        android:visibility='@{myVM.user==null?View.GONE:View.VISIBLE}'
+                        app:layout_constraintEnd_toEndOf="@+id/am_nicke_tv"
+                        app:layout_constraintHorizontal_bias="0.491"
+                        app:layout_constraintStart_toStartOf="@+id/am_nicke_tv"
+                        app:layout_constraintTop_toBottomOf="@+id/am_nicke_tv" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="@dimen/px24dp"
+                        android:layout_height="@dimen/px24dp"
+                        android:layout_marginTop="@dimen/px32dp"
+                        android:layout_marginEnd="19dp"
+                        android:layout_marginRight="19dp"
+                        android:src="@mipmap/set"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView5"
+                        app:onClickCommand="@{myVM.onSetClickListen}" />
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/px8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="@dimen/px8dp"
+                        android:text="@string/allOrder"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/px18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/constraintLayout3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+                        <com.jzd.jzshop.utils.widget.MarkedImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@mipmap/pays"
+                            app:layout_constraintEnd_toStartOf="@+id/imageView10"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/imageView10"
+                            app:onClickCommand="@{myVM.onCLickWaitPay}" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/waitPay"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+                            app:layout_constraintStart_toStartOf="@+id/imageView9"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView9"
+                            app:onClickCommand="@{myVM.onCLickWaitPay}" />
+
+                        <com.jzd.jzshop.utils.widget.MarkedImageView
+                            android:id="@+id/imageView10"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@mipmap/pay"
+                            app:layout_constraintEnd_toStartOf="@+id/imageView11"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/imageView9"
+                            app:layout_constraintTop_toTopOf="@+id/imageView11"
+                            app:onClickCommand="@{myVM.onCLickWaitDeliverGoods}" />
+
+                        <com.jzd.jzshop.utils.widget.MarkedImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@mipmap/car"
+                            app:layout_constraintEnd_toStartOf="@+id/imageView12"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/imageView10"
+                            app:layout_constraintTop_toTopOf="@+id/imageView12"
+                            app:onClickCommand="@{myVM.onCLickWaitReceivingGoods}" />
+
+                        <com.jzd.jzshop.utils.widget.MarkedImageView
+                            android:id="@+id/imageView12"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            android:src="@mipmap/people"
+                            app:layout_constraintEnd_toStartOf="@+id/imageView13"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/imageView11"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:onClickCommand="@{myVM.onCLickReturnedGoods}" />
+
+                        <com.jzd.jzshop.utils.widget.MarkedImageView
+                            android:id="@+id/imageView13"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:src="@mipmap/finish"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/imageView12"
+                            app:layout_constraintTop_toTopOf="@+id/imageView12"
+                            app:onClickCommand="@{myVM.onCLickFinished}" />
+
+                        <!--待发货-->
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/waitSend"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView10"
+                            app:layout_constraintStart_toStartOf="@+id/imageView10"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                            app:onClickCommand="@{myVM.onCLickWaitDeliverGoods}" />
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/waitRecycle"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView11"
+                            app:layout_constraintStart_toStartOf="@+id/imageView11"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView11"
+                            app:onClickCommand="@{myVM.onCLickWaitReceivingGoods}" />
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/salesReturn"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView12"
+                            app:layout_constraintStart_toStartOf="@+id/imageView12"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+                            app:onClickCommand="@{myVM.onCLickReturnedGoods}" />
+
+                        <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="@string/finish"
+                            android:textColor="@color/textcolor"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintEnd_toEndOf="@+id/imageView13"
+                            app:layout_constraintStart_toStartOf="@+id/imageView13"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView13"
+                            app:onClickCommand="@{myVM.onCLickFinished}" />
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="368dp"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="@dimen/px50dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="@dimen/px50dp"
+                            android:background="@color/colorhint"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/BonusesAndServices"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/px18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView19">
+
+                        <!--                            onClickCommand="@{myVM.onTuiguangClick}"-->
+                        <LinearLayout
+                            android:id="@+id/intergers"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{()->myVM.goToBaseWebview(myVM.memberEntity.commission_url)}"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/ic_tuiguang" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/promotionCenter"
+                                android:textColor="@color/textcolor"
+                                android:textSize="@dimen/px13sp" />
+                        </LinearLayout>
+
+                        <!--                            onClickCommand="@{myVM.onBonusClick}"-->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{()->myVM.goToBaseWebview(myVM.memberEntity.commissionwith_url)}"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/four"
+                            app:layout_constraintEnd_toStartOf="@+id/four"
+                            app:layout_constraintStart_toEndOf="@+id/intergers"
+                            app:layout_constraintTop_toTopOf="@+id/intergers"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/tixian" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/bonustixian"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+<!--                            android:onClick="@{()->myVM.goToBaseWebview(myVM.memberEntity.memberwith_url)}"-->
+                        <LinearLayout
+                            onClickCommand="@{myVM.onBalanceClick}"
+                            android:id="@+id/two"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/four"
+                            app:layout_constraintTop_toTopOf="@+id/four">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/yue" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/balancetixian"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/four"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{()->myVM.goToBaseWebview(myVM.memberEntity.sign_url)}"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/intergers"
+                            app:layout_constraintEnd_toStartOf="@+id/two"
+                            app:layout_constraintStart_toEndOf="@+id/two">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/integralsignin" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/integralSignIn"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px4dp"
+                        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+                        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{()->myVM.goToBaseWebview(myVM.memberEntity.couponmy_url)}"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/coupon" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/mycoupon"
+                                android:textColor="@color/textcolor"
+                                android:textSize="@dimen/px13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="@{()->myVM.goToBaseWebview(myVM.memberEntity.favorite_url)}"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/four"
+                            app:layout_constraintEnd_toStartOf="@+id/four"
+                            app:layout_constraintStart_toEndOf="@+id/intergers"
+                            app:layout_constraintTop_toTopOf="@+id/intergers"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/collect" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/collect"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            onClickCommand="@{myVM.onAddressClick}"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/four"
+                            app:layout_constraintTop_toTopOf="@+id/four">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/address" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/receiptaddress"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <!--                            android:onClick="@{()->myVM.goToBaseWebview(myVM.memberEntity.coupon_url)}"-->
+                        <LinearLayout
+                            onClickCommand="@{myVM.getCouponCenter}"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/intergers"
+                            app:layout_constraintEnd_toStartOf="@+id/two"
+                            app:layout_constraintStart_toEndOf="@+id/two">
+
+                            <ImageView
+                                android:layout_width="@dimen/px30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/quan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/couponCenter"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/three_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px4dp"
+                        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            binding:isThrottleFirst="@{Boolean.TRUE}"
+                            binding:onClickCommand="@{myVM.onMerchClick}">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:src="@mipmap/ruzhu" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/storeenter"
+                                android:textColor="@color/textcolor"
+                                android:textSize="@dimen/px13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/four"
+                            app:layout_constraintEnd_toStartOf="@+id/four"
+                            app:layout_constraintStart_toEndOf="@+id/intergers"
+                            app:layout_constraintTop_toTopOf="@+id/intergers"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/four"
+                            app:layout_constraintTop_toTopOf="@+id/four">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/intergers"
+                            app:layout_constraintEnd_toStartOf="@+id/two"
+                            app:layout_constraintStart_toEndOf="@+id/two">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="8dp"
+                                android:textColor="@color/textcolor"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/px4dp"
+                        android:src="@mipmap/mobile"
+                        app:layout_constraintBottom_toTopOf="@+id/shopmobile"
+                        app:layout_constraintEnd_toStartOf="@+id/shopmobile"
+                        app:layout_constraintTop_toBottomOf="@+id/shopmobile"
+                        tools:layout_editor_absoluteX="98dp" />
+
+                    <TextView
+                        android:id="@+id/shopmobile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px16dp"
+                        android:layout_marginBottom="@dimen/px50dp"
+                        android:background="@color/white"
+                        android:text="@string/storemobile"
+                        android:textColor="@color/level1text"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.574"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/three_user"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+            android:id="@+id/pager_bottom_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px52dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:elevation="8dp" />
+    </RelativeLayout>
+</layout>

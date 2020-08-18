@@ -1,0 +1,99 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="mineshopregistVM"
+            type="com.jzd.jzshop.ui.mine.mineshop.regist.MineShopRegistViewModel" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.jzd.jzshop.ui.mine.merch.MerchSuccessFragment">
+
+        <ImageView
+            android:id="@+id/imageView64"
+            android:layout_width="wrap_content"
+            onClickCommand="@{mineshopregistVM.onBackClick}"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/px6dp"
+            android:padding="@dimen/px8dp"
+            android:src="@mipmap/back_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/imageView66"
+            android:layout_width="@dimen/px66dp"
+            android:layout_height="@dimen/px66dp"
+            android:layout_marginTop="@dimen/px60dp"
+            android:src="@mipmap/ic_check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView64" />
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="28dp"
+            android:text="@string/mineshopregist"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px20sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView66"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="@+id/imageView66"
+            app:layout_constraintTop_toBottomOf="@+id/imageView66" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registyou"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px20sp"
+            android:layout_marginTop="@dimen/px8dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView66"
+            app:layout_constraintStart_toStartOf="@+id/imageView66"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hotaddress"
+            android:textSize="@dimen/px16sp"
+            android:layout_marginTop="@dimen/px16dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            onClickCommand="@{mineshopregistVM.onToHomeClick}"
+            android:layout_width="@dimen/px180dp"
+            android:layout_height="@dimen/px46dp"
+            android:layout_marginBottom="@dimen/px100dp"
+            android:background="@drawable/boder_red_radius"
+            android:gravity="center"
+            android:text="@string/towarlk"
+            android:textColor="@color/red"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

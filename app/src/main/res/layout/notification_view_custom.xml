@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/px10dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/px16dp"
+        android:layout_height="@dimen/px16dp"
+        android:src="@mipmap/ic_launcher" />
+
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/px16dp"
+        android:layout_marginLeft="@dimen/px6dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/textColor"
+        android:textSize="12sp"
+        android:layout_toRightOf="@id/icon"/>
+
+    <!-- 消息标题-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px4dp"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="14sp"
+        android:layout_below="@id/appName"
+        tools:text="@string/app_name" />
+    <!--消息内容-->
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/px20dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/level1text"
+        android:textSize="14sp"
+        android:layout_below="@id/title"
+        tools:text="这是一条测试信息这是一条测试信息这是一条测试信息这是一条测试信息" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:gravity="right"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="@color/level1text"
+        android:visibility="gone"
+
+        tools:text="21：00" />
+</RelativeLayout>

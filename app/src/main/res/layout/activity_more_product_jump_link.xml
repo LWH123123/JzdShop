@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="jumpModel"
+            type="com.jzd.jzshop.ui.MoreProductJumpLinkViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarViewModel="@{jumpModel.toolbarViewModel}" />
+
+        <FrameLayout
+            android:id="@+id/web_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/asc_include_toolbar" />
+
+        <ImageView
+            android:id="@+id/iv_payState"
+            android:layout_width="@dimen/px68dp"
+            android:layout_height="@dimen/px68dp"
+            android:layout_below="@id/asc_include_toolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/px80dp"
+            android:src="@mipmap/paysuccess"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_payText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_payState"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="@string/paysuccess"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px13sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/textView199"
+            android:layout_width="@dimen/px300dp"
+            android:layout_height="@dimen/px40dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/boder_radius_buttom"
+            android:gravity="center"
+            android:text="@string/lookorder"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px15sp"
+            app:onClickCommand="@{jumpModel.onCLickSee}"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+
+</layout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_tip"
+        android:layout_width="@dimen/px40dp"
+        android:layout_height="@dimen/px40dp"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:background="@mipmap/ic_recharge_tip"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--state-->
+    <TextView
+        android:id="@+id/tv_recharge_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toRightOf="@id/iv_tip"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="充值成功" />
+
+    <!--time-->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px8dp"
+        android:layout_marginBottom="@dimen/px12dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/textbody"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toRightOf="@id/iv_tip"
+        app:layout_constraintTop_toBottomOf="@id/tv_recharge_state"
+        tools:text="2020-01-19 13:56" />
+
+    <!--amount-->
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px16dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="￥100.00" />
+
+    <TextView
+        android:id="@+id/tv_status_str"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px8dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_amount"
+        tools:text="充值成功" />
+
+    <!--space-->
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px1dp"
+        android:layout_marginTop="@dimen/px16dp"
+        android:background="@color/defualt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/tv_time"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+</android.support.constraint.ConstraintLayout>

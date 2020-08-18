@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="searchKeyWordVM"
+            type="com.jzd.jzshop.ui.home.local_life.search.SearchKeyWordViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <!--titlebar-->
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_ui_search_city_toolbar"
+            binding:searchKeyWordVM="@{searchKeyWordVM}" />
+        <!--历史记录-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ic_toolbar"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            tools:listitem="@layout/item_rv_search_keyword" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cons_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ic_toolbar"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_tip_history"
+                style="@style/style_search_key_word_tip_iv"
+                android:background="@mipmap/ic_search_history"
+                app:layout_constraintBottom_toBottomOf="@id/view_space_hostory"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- tip-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_tip_history"
+                style="@style/style_search_key_word_tip_txt"
+                android:text="@string/app_search_history_tip_txt"
+                app:layout_constraintBottom_toBottomOf="@id/view_space_hostory"
+                app:layout_constraintLeft_toRightOf="@id/iv_tip_history"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_clear_history"
+                android:layout_width="@dimen/px18dp"
+                android:layout_height="@dimen/px18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px6dp"
+                android:background="?selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_delete_search_history"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@id/view_space_hostory"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_space_hostory"
+                style="@style/style_search_key_word_tip_space"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_tip_history" />
+
+            <!--hot tab -->
+            <com.jzd.jzshop.utils.widget.SearchHistoryFlowLayout
+                android:id="@+id/flowLayout_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px6dp"
+                android:layout_marginTop="@dimen/px12dp"
+                android:layout_marginRight="@dimen/px6dp"
+                android:background="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_space_hostory" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--热搜标签-->
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cons_history"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+
+            <ImageView
+                android:id="@+id/iv_tip"
+                style="@style/style_search_key_word_tip_iv"
+                android:background="@mipmap/ic_search_hot"
+                app:layout_constraintBottom_toBottomOf="@id/view_space"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- tip-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_tip"
+                style="@style/style_search_key_word_tip_txt"
+                android:text="@string/app_search_hot_keyword_tip_txt"
+                app:layout_constraintBottom_toBottomOf="@id/view_space"
+                app:layout_constraintLeft_toRightOf="@id/iv_tip"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_space"
+                style="@style/style_search_key_word_tip_space"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_tip" />
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/flowLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_space">
+            </com.zhy.view.flowlayout.TagFlowLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </RelativeLayout>
+
+</layout>

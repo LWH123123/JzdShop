@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cons_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px180dp"
+            android:src="@mipmap/ic_bg_credit_store"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_credit_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px30dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/px24sp"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="16" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_credit_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/ic_credit_tip"
+        android:drawablePadding="@dimen/px4dp"
+        android:text="积分"
+        android:textColor="@color/levelyellow"
+        android:textSize="@dimen/px13sp"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_credit_num" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_credit_record"
+        android:layout_width="@dimen/px100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px26dp"
+        android:background="@drawable/shape_txt_border_radius"
+        android:gravity="center"
+        android:paddingTop="@dimen/px6dp"
+        android:paddingBottom="@dimen/px6dp"
+        android:text="@string/credit_record"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px15sp"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_credit_tip" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/px12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons_top" />
+
+</android.support.constraint.ConstraintLayout>

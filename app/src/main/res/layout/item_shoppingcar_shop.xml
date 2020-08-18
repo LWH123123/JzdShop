@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+    <import type="android.view.View"/>
+    <import type="com.jzd.jzshop.ui.shoppingcar.ShoppingCarItemViewModel"/>
+    <variable
+        name="shoppingCarDataVM"
+        type="com.jzd.jzshop.ui.shoppingcar.ShoppingCarItemViewModel" />
+</data>
+
+<!--    android:background="@drawable/boder_top_radius"-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                style="@style/CustomCheckboxTheme"
+                android:layout_marginStart="6dp"
+                android:button="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/px2dp"
+                android:background="@drawable/check_style"
+                android:checked="@{shoppingCarDataVM.dataBean.ischeck}"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView18"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView18"
+                binding:checkClick="@{shoppingCarDataVM.onShopSelectClick}" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/imageView18"
+                onClickCommand="@{shoppingCarDataVM.onDataClick}"
+                android:layout_width="@dimen/px82dp"
+                android:layout_height="@dimen/px82dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
+                app:cardCornerRadius="@dimen/px6dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toEndOf="@+id/checkBox4"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    url="@{shoppingCarDataVM.dataBean.thumb}"
+                    android:layout_width="@dimen/px82dp"
+                    android:layout_height="@dimen/px82dp"
+                    android:scaleType="centerCrop" />
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/textView41"
+                onClickCommand="@{shoppingCarDataVM.onDataClick}"
+                android:layout_width="@dimen/px190dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:lineHeight="@dimen/px20dp"
+                android:text="@{shoppingCarDataVM.dataBean.title}"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px12sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView18"
+                app:layout_constraintTop_toTopOf="@+id/imageView18" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px10dp"
+                android:background="@color/level7text"
+                android:visibility="@{shoppingCarDataVM.dataBean.spec_title==null?View.GONE:View.VISIBLE,default=gone}"
+                app:layout_constraintEnd_toEndOf="@+id/textView41"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView18"
+                app:layout_constraintTop_toBottomOf="@+id/textView41">
+
+                <TextView
+                    android:layout_width="@dimen/px162dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px4dp"
+                    android:layout_marginTop="@dimen/px4dp"
+                    android:layout_marginBottom="@dimen/px4dp"
+                    android:text="@{shoppingCarDataVM.dataBean.spec_title}"
+                    android:textSize="@dimen/px12sp" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text='@{shoppingCarDataVM.dataBean.maxbuy.equals("0")?"不限购":"限购"+shoppingCarDataVM.dataBean.maxbuy+"件"}'
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px12sp"
+                app:layout_constraintStart_toStartOf="@+id/textView41"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="15dp"
+                android:text='@{"¥"+shoppingCarDataVM.dataBean.priceText,default=¥999}'
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView43"
+                app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/include_postage"
+                android:textColor="@color/levelyellow"
+                android:textSize="@dimen/px10sp"
+                android:visibility="@{shoppingCarDataVM.dataBean.isdispatch==0?View.GONE:View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/textView44"
+                app:layout_constraintStart_toEndOf="@+id/textView44"
+                app:layout_constraintTop_toTopOf="@+id/textView44" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/px4dp"
+                android:paddingRight="@dimen/px4dp"
+                android:paddingTop="@dimen/px2dp"
+                android:paddingBottom="@dimen/px2dp"
+                android:background="@drawable/boder_radius_buttom_hint"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/textView45"
+                app:layout_constraintEnd_toEndOf="@+id/textView41"
+                app:layout_constraintTop_toTopOf="@+id/textView45">
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    onClickCommand="@{shoppingCarDataVM.subtractOnClick}"
+                    android:layout_width="@dimen/px14dp"
+                    android:layout_height="@dimen/px14dp"
+                    binding:isThrottleFirst="@{Boolean.TRUE}"
+                    android:layout_gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/subtract"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView44"
+                    app:layout_constraintEnd_toEndOf="@+id/textView41"
+                    app:layout_constraintTop_toTopOf="@+id/textView44" />
+
+                <TextView
+                    android:id="@+id/textView46"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/px10dp"
+                    android:layout_marginRight="@dimen/px10dp"
+                    android:text='@{""+shoppingCarDataVM.dataBean.number,default=1}'
+                    android:textColor="@color/textColor"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView44"
+                    app:layout_constraintEnd_toEndOf="@+id/textView41"
+                    app:layout_constraintTop_toTopOf="@+id/textView44" />
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    onClickCommand="@{shoppingCarDataVM.addOnClick}"
+                    android:layout_width="@dimen/px16dp"
+                    android:layout_height="@dimen/px16dp"
+                    binding:isThrottleFirst="@{Boolean.TRUE}"
+                    android:layout_gravity="right|center_vertical"
+                    android:background="@color/white"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/add"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView44"
+                    app:layout_constraintEnd_toEndOf="@+id/textView41"
+                    app:layout_constraintTop_toTopOf="@+id/textView44" />
+
+            </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:visibility="@{shoppingCarDataVM.dataBean.islast==0?View.GONE:View.VISIBLE,default=gone}"
+            android:background="@drawable/boder_button_shopcar_item"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px10dp"/>
+
+    </LinearLayout>
+
+</layout>

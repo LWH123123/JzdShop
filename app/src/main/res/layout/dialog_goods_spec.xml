@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    >
+<!--    android:background="@color/picture_color_half_grey"-->
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/ps_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <View
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/pg_constraint"
+                app:layout_constraintBottom_toBottomOf="@id/pg_constraint"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px90dp"/>
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_thume"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:cardCornerRadius="@dimen/px10dp"
+                app:cardElevation="@dimen/px0dp"
+                android:layout_marginStart="@dimen/px10dp"
+                android:layout_width="@dimen/px114dp"
+                android:layout_height="@dimen/px114dp">
+                <ImageView
+                    android:id="@+id/iv_thume"
+                    android:layout_width="@dimen/px114dp"
+                    android:layout_height="@dimen/px114dp"
+                    android:scaleType="fitXY"
+                    />
+            </android.support.v7.widget.CardView>
+
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/pg_constraint"
+                app:layout_constraintStart_toEndOf="@id/card_thume"
+                android:layout_width="@dimen/px0dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="90dp"
+                android:layout_marginStart="@dimen/px10dp"
+                tools:ignore="ExtraText,MissingConstraints">
+
+
+                <ImageButton
+                    android:id="@+id/ib_close"
+                    android:layout_width="@dimen/px26dp"
+                    android:layout_height="@dimen/px26dp"
+                    android:layout_marginTop="@dimen/px8dp"
+                    android:layout_marginEnd="@dimen/px8dp"
+                    android:background="@mipmap/back_pop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/colorred"
+                    android:text="9999元+1580积分"
+                    android:textSize="@dimen/px17sp"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px18dp"
+                    android:text="库存2000个"
+                    android:textColor="@color/level2text"
+                    android:layout_marginTop="@dimen/px10dp"
+                    android:textSize="@dimen/px12sp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_price" />
+                <!--android:visibility='@{specEntity.show_total==0?View.INVISIBLE:View.VISIBLE}'-->
+                <!--                android:text='@{""+goodsVM.goodsNum,default=1}'-->
+
+                <ImageView
+                    android:id="@+id/pg_subtract"
+                    android:layout_width="@dimen/px16dp"
+                    android:layout_height="@dimen/px16dp"
+                    android:src="@mipmap/subtract"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_total"
+                    app:layout_constraintVertical_bias="0.428"
+                     />
+
+                <TextView
+                    android:id="@+id/pg_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px17sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pg_subtract"
+                    app:layout_constraintEnd_toStartOf="@id/pg_add"
+                    app:layout_constraintStart_toEndOf="@id/pg_subtract"
+                    app:layout_constraintTop_toTopOf="@+id/pg_subtract" />
+
+                <ImageView
+                    android:id="@+id/pg_add"
+                    android:layout_width="@dimen/px16dp"
+                    android:layout_height="@dimen/px16dp"
+                    android:layout_marginStart="14dp"
+                    android:src="@mipmap/add"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/pg_total"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_total"
+                     />
+
+
+                <android.support.constraint.Group
+                    android:id="@+id/group_view"
+                    app:constraint_referenced_ids="pg_subtract,pg_total,pg_add"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <!-- <View
+                     android:id="@+id/pg_divider_1"
+                     android:layout_width="match_parent"
+                     android:layout_height="@dimen/px2dp"
+                     android:layout_marginTop="@dimen/px8dp"
+                     android:background="?android:attr/listDivider" />-->
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:paddingTop="@dimen/px20dp"
+            android:id="@+id/ps_spec_recycler"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px250dp"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/px30dp"
+            />
+
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/ps_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px46dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tv_addcar"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px0dp"
+                android:background="@color/orange"
+                android:gravity="center"
+                android:text="加入购物车"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_nowbuy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tv_nowbuy"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px0dp"
+                android:background="@color/red"
+                android:gravity="center"
+                android:text="立刻购买"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_addcar"
+                app:layout_constraintTop_toTopOf="parent"
+                 />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+

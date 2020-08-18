@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="myVM"
+            type="com.jzd.jzshop.ui.mine.news.MyPageViewModel" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/defualt"
+        android:paddingLeft="@dimen/px5dp"
+        android:paddingRight="@dimen/px5dp"
+        android:paddingBottom="@dimen/px10dp">
+
+        <!--积分实物兑换-->
+        <ImageView
+            android:id="@+id/iv_pic"
+            android:layout_width="@dimen/px22dp"
+            android:layout_height="@dimen/px22dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_uncredit_shop"
+            android:layout_marginTop="@dimen/px10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px22dp"
+            android:layout_marginTop="@dimen/px10dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_pic"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="积分实物兑换" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px4dp"
+            android:background="@color/defualt"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

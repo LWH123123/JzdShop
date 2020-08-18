@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@mipmap/mine_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px162dp"
+            android:layout_marginStart="@dimen/px16dp"
+            android:layout_marginLeft="@dimen/px16dp"
+            android:layout_marginTop="@dimen/px8dp"
+            android:layout_marginEnd="@dimen/px16dp"
+            android:layout_marginRight="@dimen/px16dp"
+            android:background="@color/colorPrimary"
+            app:cardCornerRadius="@dimen/px10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/constraintLayout">
+
+            <com.stx.xhb.xbanner.XBanner
+                android:id="@+id/xbanner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/defualt"
+                app:AutoPlayTime="4000"
+                app:isAutoPlay="true" />
+        </android.support.v7.widget.CardView>
+    </android.support.constraint.ConstraintLayout>
+

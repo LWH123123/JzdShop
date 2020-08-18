@@ -1,0 +1,136 @@
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="logisticinfoVM"
+            type="com.jzd.jzshop.ui.order.logistics.LogisticInfoViewModel" />
+
+
+    </data>
+
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:background="@color/defualt"
+    android:layout_height="match_parent"
+    tools:context="com.jzd.jzshop.ui.order.logistics.LogisticInfoFragment">
+
+    <include
+        android:id="@+id/asc_include_toolbar"
+        layout="@layout/layout_toolbar"
+        app:toolbarViewModel="@{logisticinfoVM.toolbarViewModel}" />
+
+
+    <com.jzd.jzshop.utils.widget.ReboundScrollView
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="@color/defualt"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/px16dp"
+        android:background="@drawable/boder_radius"
+        android:layout_height="@dimen/px120dp">
+        <android.support.v7.widget.CardView
+            android:id="@+id/cd_view"
+            app:cardElevation="@dimen/px0dp"
+            app:cardCornerRadius="@dimen/px6dp"
+            android:layout_marginStart="@dimen/px14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="@dimen/px76dp"
+            android:layout_height="@dimen/px76dp">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:scaleType="fitXY"
+            url="@{logisticinfoVM.logistic.imaurl}"
+             />
+        <TextView
+            android:id="@+id/tv_goodtotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@{"共"+logisticinfoVM.logistic.number+"件",default="共1件"}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/px12sp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:background="@color/picture_color_half_grey"
+             />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px10dp"
+            android:text=""
+            android:visibility="visible"
+            android:textColor="@color/red"
+            android:textSize="@dimen/px22sp"
+            app:layout_constraintStart_toEndOf="@+id/cd_view"
+            app:layout_constraintTop_toTopOf="@+id/cd_view" />
+
+        <TextView
+            android:id="@+id/tv_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px10dp"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px13sp"
+            android:text="快递公司:"
+            android:layout_marginTop="@dimen/px6dp"
+            app:layout_constraintStart_toEndOf="@+id/cd_view"
+            app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+        <TextView
+            android:id="@+id/tv_formcard"
+            android:layout_width="wrap_content"
+            android:text="快递单号:"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px13sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px10dp"
+            android:layout_marginTop="@dimen/px3dp"
+            app:layout_constraintStart_toEndOf="@+id/cd_view"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile" />
+
+
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="@dimen/px10dp"
+        android:paddingTop="@dimen/px10dp"
+        android:background="@drawable/boder_radius"
+        android:visibility="gone"
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    </com.jzd.jzshop.utils.widget.ReboundScrollView>
+
+</LinearLayout>
+</layout>

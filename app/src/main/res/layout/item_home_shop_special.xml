@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/consl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/px12dp"
+    android:layout_marginRight="@dimen/px12dp"
+    android:layout_marginBottom="@dimen/px12dp">
+
+    <!--item one-->
+    <include
+        android:id="@+id/shop_special_one"
+        android:visibility="gone"
+        layout="@layout/item_home_shop_special_one" />
+    <!-- item  two-->
+<!--    <include
+        android:id="@+id/shop_special_two"
+        android:visibility="gone"
+        layout="@layout/item_home_shop_special_two" />-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/shop_special_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@mipmap/ic_bg_home_shop_special"
+        android:paddingLeft="@dimen/px12dp"
+        android:paddingTop="@dimen/px10dp"
+        android:paddingRight="@dimen/px12dp"
+        android:paddingBottom="@dimen/px6dp">
+
+        <!-- 广告位-->
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_shop_special_left"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/px160dp"
+            android:src="@mipmap/placeholder"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/iv_shop_special_right_top"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iv_shop_special_right_top"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/px160dp"
+            android:layout_marginLeft="@dimen/px10dp"
+            android:background="@mipmap/placeholder"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/iv_shop_special_left"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+    <!-- item  three-->
+    <include
+        android:id="@+id/shop_special_three"
+        android:visibility="gone"
+        layout="@layout/item_home_shop_special_three" />
+    <!-- item  four-->
+    <include
+        android:id="@+id/shop_special_four"
+        android:visibility="gone"
+        layout="@layout/item_home_shop_special_four" />
+
+</android.support.constraint.ConstraintLayout>

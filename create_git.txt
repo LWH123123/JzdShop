@@ -1,0 +1,2 @@
+详细讲解Android Studio中使用Git——结合GitLab - 简书
+https://www.jianshu.com/p/059ed1e01229

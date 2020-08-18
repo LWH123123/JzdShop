@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "config.gradle"
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        //umeng
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+        //NiceDialog
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+//        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        classpath "com.mob.sdk:MobSDK:+"  //shareSdk
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+    }
+}
+
+
+allprojects {
+    repositories {
+        flatDir { // 支付宝 SDK AAR 包所需的配置
+            dirs 'libs'
+        }
+        google()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://dl.bintray.com/umsdk/release' }  //友盟统计
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+

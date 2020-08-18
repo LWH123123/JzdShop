@@ -1,0 +1,235 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.mine.address.CompileAddressFragment">
+
+    <data>
+
+
+        <variable
+            name="compileVM"
+            type="com.jzd.jzshop.ui.mine.address.CompileAddressViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/conslayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/px40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:hint="@string/recepile_name"
+            android:text="@={compileVM.name}"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView114"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView114"
+            app:layout_constraintTop_toTopOf="@+id/textView114" />
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarViewModel="@{compileVM.toolbarViewModel}" />
+
+        <TextView
+            android:id="@+id/textView114"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/name"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/asc_include_toolbar" />
+
+        <View
+            android:id="@+id/view11"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="56dp"
+            android:background="@color/colorhint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/asc_include_toolbar" />
+
+        <View
+            android:id="@+id/view10"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="56dp"
+            android:background="@color/colorhint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view11" />
+
+        <TextView
+            android:id="@+id/textView115"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/iphone"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintStart_toStartOf="@+id/textView114"
+            app:layout_constraintTop_toBottomOf="@+id/view11" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/px40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:hint="@string/recepile_phone"
+            android:text="@={compileVM.phone}"
+            android:textSize="@dimen/px14sp"
+            android:inputType="phone|number"
+            android:digits="1234567890"
+            android:maxLength="11"
+            app:layout_constraintBottom_toBottomOf="@+id/textView115"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView115"
+            app:layout_constraintTop_toTopOf="@+id/textView115" />
+
+        <TextView
+            android:id="@+id/editText3"
+            onClickCommand="@{compileVM.onClickaddress}"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/px40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:gravity="center|left"
+            android:hint="@string/recepile_region"
+            android:text="@={compileVM.addressName}"
+            android:textSize="@dimen/px14sp"
+            android:textColor="@color/textColor"
+            app:layout_constraintBottom_toBottomOf="@+id/textView116"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView116"
+            app:layout_constraintTop_toTopOf="@+id/textView116" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/px40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:hint="@string/recepile_detailed"
+            android:text="@={compileVM.address}"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView117"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textView117"
+            app:layout_constraintTop_toTopOf="@+id/textView117" />
+
+        <View
+            android:id="@+id/view12"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="56dp"
+            android:background="@color/colorhint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view10" />
+
+        <TextView
+            android:id="@+id/textView116"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/location"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintStart_toStartOf="@+id/textView115"
+            app:layout_constraintTop_toBottomOf="@+id/view10" />
+
+        <View
+            android:id="@+id/view13"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="56dp"
+            android:background="@color/colorhint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view12" />
+
+        <TextView
+            android:id="@+id/textView117"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/detailedLlocation"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintStart_toStartOf="@+id/textView116"
+            app:layout_constraintTop_toBottomOf="@+id/view12" />
+
+        <View
+            android:id="@+id/view14"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="56dp"
+            android:background="@color/colorhint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view13" />
+
+        <TextView
+            android:id="@+id/textView118"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/default_address"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintStart_toStartOf="@+id/textView117"
+            app:layout_constraintTop_toBottomOf="@+id/view13" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            binding:onClickCommand="@{compileVM.OnCLickCommt}" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switchC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:checked="@{compileVM.isdefault==0?false:true}"
+            android:theme="@style/MySwitchTheme"
+            app:layout_constraintBottom_toBottomOf="@+id/textView118"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView118"
+            app:layout_constraintVertical_bias="0.0"
+            binding:onClickCommand="@{compileVM.onClickSwitch}"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

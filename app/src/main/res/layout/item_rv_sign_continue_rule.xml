@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <!--积分数-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cons_credit_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingTop="@dimen/px6dp"
+        android:layout_marginLeft="@dimen/px8dp"
+        android:layout_marginRight="@dimen/px8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_credit_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boder_radius_btn_credit_sign"
+            android:gravity="center"
+            android:paddingTop="@dimen/px4dp"
+            android:paddingBottom="@dimen/px4dp"
+            android:paddingLeft="@dimen/px10dp"
+            android:paddingRight="@dimen/px10dp"
+            android:textSize="@dimen/px12sp"
+            android:textColor="@color/level5text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="+30积分" />
+
+        <ImageView
+            android:id="@+id/tv_credit_num_tip"
+            android:layout_width="@dimen/px12dp"
+            android:layout_height="@dimen/px6dp"
+            android:gravity="center|top"
+            android:visibility="visible"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_credit_num" />
+    </android.support.constraint.ConstraintLayout>
+
+    <!--链接线-->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px8dp"
+        android:layout_marginTop="@dimen/px20dp"
+        android:background="@color/defualt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons_credit_num" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cons_sign_contin_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons_credit_num">
+
+        <!--checkbox_normal -->
+        <ImageView
+            android:id="@+id/iv_sign_continue_state"
+            android:layout_width="@dimen/px40dp"
+            android:layout_height="@dimen/px40dp"
+            android:scaleType="centerCrop"
+            android:background="@mipmap/checkbox_pressed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <!--连续天数-->
+    <TextView
+        android:id="@+id/tv_continue_sign_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|top"
+        android:textSize="@dimen/px12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons_sign_contin_state"
+        tools:text="3天" />
+    <!--领取-->
+    <!--boder_red_textview-->
+    <TextView
+        android:id="@+id/tv_receive"
+        android:layout_width="@dimen/px60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px4dp"
+        android:layout_marginBottom="@dimen/px12dp"
+        android:background="@drawable/boder_radius_btn_credit_sign"
+        android:gravity="center"
+        android:padding="@dimen/px4dp"
+        android:textSize="@dimen/px12sp"
+        android:textColor="@color/level5text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_continue_sign_day"
+        tools:text="已领取" />
+
+
+</android.support.constraint.ConstraintLayout>

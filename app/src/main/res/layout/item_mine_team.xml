@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="mineteamitemVM"
+            type="com.jzd.jzshop.ui.mine.mineteam.MineTeamItemVIewModel" />
+
+    </data>
+
+<android.support.constraint.ConstraintLayout
+    android:paddingTop="@dimen/px14dp"
+    android:paddingBottom="@dimen/px14dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cardElevation="@dimen/px0dp"
+        app:cardCornerRadius="@dimen/px26dp"
+        android:layout_marginStart="@dimen/px10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image"
+            url="@{mineteamitemVM.entity.avatar}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </android.support.v7.widget.CardView>
+
+
+    <ImageView
+        android:id="@+id/iv_fans"
+        android:layout_width="@dimen/px12dp"
+        android:layout_height="@dimen/px12dp"
+        android:src="@mipmap/ic_tick"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView4"
+        app:layout_constraintEnd_toEndOf="@+id/cardView4" />
+
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/px15sp"
+        android:layout_marginStart="@dimen/px20dp"
+        android:text='@{mineteamitemVM.entity.nickname,default="XXXXX"}'
+        android:textColor="@color/textColor"
+        app:layout_constraintStart_toEndOf="@+id/cardView4"
+        app:layout_constraintTop_toTopOf="@+id/cardView4" />
+
+    <TextView
+        android:id="@+id/textView70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/px20dp"
+        android:text='@{"成为推广人时间:  "+mineteamitemVM.time,default="成为推广人"}'
+        android:textSize="@dimen/px12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='@{mineteamitemVM.entity.count+"个成员",default="0个成员"}'
+        android:layout_marginEnd="@dimen/px12dp"
+        android:textSize="@dimen/px15sp"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
+</layout>

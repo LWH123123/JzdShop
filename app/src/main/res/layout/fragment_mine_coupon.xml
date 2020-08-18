@@ -1,0 +1,85 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <data>
+
+        <import type="com.jzd.jzshop.ui.mine.coupon.MineCouponViewModel"/>
+        <variable
+            name="minecouponVM"
+            type="com.jzd.jzshop.ui.mine.coupon.MineCouponViewModel" />
+        
+        
+    </data>
+    
+    
+
+<android.support.constraint.ConstraintLayout
+    android:orientation="vertical"
+    android:background="@color/defualt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jzd.jzshop.ui.mine.coupon.MineCouponFragment">
+
+    <include
+        android:id="@+id/asc_include_toolbar"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:toolbarViewModel="@{minecouponVM.toolbarViewModel}" />
+
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/red"
+        app:tabMode="fixed"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabSelectedTextColor="@color/red"
+        app:tabTextAppearance="@style/AppTheme.TabLayout.TextAppearance"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/asc_include_toolbar" />
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px36dp"
+        android:layout_marginStart="@dimen/px30dp"
+        android:layout_marginTop="@dimen/px14dp"
+        android:background="@color/lightpink"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+        <ImageView
+            android:id="@+id/gift"
+            android:layout_width="@dimen/px16dp"
+            android:layout_height="@dimen/px16dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/gift" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/px10dp"
+            android:layout_toEndOf="@id/gift"
+            android:text="@string/morecoupon"
+            android:textColor="@color/red" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4" />
+
+
+</android.support.constraint.ConstraintLayout>
+</layout>

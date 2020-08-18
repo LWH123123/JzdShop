@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/boder_button_shopcar_item"
+    android:paddingBottom="@dimen/px8dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_goodnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px10dp"
+        android:layout_marginEnd="@dimen/px4dp"
+        android:text="共4件商品 实付:"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/money"
+        app:layout_constraintEnd_toStartOf="@+id/money"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥4000.00"
+        android:layout_marginEnd="@dimen/px10dp"
+        android:layout_marginTop="@dimen/px10dp"
+        android:textColor="@color/red"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view32"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/px14dp"
+        android:background="@color/defualt_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goodnumber" />
+<!-- 待付款=====》》》》   联系卖家   取消订单   付款-->
+
+
+    <TextView
+        android:id="@+id/contactstore"
+        style="@style/OrderButtonStyle"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px30dp"
+        android:background="@drawable/boder_btn_radius_gray"
+        android:text="联系卖家"
+        android:visibility="gone"
+        android:gravity="center"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:layout_marginEnd="@dimen/px10dp"
+        android:textColor="@color/textColorVice"
+        app:layout_constraintBottom_toBottomOf="@+id/payorder"
+        app:layout_constraintEnd_toStartOf="@+id/concleorder"
+        app:layout_constraintTop_toTopOf="@+id/payorder"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/concleorder"
+        style="@style/OrderButtonStyle"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px30dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/boder_btn_radius_gray"
+        android:focusable="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:focusableInTouchMode="false"
+        android:text="取消订单"
+        android:textColor="@color/textColorVice"
+        app:layout_constraintBottom_toBottomOf="@+id/payorder"
+        app:layout_constraintEnd_toStartOf="@+id/payorder"
+        app:layout_constraintTop_toTopOf="@+id/payorder"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/payorder"
+        style="@style/OrderButtonStyle"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px30dp"
+        android:layout_marginTop="@dimen/px10dp"
+        android:layout_marginEnd="@dimen/px10dp"
+        android:layout_marginBottom="@dimen/px10dp"
+        android:background="@drawable/text_boder_orgrange"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:text="付款"
+        android:textColor="@color/levelorange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view32" />
+
+    <!--待付款-->
+    <android.support.constraint.Group
+        android:id="@+id/group_pay"
+        android:visibility="gone"
+        app:constraint_referenced_ids="concleorder,payorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/checklogistics"
+        style="@style/OrderButtonStyle"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/boder_btn_radius_gray"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:gravity="center"
+        android:text="查看物流"
+        android:textColor="@color/textColorVice"
+        app:layout_constraintEnd_toStartOf="@+id/evaluate"
+        app:layout_constraintTop_toBottomOf="@+id/view32" />
+
+
+    <TextView
+        android:id="@+id/evaluate"
+        style="@style/OrderButtonStyle"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:background="@drawable/text_boder_orgrange"
+        android:textColor="@color/levelorange"
+        android:text="评价"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view32" />
+
+
+    <TextView
+        android:id="@+id/remind"
+        style="@style/OrderButtonStyle"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px30dp"
+        android:background="@drawable/boder_btn_radius_gray"
+        android:layout_marginEnd="@dimen/px10dp"
+        android:layout_marginTop="@dimen/px10dp"
+        android:textColor="@color/textColorVice"
+        android:visibility="gone"
+        android:focusable="true"
+        android:gravity="center"
+        android:focusableInTouchMode="false"
+        android:text="提醒发货"
+        app:layout_constraintEnd_toEndOf="@+id/contactstore"
+        app:layout_constraintTop_toBottomOf="@+id/view32" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group_evaluate"
+        android:visibility="gone"
+        app:constraint_referenced_ids="checklogistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/tv_consignee"
+        style="@style/OrderButtonStyle"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px30dp"
+        android:layout_marginTop="10dp"
+        android:focusable="true"
+        android:gravity="center"
+        android:focusableInTouchMode="false"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/text_boder_orgrange"
+        android:text="确认收货"
+        android:textColor="@color/levelorange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view32" />
+
+
+    <TextView
+        android:id="@+id/checklogis"
+        style="@style/OrderButtonStyle"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px30dp"
+        android:background="@drawable/boder_btn_radius_gray"
+        android:gravity="center"
+        android:text="查看物流"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:textColor="@color/textColorVice"
+        android:layout_marginEnd="@dimen/px10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_consignee"
+        app:layout_constraintEnd_toStartOf="@+id/tv_consignee"
+        app:layout_constraintTop_toTopOf="@+id/tv_consignee"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <!--确认收货-->
+    <android.support.constraint.Group
+        android:id="@+id/group_checklogis"
+        android:visibility="gone"
+        app:constraint_referenced_ids="checklogis,tv_consignee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/im_delete"
+        android:layout_marginTop="@dimen/px14dp"
+        android:layout_marginStart="@dimen/px14dp"
+        android:layout_width="@dimen/px24dp"
+        android:layout_height="@dimen/px24dp"
+        android:visibility="gone"
+        android:src="@mipmap/delete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view32" />
+
+</android.support.constraint.ConstraintLayout>

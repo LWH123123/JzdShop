@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activityIVM"
+            type="com.jzd.jzshop.entity.GoodsEntity.ResultBean.ActivityBean.DataBean" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/px4dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/piaf_lable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boder_red_textview"
+            android:gravity="center"
+            android:paddingLeft="@dimen/px4dp"
+            android:paddingRight="@dimen/px4dp"
+            android:text='@{activityIVM.getActivityLable() ,default="满减"}'
+            android:textColor="@color/colorred"
+            android:textSize="@dimen/px11sp" />
+
+        <TextView
+            android:id="@+id/piaf_text"
+            android:layout_width="@dimen/px0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px8dp"
+            android:layout_marginLeft="@dimen/px8dp"
+            android:singleLine="true"
+            android:textSize="@dimen/px12sp"
+            app:layout_constraintStart_toEndOf="@id/piaf_lable" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

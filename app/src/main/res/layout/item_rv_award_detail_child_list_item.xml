@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/con_good"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/px8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="@dimen/px80dp"
+            android:layout_height="@dimen/px80dp"
+            android:layout_marginBottom="@dimen/px12dp"
+            app:cardCornerRadius="@dimen/px10dp"
+            app:cardElevation="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_good"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_goodname"
+            android:layout_width="@dimen/px200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px12dp"
+            android:layout_marginRight="@dimen/px12dp"
+            android:lines="2"
+            android:maxLines="2"
+            android:text="@string/shop_message"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintLeft_toRightOf="@id/card"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_award_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px12dp"
+            android:text=""
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintLeft_toRightOf="@id/card"
+            app:layout_constraintTop_toBottomOf="@+id/tv_goodname"
+            tools:text="奖励：100.00元" />
+        <!--content-->
+        <TextView
+            android:id="@+id/tv_audit_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px6dp"
+            android:layout_marginLeft="@dimen/px12dp"
+            android:text=""
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintLeft_toRightOf="@id/card"
+            app:layout_constraintTop_toBottomOf="@+id/tv_award_amount"
+            tools:text="审核内容：" />
+
+        <!--level-->
+        <TextView
+            android:id="@+id/tv_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="一级" />
+
+        <!--result  state-->
+        <TextView
+            android:id="@+id/tv_result_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px16dp"
+            android:layout_marginBottom="@dimen/px16dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorred"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_level"
+            tools:text="待打款" />
+
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>
+
+
+
+

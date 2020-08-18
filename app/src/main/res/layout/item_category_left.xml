@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="categoryLeftIVM"
+            type="com.jzd.jzshop.ui.category.CategoryLeftItemViewModel" />
+    </data>
+
+    <TextView
+        android:id="@+id/imcl_name_tv"
+        android:layout_width="wrap_content"
+        android:minWidth="@dimen/px100dp"
+        android:layout_height="@dimen/px46dp"
+        android:background="@color/level7text"
+        android:paddingLeft="@dimen/px4dp"
+        android:paddingRight="@dimen/px4dp"
+        android:gravity="center"
+        android:maxEms="6"
+        android:singleLine="false"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:text="@{categoryLeftIVM.entity.name,default=text}"
+        android:textColor="@drawable/select_category_text"
+        android:textSize="@dimen/px14sp" />
+    <!--    android:focusable="true"-->
+    <!--    app:onFocusChange="@{categoryLeftIVM.mOnFocusChangeListener}"-->
+    <!--    android:onClick="@{()->categoryLeftIVM.onClickItem(imclNameTv)}"-->
+
+</layout>

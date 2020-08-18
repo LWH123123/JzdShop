@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/li_message"
+    android:background="@drawable/boder_corner_red_radius"
+    android:layout_width="@dimen/px16dp"
+    android:layout_height="@dimen/px16dp">
+    <TextView
+        android:id="@+id/tv_message"
+        android:text="1"
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:textSize="@dimen/px10sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/px12dp"
+    android:layout_marginRight="@dimen/px12dp"
+    android:layout_marginTop="@dimen/px6dp"
+    android:layout_marginBottom="@dimen/px6dp"
+    android:background="@drawable/shape_order_detail_recyclev">
+    <!--商品小计 tip-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_commission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px6dp"
+        android:layout_marginBottom="@dimen/px1dp"
+        android:background="@color/white"
+        android:gravity="right"
+        android:padding="@dimen/px12dp"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="预计奖励：+4.16" />
+
+    <View
+        android:id="@+id/view_space"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1dp"
+        android:background="@color/defualt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_commission" />
+
+    <!--child goods list -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_space" />
+
+    <View
+        android:id="@+id/view_space_two"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1dp"
+        android:background="@color/defualt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycle" />
+
+    <!--订单编号-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_ordersn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text="@string/order_create_time"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_space_two"
+        tools:text="订单编号：ME2031654646161646464" />
+
+    <!-- 分销等级-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_actual_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px6dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text="@string/order_number"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_ordersn"
+        tools:text="实付金额：109.00元" />
+
+    <!--createtime-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_remarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px6dp"
+        android:layout_marginBottom="@dimen/px12dp"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_actual_amount"
+        tools:text="备注：" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="adapter"
+            type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <variable
+            name="couponVM"
+            type="com.jzd.jzshop.utils.widget.CouponPop" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView66"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="9dp"
+                android:text="@string/getCoupon"
+                android:gravity="center"
+                android:textColor="@color/textcolor"
+                android:textSize="@dimen/px16sp" />
+
+            <ImageView
+                android:id="@+id/pc_close"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginRight="13dp"
+                android:background="@mipmap/back_pop" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/pc_coupon_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="visible"
+            app:adapter="@{adapter}"
+            app:itemBinding="@{couponVM.itemBinding}"
+            app:items="@{couponVM.items}"
+            app:layoutManager="@{LayoutManagers.linear()}" />
+
+        <TextView
+            android:id="@+id/tv_nodata"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/px16dp"
+            android:layout_marginBottom="@dimen/px10dp"
+            android:textSize="@dimen/px13sp"
+            android:textColor="@color/textColor"
+            android:text="该商品暂时没有优惠券!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/textView87"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/px34dp"
+            android:text="@string/couponHint"
+            android:textColor="@color/level3text"
+            android:textSize="@dimen/px11sp"
+
+            />
+
+        <Button
+            android:id="@+id/pc_ok_bt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/btn_red_bg"
+            android:text="@string/finishs"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px16sp" />
+
+
+    </LinearLayout>
+
+    <!--<android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="188dp"
+            android:src="@mipmap/nonet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/nonet"
+            android:textColor="@color/level1text"
+            android:textSize="@dimen/px18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+
+        <TextView
+            android:layout_width="@dimen/px100dp"
+            android:layout_height="@dimen/px40dp"
+            android:background="@drawable/boder_nowork_radio"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/px40dp"
+            android:text="@string/rerequest"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+
+    </android.support.constraint.ConstraintLayout>-->
+
+</layout>

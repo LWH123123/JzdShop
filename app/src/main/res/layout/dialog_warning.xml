@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_title"
+        android:gravity="center"
+        android:textColor="@color/textColor"
+        android:text="提示"
+        android:paddingTop="@dimen/px10dp"
+        android:textSize="@dimen/px18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:maxLines="20"
+        android:lineSpacingMultiplier="0.8"
+        android:paddingLeft="@dimen/px8dp"
+        android:paddingRight="@dimen/px8dp"
+        android:textSize="15sp"
+        android:gravity="center"
+        tools:text="安装App需要打开未知来源应用权限,\n请去手机设置中找到跨融商城APP\n开启允许安装应用权限开关."
+        android:textColor="@color/login_button"
+        android:padding="@dimen/px20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#a9a9a9" />
+
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="去开启"
+        android:textSize="16sp"
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:padding="12dp"/>
+
+</LinearLayout>

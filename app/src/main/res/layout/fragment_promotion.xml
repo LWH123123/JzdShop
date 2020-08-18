@@ -1,0 +1,437 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.jzd.jzshop.ui.mine.promotion.PromotionViewModel"/>
+        <variable
+            name="promotionVM"
+            type="PromotionViewModel" />
+
+    </data>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/asc_include_toolbar"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:toolbarViewModel="@{promotionVM.toolbarViewModel}" />
+
+
+
+<android.support.constraint.ConstraintLayout
+    android:visibility="visible"
+    android:background="@color/defualt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mine.promotion.PromotionFragment">
+
+
+    <ImageView
+        android:id="@+id/view16"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px180dp"
+        android:background="@drawable/bg_promotion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView50"
+        isCircle="@{true}"
+        android:layout_marginTop="@dimen/px10dp"
+        android:layout_width="@dimen/px70dp"
+        android:layout_height="@dimen/px70dp"
+        url="@{promotionVM.entity.avatar}"
+        android:layout_marginStart="116dp"
+        android:src="@mipmap/placeholder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view16" />
+
+    <TextView
+        android:id="@+id/textView149"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:text='@{promotionVM.entity.nickname,default="昵称"}'
+        android:textColor="@color/white"
+        android:textSize="@dimen/px18sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView50"
+        app:layout_constraintTop_toTopOf="@+id/imageView50" />
+
+    <TextView
+        android:id="@+id/textView150"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px13sp"
+        android:text="@string/referrer"
+        app:layout_constraintStart_toStartOf="@+id/textView149"
+        app:layout_constraintTop_toBottomOf="@+id/textView149" />
+
+    <TextView
+        android:id="@+id/textView151"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='@{promotionVM.entity.recommand_name,default=""}'
+        android:textSize="@dimen/px13sp"
+
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/textView150"
+        app:layout_constraintStart_toEndOf="@+id/textView150"
+        app:layout_constraintTop_toTopOf="@+id/textView150" />
+
+    <TextView
+        android:id="@+id/textView152"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px13sp"
+        android:text="@string/defualtgrade"
+        app:layout_constraintStart_toStartOf="@+id/textView149"
+        app:layout_constraintTop_toBottomOf="@+id/textView150" />
+
+    <TextView
+        android:id="@+id/textView153"
+        android:layout_width="@dimen/px170dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text='@{"我的推广码:"+promotionVM.entity.invit_id+"",default="我的推广码"}'
+        android:textColor="@color/white"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView151"
+        app:layout_constraintStart_toStartOf="@+id/imageView50"
+        app:layout_constraintTop_toBottomOf="@+id/textView152" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="@dimen/px10dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:background="@drawable/boder_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView153">
+
+        <TextView
+            android:id="@+id/textView154"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="13dp"
+            android:text='@{promotionVM.entity.commission_pay,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView155"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:text='@{promotionVM.entity.commission_ok,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView156"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/withdrawDeposit"
+            android:textColor="@color/level3text"
+            app:layout_constraintEnd_toEndOf="@+id/textView154"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="@+id/textView154"
+            app:layout_constraintTop_toBottomOf="@+id/textView154" />
+
+        <TextView
+            android:id="@+id/textView157"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/cashAward"
+            android:textColor="@color/level3text"
+            app:layout_constraintEnd_toEndOf="@+id/textView155"
+            app:layout_constraintStart_toStartOf="@+id/textView155"
+            app:layout_constraintTop_toBottomOf="@+id/textView155" />
+
+        <TextView
+            android:id="@+id/textView163"
+            android:layout_width="@dimen/px40dp"
+            android:layout_height="@dimen/px20dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:background="@drawable/boder_radius_organge"
+            android:gravity="center"
+            android:text="可提现"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView155"
+            app:layout_constraintStart_toEndOf="@+id/textView155"
+            app:layout_constraintTop_toTopOf="@+id/textView155" />
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px160dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/boder_gray">
+
+
+                <ImageView
+                    android:id="@+id/imageView51"
+                    android:layout_width="@dimen/px50dp"
+                    android:layout_height="@dimen/px50dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="21dp"
+                    android:src="@mipmap/pingtaijiangli"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView158"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="@string/platformReward"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px16sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView51"
+                    app:layout_constraintTop_toTopOf="@+id/imageView51" />
+
+                <TextView
+                    android:id="@+id/textView159"
+                    android:layout_width="19dp"
+                    android:layout_height="13dp"
+                    android:layout_marginTop="5dp"
+                    android:text='@{promotionVM.entity.commission_total,default="0.00"}'
+                    android:textColor="@color/level3text"
+                    android:textSize="@dimen/px13sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView158"
+                    app:layout_constraintTop_toBottomOf="@+id/textView158" />
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/boder_gray">
+
+
+                <ImageView
+                    android:id="@+id/imageView52"
+                    android:layout_width="@dimen/px50dp"
+                    android:layout_height="@dimen/px50dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="21dp"
+                    android:src="@mipmap/jiangli"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView160"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginLeft="11dp"
+                    android:text="@string/rewardOrders"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px16sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView52"
+                    app:layout_constraintTop_toTopOf="@+id/imageView52" />
+
+                <TextView
+                    android:id="@+id/textView161"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text='@{promotionVM.entity.order_count+"笔",default="0笔"}'
+                    android:textColor="@color/level3text"
+                    android:textSize="@dimen/px12sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView160"
+                    app:layout_constraintTop_toBottomOf="@+id/textView160" />
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                onClickCommand="@{promotionVM.onCliclorderListeren}"
+                android:layout_weight="1"
+                android:background="@drawable/boder_gray">
+
+
+                <ImageView
+                    android:id="@+id/imageView58"
+                    android:layout_width="@dimen/px50dp"
+                    android:layout_height="@dimen/px50dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="21dp"
+                    android:src="@mipmap/jainglimingxi"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView168"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="@string/rewardSubsidiary"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px16sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView58"
+                    app:layout_constraintTop_toTopOf="@+id/imageView58" />
+
+                <TextView
+                    android:id="@+id/textView169"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/level3text"
+                    android:text="0.00"
+                    android:textSize="@dimen/px13sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView168"
+                    app:layout_constraintTop_toBottomOf="@+id/textView168" />
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/boder_gray">
+
+
+                <ImageView
+                    android:id="@+id/imageView59"
+                    android:layout_width="@dimen/px50dp"
+                    android:layout_height="@dimen/px50dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="21dp"
+                    android:src="@mipmap/mytuiguang"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView178"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:text="@string/myPromotion"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px16sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView59"
+                    app:layout_constraintTop_toTopOf="@+id/imageView59" />
+
+                <TextView
+                    android:id="@+id/textView179"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text='@{promotionVM.entity.down_count+"",default="0"}'
+                    android:textColor="@color/level3text"
+                    android:textSize="@dimen/px13sp"
+                    app:layout_constraintStart_toStartOf="@+id/textView178"
+                    app:layout_constraintTop_toBottomOf="@+id/textView178" />
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px40dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="-41dp"
+        binding:onClickCommand="@{promotionVM.romotionCenterOnClick}">
+
+        <ImageView
+            android:id="@+id/imageView53"
+            android:layout_width="@dimen/px20dp"
+            android:layout_height="@dimen/px20dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:src="@mipmap/qrcode"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView162"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:text="@string/promotionCode"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView53"
+            app:layout_constraintStart_toEndOf="@+id/imageView53"
+            app:layout_constraintTop_toTopOf="@+id/imageView53" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>
+</LinearLayout>
+
+</layout>

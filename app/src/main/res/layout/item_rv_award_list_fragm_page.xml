@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <!--module one-->
+    <!--state-->
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px16dp"
+        android:layout_marginTop="@dimen/px16dp"
+        android:gravity="center"
+        android:text=""
+        android:textSize="@dimen/px16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="提现到余额" />
+
+    <!--time-->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px16dp"
+        android:layout_marginTop="@dimen/px4dp"
+        android:layout_marginBottom="@dimen/px16dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/level5text"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_state"
+        tools:text="2020-01-19 13:56"
+        android:visibility="invisible"/>
+
+    <!--amount-->
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px16dp"
+        android:layout_marginRight="@dimen/px16dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="+90.00" />
+
+    <!--result  state-->
+    <TextView
+        android:id="@+id/tv_result_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px4dp"
+        android:layout_marginRight="@dimen/px16dp"
+        android:layout_marginBottom="@dimen/px16dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorred"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_amount"
+        tools:text="待打款" />
+
+    <!--space-->
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px1dp"
+        android:layout_marginTop="@dimen/px8dp"
+        android:background="@color/defualt"
+        app:layout_constraintLeft_toLeftOf="@id/tv_time"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_time"
+        android:visibility="invisible"/>
+
+    <!--module  two-->
+    <include layout="@layout/layout_assets_record_cons_module_two" />
+
+    <View
+        android:id="@+id/view_space_two"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1dp"
+        android:background="@color/defualt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons_two" />
+
+    <!-- see detail -->
+    <TextView
+        android:id="@+id/tv_see_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:padding="@dimen/px16dp"
+        android:text="@string/assets_record_see_detail"
+        android:textColor="@color/textcolor"
+        android:textSize="@dimen/px16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_space_two"/>
+
+
+</android.support.constraint.ConstraintLayout>

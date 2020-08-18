@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/px10dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px80dp"
+        app:cardCornerRadius="@dimen/px10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_good"
+            android:layout_width="@dimen/px80dp"
+            android:layout_height="@dimen/px80dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/placeholder" />
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_goodname"
+        android:layout_width="@dimen/px200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/px8dp"
+        android:ellipsize="end"
+        android:lines="2"
+        android:maxLines="2"
+        android:text="@string/shop_message"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintStart_toEndOf="@+id/card"
+        app:layout_constraintTop_toTopOf="@+id/card" />
+
+    <TextView
+        android:id="@+id/tv_goodspec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px4dp"
+        android:text=""
+        tools:text="已选规格"
+        android:textSize="@dimen/px12sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_goodname"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goodname" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dollar"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintRight_toLeftOf="@id/tv_money"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100.00"
+        android:textColor="@color/textColor"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X12"
+        android:textColor="@color/textColor"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_money" />
+
+    <!--评价按钮-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constlHideCommont"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="@dimen/px28dp"
+        android:layout_margin="@dimen/px12dp"
+        android:background="@drawable/shape_btn_radius_border_red"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card">
+
+        <TextView
+            android:id="@+id/tv_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px12dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/evaluaion"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_HideArrows"
+            android:layout_width="@dimen/px20dp"
+            android:layout_height="@dimen/px20dp"
+            android:layout_marginRight="@dimen/px8dp"
+            android:background="@mipmap/down"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_txt"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <!--hide module-->
+    <RelativeLayout
+        android:id="@+id/rl_hide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/defualt"
+        android:layout_marginTop="@dimen/px10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constlHideCommont">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/px1dp"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+            <!--评分-->
+            <TextView
+                android:id="@+id/tv_handleWayTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评分"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--星级-->
+
+            <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                android:id="@+id/ratingbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                app:srb_fillColor="@color/orange"
+                app:srb_starBackgroundColor="#c0c0c0"
+                android:stepSize="1.0"
+                app:srb_drawBorderEnabled="false"
+                app:srb_numberOfStars="5"
+                app:srb_rating="5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_score_txt"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.75"
+                app:srb_starSize="@dimen/px20dp" />
+
+            <TextView
+                android:id="@+id/tv_score_txt"
+                android:layout_width="@dimen/px80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_close"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="没有评分" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="@dimen/px16dp"
+                android:layout_height="@dimen/px16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/back_pop" />
+        </android.support.constraint.ConstraintLayout>
+
+        <!--module two  评价隐藏模块-->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/constrlThree"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+
+            <!--上传图片-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/iv_upload"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--module three 评论 -->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/constrlOne"
+            android:background="@color/white"
+            android:padding="@dimen/px10dp">
+
+
+            <EditText
+                android:id="@+id/et_commont"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/boder_bg_edittext"
+                android:gravity="left|top"
+                android:hint="说点什么吧"
+                android:lineSpacingExtra="@dimen/px2dp"
+                android:lines="4"
+                android:maxLines="4"
+                android:minLines="5"
+                android:padding="@dimen/px6dp"
+                android:singleLine="false"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/boder"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_explainTip"
+                tools:text="说点什么吧" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
+

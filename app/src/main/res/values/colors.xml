@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimary">#3F51B5</color>-->
+    <color name="colorPrimary">#D90804</color>
+    <color name="colorPrimaryDark">#D90804</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorHint">#A0A0A0</color>
+    <color name="textbody">#C7C7C7</color>
+    <color name="textColorVice">#999999</color>
+    <color name="viewLineColor">#F0F0F0</color>
+    <color name="defualt">#F2F2F2</color>
+    <color name="defualts">#F8F8F8</color>
+    <color name="defualt_view">#E4E4E4FF</color>
+    <color name="level1text">#757575</color>
+    <color name="level2text">#666666</color>
+    <color name="level3text">#999999</color>
+    <color name="level4text">#D8D8D8</color>
+    <!--一级灰色-->
+    <color name="level5text">#DFDFDF</color>
+
+    <color name="level7text">#F6F6F6</color>
+    <color name="level9text">#F3F3F3</color>
+    <color name="edittext">#F7F7F7</color>
+    <color name="colorhint">#E4E4E4</color>
+    <color name="viewhint">#F1F1F1</color>
+    <!--主题黑-->
+    <color name="textcolor">#333333</color>
+    <color name="black">#141414</color>
+
+    <color name="colorred">#D90804</color>
+    <color name="color2red">#B90603</color>
+    <color name="defaultred">#FFC9C8</color>
+    <color name="green">#008B13</color>
+    <color name="lightred">#FF1C17</color>
+    <color name="lightpink">#FFDFDF</color>
+    <color name="light1pink">#FFEFEF</color>
+    <color name="light2pink">#FF7E7D</color>
+    <color name="light3pink">#FFF0EF</color>
+    <color name="pink">#FB7D7D</color>
+    <color name="blue">#380093</color>
+    <color name="yellow">#ffe96d</color>
+    <color name="levelyellow">#FFAE0D</color>
+    <color name="orange">#FFA200</color>
+    <color name="leve2organge">#FFC53D</color>#FFECCC
+    <color name="levelorange">#FE9402</color>
+    <color name="color_blue">#3096FC</color>
+    <color name="orgrangebg">#EDB111</color>
+    <color name="orgrantime">#FFF795</color>
+    <color name="redbg">#D1302D</color>
+    <color name="leve3orange">#FFECCC</color>
+    <color name="btn_color">#D9D9D9</color>
+    <color name="red">#D90804</color>
+    <color name="levelred">#D90804</color>
+    <color name="boder">#DFDFDF</color>
+    <color name="redtime">#D8211D</color>
+    <color name="picture_color_20c064">#20c064</color>
+    <color name="orgrange">#D86500</color>
+    <color name="hintColor">#E4E4E4</color>
+    <color name="spec_text_color">#F4F5F4</color>
+    <color name="login_button">#D7222F</color>
+    <color name="colorTranslcent">#4D000000</color>
+    <!--新增-->
+    <color name="color_bg_default">#F8F8F8</color>
+    <color name="color_dialog_btn">#0076FF</color>
+    <color name="app_color_f6">#f6f6f6</color>
+    <color name="colorLineSpace">#ffdddddd</color>
+
+    <!--多图上传库picture_library      start  -->
+    <color name="picture_color_light_grey">#999999</color>
+    <color name="picture_color_e">#EEEEEE</color>
+    <color name="picture_color_f2">#F2F2F2</color>
+    <color name="picture_color_ffd042">#FFFFD042</color>
+    <color name="picture_color_half_grey">#a0393a3e</color>
+    <!--多图上传库picture_library     end       -->
+    <color name="color_bg_invite">#F89B9B</color>
+    <color name="color_btn_invite">#FE5D53</color>
+    <color name="color_txt_invite_copy_desc">#F3B0A9</color>
+    <color name="color_refuse_tip">#626674</color>
+    <color name="color_merch_level">#2CC2FE</color>
+    <color name="color_pioneer">#AB6621</color>
+    <color name="color_half_orange">#FF8140</color>
+
+    <!--本地生活-->
+    <color name="color_local_life_food">#F64367</color>
+    <color name="color_local_life_hotel">#FFC81D</color>
+    <color name="color_bg_message">#FF5350 </color>
+    <!--签到-->
+    <color name="color_unsigned_txt">#D90804</color>
+    <color name="color_signed_txt">#C1C1C1</color>
+    <color name="color_signed_all">#068DBD</color>
+    <color name="color_promo_type_succ">#32C55D</color>
+    <color name="color_chat_service">#2A9BE6</color>
+
+    <!-- 相册选图 -->
+    <color name="picture_color_e0ff6100">#E0FF6100</color>
+    <color name="picture_color_transparent">#E0DBDBDB</color>
+    <color name="picture_color_bfe85d">#BF96E85D</color>
+    <!-- 相册选图 -->
+
+
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_date"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_marginTop="@dimen/px1dp"
+    android:layout_marginEnd="@dimen/px1dp"
+    android:background="@color/white"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/px14sp"
+        tools:text="01" />
+
+    <ImageView
+        android:id="@+id/iv_signed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_name"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_signed"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_festival"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_sign_pic"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:ems="4"
+        android:text=""
+        android:textSize="@dimen/px11sp"
+        android:textColor="@color/color_unsigned_txt"
+        android:visibility="gone"
+        tools:text="端午奖励" />
+
+    <!--签到活动图标-->
+    <ImageView
+        android:id="@+id/iv_sign_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/ic_unsign_pic"
+        android:scaleType="centerCrop"
+        android:visibility="gone"/>
+
+</RelativeLayout>

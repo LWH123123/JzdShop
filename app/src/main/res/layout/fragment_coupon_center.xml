@@ -1,0 +1,73 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <import type="android.support.v7.widget.StaggeredGridLayoutManager" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+
+        <import type="com.jzd.jzshop.ui.mine.couponcenter.CouponCenterViewModel" />
+
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+
+        <variable
+            name="couponcenterVM"
+            type="com.jzd.jzshop.ui.mine.couponcenter.CouponCenterViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.jzd.jzshop.ui.mine.couponcenter.CouponCenterFragment">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarViewModel="@{couponcenterVM.toolbarViewModel}" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/smartrefreshlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/defualt"
+                android:paddingBottom="@dimen/px20dp"
+                app:itemBinding="@{couponcenterVM.couponcenter}"
+                binding:items="@{couponcenterVM.couponlist}"
+                binding:adapter="@{adapter}"
+                binding:layoutManager="@{LayoutManagers.linear()}" />
+
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/px10dp" />
+
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+    </LinearLayout>
+</layout>

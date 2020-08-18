@@ -1,0 +1,321 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="aftersaleVM"
+            type="com.jzd.jzshop.ui.order.aftersale.AfterSaleViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/defualt">
+
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{aftersaleVM.toolbarViewModel}" />
+
+        <!-- 拒绝驳回 提示 module top tip  -->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrl_refuse_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_refuse_tip"
+            android:layout_below="@id/ic_toolbar"
+            android:layout_marginBottom="@dimen/px10dp"
+            android:visibility="visible"
+            android:padding="@dimen/px12dp">
+
+            <!--处理方式-->
+            <TextView
+                android:id="@+id/tv_refuseTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退款须知："
+                android:textSize="@dimen/px14sp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_refustRease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/px14sp"
+                android:layout_marginTop="@dimen/px4dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_refuseTip"
+                tools:text="退换" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--module one-->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/constrl_refuse_tip"
+            android:layout_marginBottom="@dimen/px1dp"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+
+            <!--处理方式-->
+            <TextView
+                android:id="@+id/tv_handleWayTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="处理方式"
+                android:gravity="center"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_handleWay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px16dp"
+                android:text=""
+                android:gravity="center"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_handleWayTip"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="退换退款" />
+
+            <ImageView
+                android:id="@+id/iv_handleWay"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingLeft="@dimen/px12dp"
+                android:paddingRight="@dimen/px12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/arrows_right" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--module two-->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/constrlOne"
+            android:layout_marginBottom="@dimen/px1dp"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+
+            <!--退款原因-->
+            <TextView
+                android:id="@+id/tv_reasonWay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退款原因"
+                android:gravity="center"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_reason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px16dp"
+                android:text=""
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px14sp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_reasonWay"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="退换退款" />
+
+            <ImageView
+                android:id="@+id/iv_reasonWay"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingRight="@dimen/px12dp"
+                android:paddingLeft="@dimen/px12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/arrows_right" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--module three 退款说明 -->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/constrlTwo"
+            android:layout_marginBottom="@dimen/px1dp"
+            android:background="@color/white"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:padding="@dimen/px12dp">
+
+            <TextView
+                android:id="@+id/tv_explainTip"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="退款说明"
+                android:gravity="center"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/tv_explain"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px16dp"
+                android:layout_marginRight="@dimen/px12dp"
+                android:padding="@dimen/px4dp"
+                android:background="@color/transparent"
+                android:text=""
+                android:gravity="center|left"
+                android:textColor="@color/textColor"
+                android:hint="原因还没有呢"
+                android:textColorHint="@color/boder"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_explainTip"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="退款退换退款退换退退换退款退换退款" />
+
+        </android.support.constraint.ConstraintLayout>
+        <!--module four 退款金额-->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlFout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/constrlThree"
+            android:layout_marginBottom="@dimen/px1dp"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+
+            <!--处理方式-->
+            <TextView
+                android:id="@+id/tv_amountTip"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="退款金额"
+                android:gravity="center"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px16dp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_amountTip"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.457"
+                tools:text="退换退款" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--module 上传凭证 -->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlFive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/constrlFout"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+
+            <TextView
+                android:id="@+id/tv_uploadTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上传凭证"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--上传图片-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/iv_upload"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_uploadTip"
+                app:layout_constraintStart_toEndOf="@+id/tv_uploadTip"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_Tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/constrlFive"
+            android:padding="@dimen/px12dp"
+            android:text="*提示您可退款的最大金额为￥0.00"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/px14sp" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+
+            <!--提交申请-->
+            <TextView
+                android:id="@+id/tv_submitApply"
+                android:layout_width="@dimen/px82dp"
+                android:layout_height="@dimen/px32dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_btn_radius_border_red"
+                android:gravity="center"
+                android:text="@string/submit_apply"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/px14sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv_cancel"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!--取消-->
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="@dimen/px82dp"
+                android:layout_height="@dimen/px32dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/boder_radius_buttom_hint"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/level1text"
+                android:textSize="@dimen/px14sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:onClickCommand="@{aftersaleVM.cancelOnClick}" />
+        </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,89 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="merchsuccessVM"
+            type="com.jzd.jzshop.ui.mine.merch.MerchSuccessViewModel" />
+    </data>
+
+
+<android.support.constraint.ConstraintLayout
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jzd.jzshop.ui.mine.merch.MerchSuccessFragment">
+
+    <ImageView
+        android:id="@+id/imageView64"
+        android:layout_width="wrap_content"
+        onClickCommand="@{merchsuccessVM.onBackClick}"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/px6dp"
+        android:padding="@dimen/px8dp"
+        android:src="@mipmap/back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageView66"
+        android:layout_width="@dimen/px66dp"
+        android:layout_height="@dimen/px66dp"
+        android:layout_marginTop="@dimen/px60dp"
+        android:src="@mipmap/paysuccess"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView64" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="28dp"
+        android:text="@string/merchapplysuccess"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView66"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/imageView66"
+        app:layout_constraintTop_toBottomOf="@+id/imageView66" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/merchwithyou"
+        android:textStyle="bold"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px20sp"
+        android:layout_marginTop="@dimen/px10dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView66"
+        app:layout_constraintStart_toStartOf="@+id/imageView66"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+    <TextView
+        android:layout_marginBottom="@dimen/px50dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/shape_btn_red_radius"
+        android:gravity="center"
+        onClickCommand="@{merchsuccessVM.onToHomeClick}"
+        android:textSize="@dimen/px15sp"
+        android:text="@string/tohome"
+        android:textColor="@color/white"
+        android:layout_marginStart="@dimen/px40dp"
+        android:layout_marginEnd="@dimen/px40dp"
+        android:layout_height="@dimen/px46dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+
+    
+
+
+</android.support.constraint.ConstraintLayout>
+</layout>

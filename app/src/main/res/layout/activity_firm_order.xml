@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="adapter"
+            type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <variable
+            name="firmOrderVM"
+            type="com.jzd.jzshop.ui.order.firmorder.FirmOrderViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.order.firmorder.FirmOrderActivity"
+        tools:ignore="MissingConstraints">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{firmOrderVM.toolbarViewModel}" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/mall_refresh_layout"
+            android:background="@color/defualt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/afo_bottom_layout"
+            android:layout_below="@id/asc_include_toolbar">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scrollc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/defualt"
+                android:layout_below="@id/asc_include_toolbar"
+                android:overScrollMode="never">
+
+                <!--android:focusable="true"
+                    android:focusableInTouchMode="true"-->
+                <LinearLayout
+                    android:id="@+id/lin_rootView"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/setaddress"
+                        onClickCommand="@{firmOrderVM.OnSelectedAddress}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:layout_marginTop="@dimen/px10dp"
+                        android:layout_marginRight="@dimen/px10dp"
+                        android:background="@drawable/boder_radius"
+                        android:minHeight="@dimen/px56dp"
+                        android:paddingTop="@dimen/px14dp">
+
+                        <ImageView
+                            android:id="@+id/afo_location_iv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:src="@mipmap/location"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0" />
+
+                        <TextView
+                            android:id="@+id/afo_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px8dp"
+                            android:text='@{firmOrderVM.entity.address.realname,default="小二"}'
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintStart_toEndOf="@id/afo_location_iv" />
+
+                        <TextView
+                            android:id="@+id/afo_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px8dp"
+                            android:text='@{firmOrderVM.entity.address.mobile,default="13800138000"}'
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintEnd_toStartOf="@id/afo_arrow"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toEndOf="@id/afo_name" />
+
+                        <TextView
+                            android:id="@+id/afo_address"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/px8dp"
+                            android:layout_marginTop="@dimen/px8dp"
+                            android:maxLines="2"
+                            android:paddingBottom="@dimen/px10dp"
+                            android:lineSpacingExtra="@dimen/px2dp"
+                            android:scrollbars="vertical"
+
+                            android:lineSpacingMultiplier="0.8"
+                            android:layout_marginEnd="@dimen/px16dp"
+                            android:text='@{firmOrderVM.entity.address.addressText,default="北京北京朝阳国贸三期50层"}'
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintEnd_toStartOf="@id/afo_arrow"
+                            app:layout_constraintHorizontal_bias="0"
+
+                            app:layout_constraintStart_toEndOf="@id/afo_location_iv"
+                            app:layout_constraintTop_toBottomOf="@id/afo_name" />
+
+                        <android.support.constraint.Group
+                            android:id="@+id/afo_address_group"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:visibility="visible"
+                            app:constraint_referenced_ids="afo_address,afo_phone,afo_name,afo_location_iv,afo_arrow"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:layout_editor_absoluteY="14dp" />
+
+                        <TextView
+                            android:id="@+id/afo_add_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/px14dp"
+                            android:drawableLeft="@mipmap/location"
+                            android:text="添加收货地址"
+                            android:textColor="@color/textColor"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/afo_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/point_right"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/afo_address_line"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:background="@mipmap/address_line"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/afo_address"
+                            app:layout_constraintVertical_bias="1.0"
+                            tools:layout_editor_absoluteX="0dp" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/afo_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px10dp"
+                        android:visibility="visible"
+                        app:adapter="@{adapter}"
+                        app:itemBinding="@{firmOrderVM.itembind}"
+                        app:items="@{firmOrderVM.FireOrderList}"
+                        app:layoutManager="@{LayoutManagers.linear()}"
+                        app:layout_constraintTop_toBottomOf="parent" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px56dp"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="@dimen/px10dp"
+                        android:background="@drawable/boder_radius">
+
+                        <TextView
+                            android:id="@+id/liuyan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/px10dp"
+                            android:text="@string/liuyan"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px30dp"
+                            android:layout_alignTop="@+id/liuyan"
+                            android:layout_alignBottom="@+id/liuyan"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="-15dp"
+                            android:layout_marginBottom="-13dp"
+                            android:layout_toRightOf="@id/liuyan"
+                            android:background="@null"
+                            android:hint="@string/orderhint"
+                            android:text="@{firmOrderVM.remark}"
+                            android:maxLines="3"
+                            android:ellipsize="end"
+                            android:textSize="@dimen/px12sp" />
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px56dp"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:layout_marginTop="@dimen/px10dp"
+                        android:layout_marginRight="@dimen/px10dp"
+                        android:background="@drawable/boder_radius">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/px10dp"
+                            android:text="@string/discountCoupon"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp" />
+
+                        <ImageView
+                            android:id="@+id/right"
+                            onClickCommand="@{firmOrderVM.onCliclItem}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:src="@mipmap/arrows_right" />
+
+                        <TextView
+                            android:id="@+id/couponnumber"
+                            onClickCommand="@{firmOrderVM.onCliclItem}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@id/right"
+                            android:text="@string/twocoupon"
+                            android:textSize="@dimen/px12sp" />
+
+                    </RelativeLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px10dp"
+                        android:layout_marginTop="@dimen/px10dp"
+                        android:layout_marginRight="@dimen/px10dp"
+                        android:layout_marginBottom="@dimen/px50dp"
+                        android:background="@drawable/boder_radius"
+                        android:paddingBottom="@dimen/px20dp">
+
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/tatol"
+                            android:textStyle="bold"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <!--商品总额-->
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/shopallmonry"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintStart_toStartOf="@+id/textView8"
+                            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+                        <TextView
+                            android:id="@+id/total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:text='@{"¥"+firmOrderVM.updateData.tatol}'
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView23"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/textView23" />
+
+
+                        <!--件数-->
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/shopnumber"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintStart_toStartOf="@+id/textView23"
+                            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+                        <TextView
+                            android:id="@+id/freights"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{""+firmOrderVM.updateData.goodnumber}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView24"
+                            app:layout_constraintEnd_toEndOf="@+id/total"
+                            app:layout_constraintTop_toTopOf="@+id/textView24" />
+
+
+
+
+                        <!--运费-->
+                        <TextView
+                            android:id="@+id/textView30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/freight"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintStart_toStartOf="@+id/textView24"
+                            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+
+                        <TextView
+                            android:id="@+id/shopnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{"+¥"+firmOrderVM.updateData.freight}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView30"
+                            app:layout_constraintEnd_toEndOf="@+id/total"
+                            app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+
+
+                        <!--秒杀优惠-->
+                        <TextView
+                            android:id="@+id/textView32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/seckillcoupon"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintStart_toStartOf="@+id/textView8"
+                            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+                        <TextView
+                            android:id="@+id/textView35"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{"-¥"+firmOrderVM.updateData.seckill+"0"}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView32"
+                            app:layout_constraintEnd_toEndOf="@+id/shopnumber"
+                            app:layout_constraintTop_toTopOf="@+id/textView32" />
+
+
+                        <!--促销优惠-->
+                        <TextView
+                            android:id="@+id/tv_promotion"
+                            android:text="促销优惠"
+                            android:layout_marginTop="20dp"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintStart_toStartOf="@+id/textView30"
+                            app:layout_constraintTop_toBottomOf="@+id/textView32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+                        <TextView
+                            android:text='@{"-¥"+firmOrderVM.updateData.promation+"0"}'
+                            android:id="@+id/tv_tv_promotiondata"
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_promotion"
+                            app:layout_constraintEnd_toEndOf="@+id/shopnumber"
+                            app:layout_constraintTop_toTopOf="@+id/tv_promotion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+                        <!--商城优惠-->
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text='@{firmOrderVM.updateData.shopcoupon,default="商城优惠"}'
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintStart_toStartOf="@+id/textView30"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_promotion" />
+
+                        <TextView
+                            android:id="@+id/couponmoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{"-¥"+firmOrderVM.updateData.shopmoney+"0"}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView27"
+                            app:layout_constraintEnd_toEndOf="@+id/total"
+                            app:layout_constraintTop_toTopOf="@+id/textView27" />
+
+
+
+                        <!--店铺优惠-->
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@{firmOrderVM.updateData.storecoupon,default=店铺优惠}"
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintStart_toStartOf="@+id/textView8"
+                            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+                        <TextView
+                            android:id="@+id/textView49"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{"-¥"+firmOrderVM.updateData.storemoney+"0"}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/textView47"
+                            app:layout_constraintEnd_toEndOf="@+id/total"
+                            app:layout_constraintTop_toTopOf="@+id/textView47" />
+
+
+                        <!--店铺优惠券-->
+                        <TextView
+                            android:id="@+id/discountcoupon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text='@{firmOrderVM.updateData.couponmessage,default=店铺优惠券}'
+                            android:textColor="@color/textColor"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintStart_toStartOf="@+id/textView8"
+                            app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+                        <TextView
+                            android:id="@+id/coupon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{"-¥"+firmOrderVM.updateData.coupon+"0"}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/discountcoupon"
+                            app:layout_constraintEnd_toEndOf="@+id/total"
+                            app:layout_constraintTop_toTopOf="@+id/discountcoupon" />
+
+                        <!--秒杀优惠-->
+                        <android.support.constraint.Group
+                            android:id="@+id/seckillcoupon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="textView32,textView35" />
+
+
+                        <!--促销优惠-->
+                        <android.support.constraint.Group
+                            android:id="@+id/group_promation"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="tv_promotion,tv_tv_promotiondata"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+
+                        <!--商城优惠-->
+                        <android.support.constraint.Group
+                            android:id="@+id/shopcoupon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="textView27,couponmoney" />
+
+
+
+                        <!--店铺优惠-->
+                        <android.support.constraint.Group
+                            android:id="@+id/storecoupon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="textView47,textView49" />
+
+
+                        <!--店铺优惠券-->
+                        <android.support.constraint.Group
+                            android:id="@+id/coupongroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:constraint_referenced_ids="discountcoupon,coupon" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/afo_bottom_layout"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px46dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/afo_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px20dp"
+                android:text='@{"共"+firmOrderVM.updateData.goodnumber+"件,需付费：",default="共0件,需付费："}'
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/afo_money"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/afo_money"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="wrap_content"
+                android:text='@{"¥"+firmOrderVM.updateData.money,default="¥0"}'
+                android:textColor="@color/colorred"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/afo_guideline"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/afo_total"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight="0.8" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/afo_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.7" />
+
+            <TextView
+                android:id="@+id/afo_submit"
+                onClickCommand="@{firmOrderVM.onClickSubmit}"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px0dp"
+                android:background="@color/colorred"
+                android:gravity="center"
+                android:text="提交订单"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/afo_guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
+</layout>

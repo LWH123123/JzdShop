@@ -1,0 +1,550 @@
+<resources>
+    <string name="app_name">跨融商城</string>
+
+    <string name="promotionCenter">推广中心</string>
+    <string name="couponCenter">领券中心</string>
+    <string name="BonusesAndServices">奖金&amp;服务</string>
+    <string name="allOrder">全部订单</string>
+    <string name="all">全部</string>
+    <string name="allorder">全部订单</string>
+    <string name="waitPay">待付款</string>
+    <string name="waitSend">待发货</string>
+    <string name="waitRecycle">待收货</string>
+    <string name="salesReturn">退换货</string>
+    <string name="finish">已完成</string>
+
+
+    <string name="search">零食礼包   惊喜6件</string>
+    <string name="search_shop">请输入商铺名称</string>
+    <string name="enoughs">满减</string>
+    <string name="salegit">满赠</string>
+    <string name="sendfree">包邮</string>
+    <string name="news">新品</string>
+
+    <!--我的页面-->
+    <string name="tixian">提现</string>
+    <string name="recharage">充值</string>
+    <string name="balance">余额</string>
+    <string name="integral">积分</string>
+    <string name="nicke">昵称</string>
+    <string name="unLogin">点击登录</string>
+    <string name="mycoupon">我的优惠券</string>
+    <string name="integralSignIn">积分签到</string>
+    <string name="collect">我的收藏</string>
+    <string name="storeenter">商家入驻</string>
+    <string name="receiptaddress">收货地址</string>
+    <!--购物车-->
+    <string name="shoppingcar">购物车</string>
+    <string name="manage">管理</string>
+    <string name="checkAll">全选</string>
+    <string name="getCoupon">领券</string>
+    <string name="storename">套图设计工作室</string>
+    <!--购物车商品列表-->
+    <string name="include_postage">已包邮</string>
+
+    <!--地址列表-->
+    <string name="default_address">默认地址</string>
+    <string name="compile">编辑</string>
+    <string name="delete">删除</string>
+
+
+    <!--商品详情-->
+    <string name="dollar">¥</string>
+    <string name="express">快递:</string>
+    <string name="deliverGoods">发货:  </string>
+    <string name="salesVolume">销量:  </string>
+    <string name="discounts">优惠</string>
+    <string name="getTicket">领券</string>
+    <string name="activity">活动</string>
+    <string name="selected">已选</string>
+    <string name="selects">301# 高浓度，0.4kg一件</string>
+    <string name="parameter">参数</string>
+    <string name="parameters">品牌  质地...</string>
+    <string name="goodsComment">宝贝评价</string>
+    <string name="viewAll">查看全部</string>
+    <string name="IntoTheShop">进店逛逛</string>
+    <string name="GraphicDetails">图文详情</string>
+    <string name="getMoney">可获得佣金</string>
+    <string name="buyNow">立即购买</string>
+    <string name="store">店铺</string>
+    <string name="twocoupon">0张优惠券</string>
+    <string name="mobile">手机号</string>
+
+    <!--pop领券-->
+
+    <string name="discountCoupon">优惠券</string>
+    <string name="discountCoupons">元优惠券</string>
+    <string name="discountCoupone">折优惠券</string>
+    <string name="neWget">立即领取</string>
+    <string name="newchoice">立即选择</string>
+    <string name="couponHint">以上价格计算仅为初步预估，不代表最终购买价格</string>
+    <string name="finishs">完成</string>
+    <string name="proprietaryGoods">部分自营商品使用</string>
+    <string name="timeQuantum">2018.12.12-2019.12.12</string>
+    <string name="detailedInformation">详细信息</string>
+
+    <!--我的订单-->
+    <string name="shop_message">momo2019初秋新款 松紧腰休闲百搭阔腿裤阔腿裤阔腿裤初秋新款…</string>
+    <string name="contactTheSeller">联系卖家</string>
+    <string name="cancel_order">取消订单</string>
+    <string name="view_logistics">查看物流</string>
+    <string name="tatol">合计</string>
+    <string name="shopallmonry">商品总额</string>
+    <string name="freight">运费</string>
+    <string name="shopnumber">件数</string>
+    <string name="orderhint">50字以内(选填)</string>
+    <string name="seckillcoupon">秒杀优惠</string>
+    <string name="getverfity">获取验证码</string>
+    <string name="noteverfity">短信验证码</string>
+
+
+    <!--地址-->
+    <!--地址-->
+    <string name="name">姓名：</string>
+    <string name="iphone">电话：</string>
+    <string name="location">所在地址：</string>
+    <string name="detailedLlocation">详细地址：</string>
+    <string name="recepile_name">请填写收货人的姓名</string>
+    <string name="recepile_phone">请填写收货人的电话</string>
+    <string name="recepile_region">请点选收货人所在地区</string>
+    <string name="recepile_detailed">请填写收货人所在详细地址</string>
+    <string name="save">保存地址</string>
+
+    <!--订单页面-->
+    <string name="liuyan">买家留言</string>
+    <string name="nocoupon">该商品暂时没有优惠券！</string>
+
+
+    <!--推广中心-->
+    <string name="referrer">推荐人：</string>
+    <string name="defualtgrade">默认等级</string>
+    <string name="withdrawDeposit">已提现奖励(元)</string>
+    <string name="cashAward">可提现奖励(元)</string>
+    <string name="platformReward">平台奖励</string>
+    <string name="rewardOrders">奖励订单</string>
+    <string name="rewardSubsidiary">奖励明细</string>
+    <string name="myPromotion">我的推广</string>
+    <string name="promotionCode">推广二维码</string>
+
+
+    <!--奖金提现页面-->
+
+    <string name="bonustixian">奖金提现</string>
+    <string name="accumulated">累计奖励(元)</string>
+    <string name="waitRemit">待打款奖励(元)</string>
+    <string name="awardApplied">以申请奖励</string>
+    <string name="invalidReward">无效奖励</string>
+    <string name="successfulWithdrawal">成功提现奖励</string>
+    <string name="receivingGoods">待收货奖励</string>
+    <string name="outstandingReward">未结算奖励</string>
+    <string name="userAgreementone">用户须知：</string>
+    <string name="userAgreementthree">注意：可用奖励满100元后才能申请提现</string>
+    <string name="myWithdraw">我要提现</string>
+    <string name="balanceapply">提现申请已提交，等待人工审核</string>
+
+
+    <!--支付成功页面-->
+
+    <string name="paysuccess">订单支付成功！</string>
+    <string name="bianhao">订单编号：</string>
+    <string name="paynumber">实付金额：</string>
+    <string name="paymethod">支付方式：</string>
+    <string name="shouhuoren">收货人:</string>
+    <string name="shouhuoaddress">收货地址：</string>
+    <string name="lookorder">查看订单</string>
+    <string name="reorder">再来一单</string>
+
+
+    <!--余额提现-->
+    <string name="mybalance">我的余额</string>
+    <string name="balace">提现记录</string>
+    <string name="balancetixian">余额提现</string>
+    <string name="cashMoney">可提现金额(元)</string>
+    <string name="cashnumber">提现金额</string>
+    <string name="importMoney">请输入提现金额</string>
+    <string name="allWithdraw">全部提现</string>
+    <string name="selectMothod">选择提现方式</string>
+    <string name="tixianWX">提现至微信</string>
+    <string name="tixianZFB">提现支付宝</string>
+    <string name="tixianYE">提现至余额</string>
+    <string name="explain">详细说明：</string>
+    <string name="tixianMessagethree">本次提现将扣除手续费 ¥0.00</string>
+    <string name="tixianMessagefour">本次提现实际到账金额 ¥0.00</string>
+    <string name="zfbname">支付宝账号:</string>
+    <string name="pleaseimportname">请填写账号</string>
+    <string name="confirmaccount">确认账号:</string>
+    <string name="pleaseconfirmaccount">请确认账号</string>
+    <string name="selectbank">选择银行</string>
+    <string name="bankcardnumber">银行卡号</string>
+    <string name="comfirmcardnumber">确认卡号</string>
+    <string name="importbankcard">请填写银行卡号</string>
+    <string name="pleasecomfirmcard">请确认银行卡号</string>
+
+
+    <!--充值-->
+    <string name="rechargemoney">充值金额</string>
+    <string name="importmoney">请输入充值金额</string>
+    <string name="selectrecharg">选择支付方式</string>
+    <string name="rechargeWX">微信支付</string>
+    <string name="rechargeZFB">支付宝支付</string>
+    <string name="rechargerecord">充值记录</string>
+
+
+    <!--收银台-->
+    <!--    修改Android中strings.xml文件, 动态改变数据 - _再见理想 - 博客园-->
+    <!--    https://www.cnblogs.com/exmyth/p/4701310.html-->
+    <string name="cashierDesk">收银台</string>
+    <string name="orderNumber">订单号：%1$s</string>
+    <string name="ordermoney">订单金额(元)</string>
+    <string name="wxpay">微信支付</string>
+    <string name="wxsafepay">微信安全支付</string>
+    <string name="zfbsafepay">支付宝安全支付</string>
+    <string name="zfbpay">支付宝支付</string>
+    <string name="yue">余额支付</string>
+    <string name="nowmoney">当前余额:</string>
+    <string name="wxforOther">微信找人代付</string>
+    <string name="paylove">帮你付款的才是真爱</string>
+
+
+    <!--订单详情-->
+    <string name="orderdetail">订单详情</string>
+    <string name="waitpay">等待付款</string>
+    <string name="ordermoneys">订单金额:</string>
+    <string name="payorder">支付订单</string>
+    <string name="paymentOnBehalf">代付</string>
+
+
+    <!--设置页面-->
+    <string name="setinfo">完善个人信息</string>
+    <string name="aboutapp">关于跨融商城APP</string>
+    <string name="clear">清除缓存</string>
+    <string name="message">新消息通知</string>
+    <string name="message_state_not_opened">去打开</string>
+    <string name="message_state_already_opened">已打开</string>
+    <string name="exit_login">退出登录</string>
+    <string name="login">登 录</string>
+
+    <!--完善信息-->
+    <string name="add">+  新增地址</string>
+
+    <string name="word">密码:</string>
+    <string name="perfact">完善资料</string>
+    <string name="importword">请输入密码</string>
+    <string name="age">年龄:</string>
+    <string name="myself">自我介绍:</string>
+    <string name="ipone">手机号:</string>
+    <string name="nobinding">未绑定手机号</string>
+    <string name="changebinding">更换绑定</string>
+    <string name="importname">请输入您的姓名</string>
+    <string name="importmobile">请输入您的手机号</string>
+    <string name="fiveverfity">5位验证码</string>
+    <string name="habit">兴趣爱好</string>
+    <string name="xing">*</string>
+    <string name="submit">ba资料</string>
+    <string name="submitMessage">保存资料</string>
+    <string name="nowbind">立即绑定</string>
+    <string name="storemobile">客服电话：400  777  1400</string>
+    <!--在线客服qq-->
+    <string name="online_service_qq">3126614869</string>
+
+
+    //-----------------------------------------新增----------------------------------------------------------
+    <string name="in_development">开发中，敬请期待！</string>
+    <string name="merchant_entry">商家入驻</string>
+    <string name="merchant_alliance">商家联盟</string>
+    <string name="goods_evaluation">宝贝评价</string>
+    <string name="goods_evaluat_all">全部</string>
+    <string name="goods_evaluat_good">好评</string>
+    <string name="goods_evaluat_middle">中评</string>
+    <string name="goods_evaluat_bad">差评</string>
+    <string name="goods_evaluat_slide_pic">晒图</string>
+
+    <string name="empty_text_evaluation">暂无评论数据</string>
+    <string name="empty_text_shope">暂无店铺信息</string>
+    <string name="search_shop_list">商品列表</string>
+    <string name="search_local_life_data">暂无美食信息</string>
+    <string name="sempty_text_recharge_record">暂无充值信息</string>
+    <string name="sempty_text_withdrawals_record">暂无提现信息</string>
+    <string name="sempty_text_assets_record">暂无权记录信息</string>
+
+    <!--关于跨融商城APP-->
+    <string name="aboutshopapp">关于跨融商城APP</string>
+    <string name="specialstatement">特别声明</string>
+    <string name="givemegrade">给我评分</string>
+    <string name="privacypolicy">隐私政策</string>
+    <string name="licence">软件许可服务协议</string>
+    <string name="nonet">当前网络较差请重新加载</string>
+    <string name="rerequest">重新加载</string>
+    <string name="shopnodata">亲， 您的购物车还没有宝贝哦~</string>
+    <string name="noaddress">亲， 暂未添加收货地址哦~</string>
+    <string name="goshop">去逛逛</string>
+    <string name="version_unknown">版本号异常</string>
+    <string name="shopName">店铺</string>
+
+    <string name="morecoupon">赶紧去领券中心看看更多优惠券~</string>
+    <!--商家入驻-->
+    <string name="linkman">联系人</string>
+    <string name="iphones">手机号</string>
+    <string name="importyouname">请填写您的姓名</string>
+    <string name="importyouipone">请填写您的手机号</string>
+    <string name="hinttextone">请仔细填写联系方式，保证我们能尽快联系到您~</string>
+    <string name="next">下一步</string>
+
+    <string name="merchname">商户名称</string>
+    <string name="mainproject">主营项目</string>
+    <string name="shopintroduced">店铺介绍</string>
+    <string name="projectexample">例如鞋帽`化妆品等</string>
+    <string name="introduce">简单介绍下商户</string>
+    <string name="newmerch">立即申请入驻</string>
+    <string name="passnumber">账号</string>
+    <string name="orderword">确认密码</string>
+    <string name="importpass">请填写账号</string>
+    <string name="recid">推荐人ID:</string>
+    <string name="importrecid">请填写推荐人ID</string>
+    <string name="hinttexttwo">用于登录商户后台，请认真填写</string>
+    <string name="readagreement">我已阅读并了解 [入驻申请协议]</string>
+    <string name="merchapplysuccess">您已申请成功</string>
+    <string name="merchwithyou">平台审核后会有客服与您联系</string>
+    <string name="tohome">先去商城逛逛</string>
+    <!--邀请好友-->
+    <string name="invite_friends">邀请好友</string>
+    <string name="savePic">保存图片</string>
+    <string name="shareWeiXin">分享到微信</string>
+    <string name="invite_copy_desc">可以直接复制邀请码给好友下载APP注册填写海报\n中的二维码和邀请链接已经包含您的邀请信息</string>
+    <string name="invite_code_msg_tip">邀请码空了哦</string>
+    <string name="invite_code_msg_succ">复制成功</string>
+
+    <!--订单详情-->
+    <string name="ordernumber">订单号:</string>
+    <string name="merch_subtota">商品小计</string>
+    <string name="real_payment">实付费（含运费）</string>
+    <string name="order_number">订单编号:</string>
+    <string name="order_create_time">创建时间:</string>
+    <string name="order_pay_time">支付时间:</string>
+    <string name="order_send_time">发货时间:</string>
+    <string name="order_finish_time">完成时间:</string>
+    <string name="cash_on_delivery">货到付款</string>
+    <string name="wait_pay">待付款</string>
+    <string name="delete_order">删除订单</string>
+    <string name="reminder_shipment">提醒发货</string>
+    <string name="confirm_receipt">确认收货</string>
+    <string name="apply_exitAmount">申请退款</string>
+    <string name="evaluaion">评价</string>
+    <string name="apply_after_sale">申请售后</string>
+    <string name="cancel_apply">取消申请</string>
+    <string name="sales_refund_progress">售后申请进度</string>
+    <string name="apply_exitAmount_progress">申请退款进度</string>
+    <string name="submit_apply">提交申请</string>
+    <string name="modify_apply">修改申请</string>
+    <string name="fill_express_bill">填写快递单号</string>
+    <string name="modify_express_bill">修改快递单号</string>
+    <string name="see_exchange_logistics">查看换货物流</string>
+    <string name="confirm_receipt_exchange">确认收到换货物品</string>
+    <string name="submit_express_bill">提交快递单号</string>
+    <string name="go_back">返回</string>
+    <string name="cancel">取消</string>
+    <string name="submit_commont">提交评价</string>
+    <string name="no_score">没有评分</string>
+    <string name="no_good_score">差评</string>rmal
+    <string name="normal_score">一般</string>
+    <string name="good_score">挺好</string>
+    <string name="satisfied_score">满意</string>
+    <string name="very_good_score">非常满意</string>
+    <string name="empty_wholeSheetTxt">整单还没评论哦！</string>
+    <string name="good_state_three">需填写快递单号</string>
+    <string name="good_state_four">等待商家确认</string>
+    <string name="good_state_five">商家已经发货</string>
+    <string name="wait_merch_sales_apply">等待商家处理售后申请</string>
+    <string name="get_past_merch_sales_apply">商家已经通过售后申请</string>
+    <!--my page -->
+    <string name="tv_totalassets_tip">跨融总资产（元）</string>
+    <string name="tv_balance_tip">余额（元）</string>
+    <string name="tv_integral_tip">积分</string>
+    <string name="tv_see">立即查看</string>
+
+    <!--意见反馈-->
+    <string name="feedback">意见反馈</string>
+    <string name="feedback_input_phone">请输入手机号码</string>
+    <string name="feedback_input_content">请输入您的问题</string>
+    <string name="feedback_submit">提交</string>
+    <string name="feedback_success">反馈成功</string>
+    <string name="feedback_hint">感谢您的宝贵意见，我们会认真处理 您的反馈，尽快修复和完善相关功能</string>
+    <!--充值记录-->
+    <string name="recharge_record">充值记录</string>
+    <string name="recharge_fail">充值失败</string>
+    <!--提现记录-->
+    <string name="withdrawals_record">提现记录</string>
+    <!--权资产-->
+    <string name="self_purchase_details">跨融富权记录</string>
+    <string name="junzi_assets">我的跨融富权资产</string>
+    <string name="junzi_assets_desc">这 是 您 在 跨 融 商 城 永 久 收 益 权 </string>
+    <string name="junzi_assets_num">持有跨融富权（个） </string>
+    <string name="junzi_assets_rmb">折合RMB </string>
+    <!--了解君子权-->
+    <string name="junzi_assets_introd">一分钟了解跨融富权</string>
+    <string name="junzi_assets_introd_desc">你想知道的一切都在这里</string>
+    <string name="junzi_assets_introd_txt_one">每一次消费都可以获得相应的跨融富权。</string>
+    <string name="junzi_assets_introd_txt_two">不管跨融富权数量多少，都可以在跨融商城平台上获得增值。</string>
+    <string name="junzi_assets_introd_txt_three">每天跨融富权的价格都在根据平台市值增长，跨融富权可随时提现。</string>
+    <!--君子权记录-->
+    <string name="assets_record">跨融富权记录</string>
+
+
+    <!--推广中心  奖励明细-->
+    <string name="award_list">奖励明细</string>
+    <string name="assets_record_top_tip">累计奖励（不包含驳回和无效）:</string>
+    <string name="assets_record_see_detail">查看提现详情</string>
+    <string name="assets_record_apply_award">申请奖励</string>
+    <string name="assets_record_actual_amount">实际金额</string>
+    <string name="assets_record_fee_amount">提现手续费</string>
+    <string name="assets_record_item_type_txt_0">提现到余额</string>
+    <string name="assets_record_item_type_txt_1">提现到微信红包</string>
+    <string name="assets_record_item_type_txt_2">提现到支付宝</string>
+    <string name="assets_record_item_type_txt_3">提现到银行卡</string>
+
+    <string name="assets_record_item_type_result_02">驳回</string>
+    <string name="assets_record_item_type_result_01">无效</string>
+    <string name="assets_record_item_type_result_1">待审核</string>
+    <string name="assets_record_item_type_result_2">待打款</string>
+    <string name="assets_record_item_type_result_3">已打款</string>
+    <!--推广中心  奖励订单-->
+    <string name="promotion_order">奖励订单</string>
+    <string name="promotion_order_top_tip">预计奖励：</string>
+    <string name="goods_state_0">会员</string>
+    <string name="goods_state_1">一级</string>
+    <string name="goods_state_2">二级</string>
+    <string name="goods_state_3">三级</string>
+    <string name="goods_state_self">内购</string>
+    <string name="withdrawAward">(可提现奖励)</string>
+    <!--推广中心  提现详情 -->
+    <string name="award_detail">提现详情</string>
+    <!--本地生活-->
+    <string name="local_life_search_hint_txt">请输入搜索关键词</string>
+    <string name="app_search_input">输入的搜索内容为：</string>
+    <string name="app_commit_delete_history">确认清空搜索历史吗？</string>
+    <string name="local_life_food_txt">优选美食</string>
+    <string name="local_life_hotel_txt">酒店住宿</string>
+    <string name="app_search_history_tip_txt">历史记录</string>
+    <string name="app_search_hot_keyword_tip_txt">热搜</string>
+    <!--本地生活  搜索城市-->
+    <string name="local_life_search_city_cancel">取消</string>
+    <string name="choice_city">选择城市</string>
+    <string name="choice_city_current">当前定位</string>
+
+    <string name="website">跨融平台</string>
+
+    <!--首页 公告-->
+    <string name="home_noice_tip">君子富权 价格涨钱了, 涨钱了!</string>
+    <string name="message_center">消息中心</string>
+
+    <!--积分签到-->
+    <string name="credit_sign">积分签到</string>
+    <string name="sign_record">签到记录</string>
+    <string name="contiun_sign">连续签到</string>
+    <string name="sign_days">签到天数</string>
+    <string name="sign_ranking">签到排行</string>
+    <string name="sign_ranking_b">签到排行榜</string>
+    <string name="sign_rule">签到规则</string>
+    <string name="credit_shop">积分商城</string>
+    <string name="sign_repair_message">提示：点击漏签日期可补签哦！</string>
+    <string name="txt_i_know">我知道了</string>
+    <string name="sign_txt_receiv">领取</string>
+    <string name="sign_txt_received">已领取</string>
+    <string name="sign_continue_txt">连续签到有礼</string>
+    <string name="sign_continue_txt_explain">连续签到即可领取</string>
+    <string name="sign_all_txt">签到有礼</string>
+    <string name="sign_all_txt_explain">签到次数满足即可领取</string>
+    <string name="sempty_text_signed_record">暂无签到信息</string>
+    <string name="text_signed_type_one">日常签到</string>
+    <string name="text_signed_type_two">连续签到奖励</string>
+    <string name="text_signed_type_three">总签到奖励</string>
+
+    <!--消息中心-->
+    <string name="empty_text_message_record">暂无消息记录</string>
+    <string name="clear_message_all">未读消息已全部标为已读！</string>
+    <string name="message_merch">新订单通知</string>
+
+    <!--小店-->
+    <string name="applytoshop">申请成为小店</string>
+    <string name="mineshopregist">您的申请已提交</string>
+    <string name="registyou">我们会尽快联系您</string>
+    <string name="hotaddress">客服热线:  400  777  1400</string>
+    <string name="towarlk">去逛逛</string>
+    <string name="qrcode">二维码</string>
+    <string name="shop_referrer">小店推荐</string>
+
+    <!--推广佣金-->
+    <string name="promot_commission">推广佣金</string>
+    <string name="promotion_order_new">推广</string>
+    <string name="cash_withdrawal">我要提现</string>
+    <string name="attract_investment">招商</string>
+    <string name="apply_award">申请奖励:</string>
+    <string name="withdrawal_type_01">提现失败</string>
+    <string name="withdrawal_type_02">待审核</string>
+    <string name="withdrawal_type_03">提现成功</string>
+
+    <string name="empty_text_promot_list">暂无推广信息</string>
+    <string name="empty_text_attrac_inverstment">暂无招商信息</string>
+    <string name="mine_team_sign">代表已成为会员的粉丝</string>
+    <string name="waitclearling">待结算（元）</string>
+    <string name="canwithdraw">可提现（元）</string>
+
+
+    <string name="client_chat">跨融商城自营店</string>
+    <string name="client_chat_tip">想要问点什么....</string>
+    <string name="chat_im_btn_send">发送</string>
+    <string name="chat_txt_camera">相机</string>
+    <string name="chat_txt__ablum">相册</string>
+    <string name="chat_txt_add_shopcar">加入购物车</string>
+    <string name="chat_txt_buy_shop">立即购买</string>
+    <string name="chat_txt_sendshop_link">发送链接</string>
+    <string name="chat_txt_send_backmsg_tip">“你”撤回了一条消息</string>
+    <string name="chat_txt_receive_backmsg_tip">对方撤回了一条消息</string>
+
+    <string name="message_txt_hd">互动消息</string>
+    <string name="message_txt__tz">通知消息</string>
+    <string name="chat_reconnect">点击重连</string>
+    <string name="chat_disconnection_tip">抱歉，与通讯服务器断开</string>
+    <string name="chat_empty_text">您还没有和商家聊哦！</string>
+    <!--积分商城-->
+    <string name="credit_home">首页</string>
+    <string name="credit_all_goods">全部商品</string>
+    <string name="credit_mine">我的</string>
+    <string name="credits_store">积分商城</string>
+    <string name="coupon_exchage">兑换</string>
+    <string name="lotterydraws">抽奖</string>
+    <string name="coupons">优惠券</string>
+    <string name="redbags">红包</string>
+    <string name="balances">余额</string>
+    <string name="shop_exchanges">商品</string>
+    <string name="credit_record">参与记录</string>
+    <string name="credits_store_all_goods">全部商品</string>
+    <string name="partake_record">参与记录</string>
+    <string name="partake_record_get_redbags">领取红包</string>
+    <string name="partake_record_confirm_receipt">确认收货</string>
+    <string name="partake_record_evaluaion">评价</string>
+    <string name="partake_record_add_evaluaion">追加评价</string>
+    <string name="tip_msg_redbags">确认领取红包吗？</string>
+    <string name="tip_msg_surereceipt">确认已收到货了吗？</string>
+    <string name="empty_text_partake_record">暂无参与记录</string>
+    <!--积分商城 订单详情-->
+    <string name="exchange_orderdetail">兑换详情</string>
+    <string name="credit_ordermoneys">商品总额:</string>
+    <string name="credit_confirmorder">确认订单</string>
+    <string name="credit_gopay">立即支付</string>
+    <string name="delivery_not_supported">当前地址暂不支持配送</string>
+    <string name="credit_empty_wholesheettxt">还没评论哦！</string>
+    <string name="empty_text_credit_goods">暂无积分商品信息！</string>
+    <string name="empty_text_credit_goods_search">未找到任何产品！</string>
+    <string name="credit_empty_txt_filter_menu">暂无商品筛选信息！</string>
+    <string name="empty_text_exchage_record">暂无兑换记录！</string>
+    <string name="empty_text_lottery_record">暂无抽奖记录！</string>
+    <!--积分商城  抽奖-->
+    <string name="now_lottery_ing">努力抽奖中，请稍后...</string>
+    <string name="nolottery">很遗憾，您没有中奖！</string>
+    <string name="oklottery">恭喜您, 抽奖成功了！</string>
+    <string name="okpay">恭喜您, 兑换成功！</string>
+    <string name="nopay">兑换失败了！</string>
+
+
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrl_disconnection"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/leve3orange"
+    android:layout_below="@id/ic_toolbar"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:visibility="gone"
+    android:padding="@dimen/px10dp"
+    tools:showIn="@layout/actiivty_open_chat">
+
+    <TextView
+        android:id="@+id/tv_disconnectiontip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chat_disconnection_tip"
+        android:textSize="@dimen/px13sp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--点击重连-->
+    <TextView
+        android:id="@+id/tv_reconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:text="@string/chat_reconnect"
+        android:textColor="@color/color_signed_all"
+        android:gravity="left"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_disconnectiontip"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

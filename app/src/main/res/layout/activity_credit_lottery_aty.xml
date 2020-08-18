@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="creditlotteryVM"
+            type="com.jzd.jzshop.ui.home.creditsstore.lottery.CreditLotteryViewModel" />
+    </data>
+
+
+
+
+<android.support.constraint.ConstraintLayout
+    android:id="@+id/conlt"
+    android:visibility="gone"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jzd.jzshop.ui.home.creditsstore.lottery.CreditLotteryAty">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/con_point"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@mipmap/bg_lattery_radius"
+        android:layout_marginTop="@dimen/px130dp"
+        android:layout_width="@dimen/px106dp"
+        android:layout_height="@dimen/px106dp">
+        <ImageView
+            android:id="@+id/iv_point"
+            android:layout_marginTop="@dimen/px26dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/ic_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+
+
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px20sp"
+        android:layout_marginTop="@dimen/px42dp"
+        app:layout_constraintEnd_toEndOf="@id/con_point"
+        app:layout_constraintTop_toBottomOf="@id/con_point"
+        app:layout_constraintStart_toStartOf="@id/con_point"
+        android:text="@string/now_lottery_ing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</android.support.constraint.ConstraintLayout>
+</layout>

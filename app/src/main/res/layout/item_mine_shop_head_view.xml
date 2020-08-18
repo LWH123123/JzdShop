@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="shophomeVM"
+            type="com.jzd.jzshop.ui.mine.mineshop.shophome.MineShopHomeViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/px14dp"
+        android:background="@color/defualt">
+
+        <ImageView
+            android:id="@+id/view27"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px230dp"
+            android:background="@mipmap/bg_my_home"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="@+id/textView57"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cd_icon"
+            android:layout_width="@dimen/px46dp"
+            android:layout_height="@dimen/px46dp"
+            android:layout_marginStart="@dimen/px16dp"
+            app:cardCornerRadius="@dimen/px6dp"
+            android:layout_marginTop="@dimen/px30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/appicon" />
+        </android.support.v7.widget.CardView>
+
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px16dp"
+            android:text="跨融商城自营店"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cd_icon"
+            app:layout_constraintStart_toEndOf="@+id/cd_icon"
+            app:layout_constraintTop_toTopOf="@+id/cd_icon" />
+
+
+        <ImageView
+            android:id="@+id/iv_code"
+            android:layout_width="@dimen/px26dp"
+            android:layout_height="@dimen/px26dp"
+            android:layout_marginEnd="@dimen/px16dp"
+            android:src="@mipmap/qr_code"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cd_icon" />
+
+
+        <TextView
+            android:id="@+id/textView57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/qrcode"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px11sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_code"
+            app:layout_constraintStart_toStartOf="@+id/iv_code"
+            app:layout_constraintTop_toBottomOf="@+id/iv_code" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px176dp"
+            android:layout_marginStart="@dimen/px10dp"
+            android:layout_marginTop="@dimen/px30dp"
+            android:layout_marginEnd="@dimen/px10dp"
+            android:background="@color/colorPrimary"
+            app:cardCornerRadius="@dimen/px10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cd_icon">
+
+            <ImageView
+                android:id="@+id/iv_signs"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/px4dp"
+            android:paddingBottom="@dimen/px4dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/cardView3"
+            app:layout_constraintStart_toStartOf="@+id/cardView3"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3">
+
+
+            <ImageView
+                android:id="@+id/imageView76"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_referr"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView53"
+                android:textSize="@dimen/px16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:layout_marginStart="@dimen/px6dp"
+                android:text="@string/shop_referrer"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView76"
+                app:layout_constraintStart_toEndOf="@+id/imageView76"
+                app:layout_constraintTop_toTopOf="@+id/imageView76" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px6dp"
+                android:src="@mipmap/icon_referr"
+                app:layout_constraintBottom_toBottomOf="@+id/textView53"
+                app:layout_constraintStart_toEndOf="@+id/textView53"
+                app:layout_constraintTop_toTopOf="@+id/textView53" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

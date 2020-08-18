@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="creditCommentVM"
+            type="com.jzd.jzshop.ui.home.creditsstore.comment.CreditCommentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{creditCommentVM.toolbarViewModel}" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/px50dp"
+            android:layout_below="@id/ic_toolbar"
+            android:background="@color/defualt"
+            android:paddingTop="@dimen/px6dp">
+
+            <!--module  one -->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/px12dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView32"
+                    android:layout_width="@dimen/px16dp"
+                    android:layout_height="@dimen/px16dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/stores"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_shopLogo"
+                    android:layout_width="31dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView32"
+                    app:layout_constraintStart_toEndOf="@+id/imageView32"
+                    app:layout_constraintTop_toTopOf="@+id/imageView32"
+                    app:srcCompat="@mipmap/tv_stores" />
+
+                <TextView
+                    android:id="@+id/tv_store_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="@string/storename"
+                    android:textColor="@color/textcolor"
+                    android:textSize="@dimen/px15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_shopLogo"
+                    app:layout_constraintStart_toEndOf="@+id/iv_shopLogo"
+                    app:layout_constraintTop_toTopOf="@+id/iv_shopLogo" />
+
+                <ImageView
+                    android:id="@+id/imageView33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_store_name"
+                    app:layout_constraintStart_toEndOf="@+id/tv_store_name"
+                    app:layout_constraintTop_toTopOf="@+id/tv_store_name"
+                    app:srcCompat="@mipmap/point_right" />
+
+            </android.support.constraint.ConstraintLayout>
+            <!--module  two -->
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_good"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/px8dp"
+                android:background="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cons_one">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card"
+                    android:layout_width="@dimen/px80dp"
+                    android:layout_height="@dimen/px80dp"
+                    android:layout_marginStart="@dimen/px10dp"
+                    android:layout_marginBottom="@dimen/px10dp"
+                    app:cardCornerRadius="@dimen/px10dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_good"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/placeholder" />
+
+                </android.support.v7.widget.CardView>
+
+                <!--活动类型-->
+                <TextView
+                    android:id="@+id/tv_state"
+                    android:layout_width="@dimen/px40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/px6dp"
+                    android:layout_marginTop="@dimen/px4dp"
+                    android:layout_marginEnd="@dimen/px10dp"
+                    android:background="@drawable/shape_credits_store_border_red_radius"
+                    android:gravity="center"
+                    android:lineHeight="@dimen/px14dp"
+                    android:padding="@dimen/px3dp"
+                    android:text="@string/coupon_exchage"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/px10sp"
+                    app:layout_constraintStart_toEndOf="@+id/card"
+                    app:layout_constraintTop_toTopOf="@+id/card" />
+
+                <TextView
+                    android:id="@+id/tv_goods_name"
+                    android:layout_width="@dimen/px120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/px6dp"
+                    android:layout_marginEnd="@dimen/px10dp"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:text=""
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px13sp"
+                    app:layout_constraintStart_toEndOf="@+id/tv_state"
+                    app:layout_constraintTop_toTopOf="@+id/card"
+                    tools:text="momo2019初秋新款松紧腰休闲百搭阔腿裤阔腿裤阔腿裤初秋新款…" />
+
+                <TextView
+                    android:id="@+id/tv_goodspec"
+                    android:layout_width="@dimen/px160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/px8dp"
+                    android:layout_marginTop="@dimen/px4dp"
+                    android:ellipsize="end"
+                    android:lines="3"
+                    android:text=""
+                    android:textSize="@dimen/px12sp"
+                    app:layout_constraintStart_toEndOf="@+id/card"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_goods_name"
+                    tools:text="规格：+黑色" />
+
+                <TextView
+                    android:id="@+id/tv_credit_num"
+                    android:layout_width="@dimen/px40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/px2dp"
+                    android:ellipsize="end"
+                    android:gravity="center|right"
+                    android:lines="1"
+                    android:text=""
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_price_symbol"
+                    app:layout_constraintTop_toTopOf="@+id/card"
+                    tools:text="105810510581051058105" />
+
+                <TextView
+                    android:id="@+id/tv_price_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/px12dp"
+                    android:gravity="center"
+                    android:text="积分"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/card" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px12dp"
+                    android:layout_marginTop="@dimen/px2dp"
+                    android:layout_marginRight="@dimen/px12dp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px14sp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_credit_num"
+                    tools:text="+¥199999999" />
+
+                <TextView
+                    android:id="@+id/tv_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px4dp"
+                    android:layout_marginRight="@dimen/px12dp"
+                    android:text="X12"
+                    android:textColor="@color/textColor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/price" />
+
+            </android.support.constraint.ConstraintLayout>
+            <!--module three-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/defualt"
+                app:layout_constraintTop_toBottomOf="@id/cons_good">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constrlOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/px10dp"
+                    android:layout_marginBottom="@dimen/px1dp"
+                    android:background="@color/white"
+                    android:visibility="visible"
+                    android:padding="@dimen/px12dp">
+                    <!--评分-->
+                    <TextView
+                        android:id="@+id/tv_handleWayTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="评分"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/px14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_ratingStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" *"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/px14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_handleWayTip"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <!--星级-->
+                    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+                        android:id="@+id/ratingbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px8dp"
+                        android:numStars="5"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_ratingStar"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srb_drawBorderEnabled="false"
+                        app:srb_fillColor="@color/orange"
+                        app:srb_numberOfStars="5"
+                        app:srb_rating="0"
+                        app:srb_starBackgroundColor="#c0c0c0"
+                        app:srb_starSize="@dimen/px20dp" />
+
+                    <TextView
+                        android:id="@+id/tv_score_txt"
+                        android:layout_width="@dimen/px80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:text="没有评分"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/px14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/ratingbar"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_close"
+                        android:layout_width="@dimen/px20dp"
+                        android:layout_height="@dimen/px20dp"
+                        android:layout_marginLeft="@dimen/px16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_score_txt"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/back_pop" />
+                </android.support.constraint.ConstraintLayout>
+
+                <!--module two  晒图-->
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constrlTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/constrlOne"
+                    android:layout_marginBottom="@dimen/px1dp"
+                    android:background="@color/white"
+                    android:padding="@dimen/px12dp">
+
+                    <TextView
+                        android:id="@+id/tv_reasonWay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="晒图"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/px14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--上传图片-->
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/iv_upload"
+                        android:layout_width="@dimen/px0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/px16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_reasonWay"
+                        app:layout_constraintStart_toEndOf="@+id/tv_reasonWay"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <!--module three 评论 -->
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constrlThree"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px100dp"
+                    android:layout_below="@id/constrlTwo"
+                    android:background="@color/white"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:padding="@dimen/px12dp">
+
+                    <!--  *-->
+
+                    <EditText
+                        android:id="@+id/et_commont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/boder_bg_edittext"
+                        android:gravity="left|top"
+                        android:hint="说点什么吧"
+                        android:lineSpacingExtra="@dimen/px2dp"
+                        android:lines="4"
+                        android:maxLines="4"
+                        android:minLines="6"
+                        android:padding="@dimen/px6dp"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/boder"
+                        android:textSize="@dimen/px14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="说点什么吧" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </RelativeLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--评价  app:onClickCommand="@{commonVM.submitCommontOnClick}"-->
+        <TextView
+            android:id="@+id/tv_submitCommont"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="@string/submit_commont"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px14sp" />
+
+    </RelativeLayout>
+
+</layout>

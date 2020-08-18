@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.jzd.jzshop.ui.order.firmorder.FirmOrderItemViewModle" />
+
+        <variable
+            name="firmOrderGIVM"
+            type="com.jzd.jzshop.ui.order.firmorder.FirmOrderItemViewModle" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px10dp"
+            onClickCommand="@{firmOrderGIVM.onClickItemShop}"
+            android:layout_marginRight="@dimen/px10dp"
+            android:background="@color/white"
+            android:padding="@dimen/px10dp">
+
+            <ImageView
+                android:id="@+id/ifog_thumb"
+                url="@{firmOrderGIVM.entitys.thumb}"
+                android:layout_width="@dimen/px76dp"
+                android:layout_height="@dimen/px76dp"
+                android:scaleType="centerCrop"
+                app:isRounded="@{true}"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/placeholder" />
+
+            <TextView
+                android:id="@+id/ifog_title"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px10dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text='@{firmOrderGIVM.entitys.title,default="护发及"}'
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ifog_thumb"
+                app:layout_constraintTop_toTopOf="@id/ifog_thumb" />
+
+            <TextView
+                android:id="@+id/ifog_spce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px4dp"
+                android:text='@{firmOrderGIVM.entitys.spec_title,default="已选规格"}'
+                android:textColor="@color/level3text"
+                android:textSize="@dimen/px12sp"
+                app:layout_constraintStart_toStartOf="@+id/ifog_title"
+                app:layout_constraintTop_toBottomOf="@+id/ifog_title" />
+
+            <TextView
+                android:id="@+id/ifog_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text='@{"¥"+firmOrderGIVM.entitys.price,default="¥100"}'
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px12sp"
+                app:layout_constraintBottom_toBottomOf="@id/ifog_thumb"
+                app:layout_constraintStart_toStartOf="@+id/ifog_spce" />
+                    <TextView
+                        android:id="@+id/ifog_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{"x"+firmOrderGIVM.entitys.number,default="x1"}'
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/px12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/ifog_thumb"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+            <!--商品数量可编辑-->
+
+ <!--           <EditText
+                android:id="@+id/ifog_number"
+                android:layout_width="@dimen/px50dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/shape_bg_radius_stroke_gray"
+                android:text='@{firmOrderGIVM.entitys.number,default="0"}'
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px14sp"
+                android:inputType="number"
+                android:numeric="integer"
+                app:layout_constraintBottom_toBottomOf="@id/ifog_thumb"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/ifog_number_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/px6dp"
+                android:text="x"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintBottom_toBottomOf="@id/ifog_thumb"
+                app:layout_constraintRight_toLeftOf="@id/ifog_number"
+                android:visibility="gone"/>-->
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px14dp"
+            android:layout_marginLeft="@dimen/px10dp"
+            android:layout_marginRight="@dimen/px10dp"
+            android:background="@drawable/boder_bottom_radius"
+            android:visibility="@{firmOrderGIVM.entitys.islast==0?View.GONE:View.VISIBLE,default=gone}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px10dp"
+            android:background="@color/defualt"
+            android:visibility="@{firmOrderGIVM.entitys.islast==0?View.GONE:View.VISIBLE,default=gone}" />
+    </LinearLayout>
+</layout>

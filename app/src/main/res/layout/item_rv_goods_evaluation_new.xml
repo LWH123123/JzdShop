@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/defualt"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/px12dp">
+
+        <com.jzd.jzshop.utils.widget.ZQImageViewRoundOval
+            android:id="@+id/iv_headimg"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/placeholder"
+            android:layout_marginBottom="@dimen/px6dp"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px6dp"
+            android:layout_toRightOf="@id/iv_headimg"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px16sp"
+            tools:text="用户1" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="@dimen/px6dp"
+            android:layout_marginTop="@dimen/px2dp"
+            android:layout_toRightOf="@id/iv_headimg"
+            android:text=""
+            android:textColor="@color/gray"
+            android:textSize="@dimen/px12sp"
+            tools:text="2019-11-12 10:23" />
+
+        <!--商品规格-->
+        <TextView
+            android:id="@+id/tv_spec_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="@dimen/px2dp"
+            android:layout_toRightOf="@id/tv_time"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="@color/gray"
+            android:textSize="@dimen/px12sp"
+            tools:text="尺码-43 颜色分类 黄色" />
+
+        <!--评论内容-->
+        <LinearLayout
+            android:id="@+id/ll_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_headimg"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/px14sp"
+                android:layout_marginLeft="@dimen/px4dp"
+                tools:text="如果说双11是声色犬马的狂欢夜场，让我们纵情释放了消费欲望" />
+            <!--  评论图片 动态添加-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recy_comment_pics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+        <!--module two    商家回复-->
+        <LinearLayout
+            android:id="@+id/ll_reply_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_comment"
+            android:background="@drawable/ic_bg_goods_evaluation_reply"
+            android:layout_marginTop="@dimen/px6dp"
+            android:padding="@dimen/px10dp"
+            android:visibility="visible"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_reply_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px6dp"
+                android:textSize="@dimen/px14sp"
+                tools:text="商家回复：" />
+            <!--  评论图片 动态添加-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recy_reply_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px2dp"
+                android:layout_marginTop="@dimen/px4dp"
+                android:background="@color/transparent"/>
+
+        </LinearLayout>
+
+        <!--view  space-->
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1dp"
+            android:layout_below="@id/ll_reply_content"
+            android:layout_marginTop="@dimen/px8dp"
+            android:background="@color/picture_color_f2" />
+
+        <!--module three    用户追评-->
+        <LinearLayout
+            android:id="@+id/ll_append_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_line"
+            android:visibility="visible"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_append_content_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/px6dp"
+                android:text="用户追评"
+                android:textColor="#E20500"
+                android:textSize="@dimen/px14sp" />
+
+            <TextView
+                android:id="@+id/tv_append_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/px4dp"
+                android:textSize="@dimen/px14sp"
+                tools:text="用户追评" />
+            <!--  评论图片 动态添加-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recy_append_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"/>
+        </LinearLayout>
+
+        <!--module four    商家回复 用户追评-->
+        <LinearLayout
+            android:id="@+id/ll_append_reply_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_append_content"
+            android:background="@drawable/ic_bg_goods_evaluation_reply"
+            android:layout_marginTop="@dimen/px6dp"
+            android:padding="@dimen/px10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_append_reply_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px6dp"
+                android:textSize="@dimen/px14sp"
+                tools:text="商家回复:可以选择规格哦" />
+            <!--  评论图片 动态添加-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recy_append_reply_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px2dp"
+                android:paddingTop="@dimen/px4dp"
+                android:background="@color/transparent"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!--divder-->
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/px8dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_bg_default" />
+</LinearLayout>

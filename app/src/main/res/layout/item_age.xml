@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <CheckBox
+        android:id="@+id/ch_age"
+        style="@style/CustomCheckboxTheme"
+        android:text="@string/age"
+        android:drawablePadding="@dimen/px6dp"
+        android:gravity="center"
+        android:layout_margin="@dimen/px2dp"
+        android:textSize="@dimen/px11sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

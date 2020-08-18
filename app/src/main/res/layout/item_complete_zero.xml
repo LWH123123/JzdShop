@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout8"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/px60dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_xing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/xing"
+        android:textColor="@color/red"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nicke"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_xing"
+        app:layout_constraintStart_toEndOf="@+id/tv_xing"
+        app:layout_constraintTop_toTopOf="@+id/tv_xing" />
+
+    <EditText
+        android:id="@+id/ed_value"
+        android:layout_width="@dimen/px0dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_marginStart="@dimen/px90dp"
+        android:textSize="@dimen/px12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px1dp"
+        android:background="@color/level5text"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>

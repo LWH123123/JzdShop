@@ -1,0 +1,45 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.jzd.jzshop.ui.order.comment.CommentViewModel" />
+        <variable
+            name="commonVM"
+            type="CommentViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{commonVM.toolbarViewModel}" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ic_toolbar"
+            android:background="@color/defualt"
+            android:layout_marginBottom="@dimen/px50dp"
+            android:paddingTop="@dimen/px6dp" />
+        <!--评价  app:onClickCommand="@{commonVM.submitCommontOnClick}"-->
+        <TextView
+            android:id="@+id/tv_submitCommont"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="@string/submit_commont"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px14sp"
+             />
+
+    </RelativeLayout>
+
+</layout>

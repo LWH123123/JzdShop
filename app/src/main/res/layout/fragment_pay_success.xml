@@ -1,0 +1,207 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.jzd.jzshop.ui.pay.PaySuccessViewModel" />
+
+        <variable
+            name="paySuccessVM"
+            type="com.jzd.jzshop.ui.pay.PaySuccessViewModel" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.jzd.jzshop.ui.pay.PaySuccessFragment">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{paySuccessVM.toolbarViewModel}" />
+
+        <ImageView
+            android:id="@+id/imageView39"
+            android:layout_width="@dimen/px68dp"
+            android:layout_height="@dimen/px68dp"
+            android:layout_marginTop="30dp"
+            android:src="@mipmap/paysuccess"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/asc_include_toolbar" />
+
+        <TextView
+            android:id="@+id/textView188"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/paysuccess"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView39"
+            app:layout_constraintStart_toStartOf="@+id/imageView39"
+            app:layout_constraintTop_toBottomOf="@+id/imageView39" />
+
+        <TextView
+            android:id="@+id/textView189"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="@dimen/px20dp"
+            android:text="@string/bianhao"
+            android:textColor="@color/level3text"
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView188" />
+
+        <TextView
+            android:id="@+id/textView190"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/paynumber"
+            android:textColor="@color/level3text"
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView189" />
+
+        <TextView
+            android:id="@+id/fps_ordersn_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:layout_marginLeft="95dp"
+            android:textColor="@color/textColor"
+            android:text='@{paySuccessVM.entity.order_sn,default="000000000"}'
+            app:layout_constraintBottom_toBottomOf="@+id/textView189"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView189" />
+
+        <TextView
+            android:id="@+id/fps_order_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{paySuccessVM.entity.order_priceText,default="109.00元"}'
+
+            android:textColor="@color/red"
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintStart_toStartOf="@+id/fps_ordersn_tv"
+            app:layout_constraintTop_toTopOf="@+id/textView190" />
+
+        <TextView
+            android:id="@+id/textView193"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/paymethod"
+            android:textColor="@color/level3text"
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintStart_toStartOf="@+id/textView190"
+            app:layout_constraintTop_toBottomOf="@+id/textView190" />
+
+        <TextView
+            android:id="@+id/fps_pay_type_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{paySuccessVM.entity.pay_typeText,default="微信支付"}'
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintStart_toStartOf="@+id/fps_ordersn_tv"
+            app:layout_constraintTop_toTopOf="@+id/textView193"
+            android:textColor="@color/textColor"
+            />
+
+        <View
+            android:id="@+id/view20"
+            android:layout_width="@dimen/px380dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@color/level4text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView193"
+            app:layout_constraintTop_toBottomOf="@+id/textView193" />
+
+        <TextView
+            android:id="@+id/textView195"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/shouhuoren"
+            android:textColor="@color/level3text"
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintStart_toStartOf="@+id/textView193"
+            app:layout_constraintTop_toBottomOf="@+id/view20" />
+
+        <TextView
+            android:id="@+id/fps_name_mobile_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{paySuccessVM.entity.receive_nameText,default="流沙包 12345678910"}'
+            android:textSize="@dimen/px13sp"
+            android:textColor="@color/textColor"
+
+            app:layout_constraintStart_toStartOf="@+id/fps_pay_type_tv"
+            app:layout_constraintTop_toTopOf="@+id/textView195" />
+
+        <TextView
+            android:id="@+id/textView197"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/shouhuoaddress"
+            android:textColor="@color/level3text"
+            app:layout_constraintStart_toStartOf="@+id/textView195"
+            app:layout_constraintTop_toBottomOf="@+id/textView195" />
+
+        <TextView
+            android:id="@+id/textView198"
+            android:layout_width="@dimen/px0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/px12dp"
+            android:text='@{paySuccessVM.entity.receive_address,default="安徽省合肥市瑶海区"}'
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/textColor"
+            app:layout_constraintStart_toStartOf="@+id/fps_name_mobile_tv"
+            app:layout_constraintTop_toTopOf="@+id/textView197"/>
+
+        <!--        android:background="@drawable/boder_radius_buttom_hint"-->
+        <TextView
+            android:id="@+id/textView199"
+            android:layout_width="@dimen/px300dp"
+            android:layout_height="@dimen/px40dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/boder_radius_buttom"
+            android:gravity="center"
+            android:text="@string/lookorder"
+            android:textSize="@dimen/px15sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/textView200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            onClickCommand="@{paySuccessVM.onClickOrderDetails}"/>
+
+        <!-- 再来一单  -->
+        <TextView
+            android:id="@+id/textView200"
+            android:layout_width="@dimen/px300dp"
+            android:layout_height="@dimen/px46dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/boder_radius_buttom"
+            android:gravity="center"
+            android:text="@string/reorder"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

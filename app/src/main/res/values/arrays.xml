@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--我的订单 module-->
+    <string-array name="my_order_txt">
+        <item>待付款</item>
+        <item>待发货</item>
+        <item>待收货</item>
+        <item>退换货</item>
+        <item>已完成</item>
+    </string-array>
+    <!--我的功能-->
+    <string-array name="my_function_txt">
+        <item>奖励中心</item>
+        <item>积分签到</item>
+        <item>&#160;&#8201;优惠券&#160;&#8201;</item>
+        <item>邀请好友</item>
+        <item>我的团队</item>
+        <item>我的收藏</item>
+        <item>收货地址</item>
+<!--        <item>商家入驻</item>-->
+        <item>领券中心</item>
+        <item>我的小店</item>
+    </string-array>
+       <!-- <item>商家入驻</item>  暂时隐藏-->
+    <!--我的服务-->
+    <string-array name="my_service_txt">
+        <item>在线客服</item>
+        <item>电话客服</item>
+        <item>意见反馈</item>
+    </string-array>
+
+    <!--意见反馈-->
+    <string-array name="feedback_quest_name">
+        <item>其他</item>
+        <item>商品问题</item>
+        <item>配送问题</item>
+        <item>订单问题</item>
+        <item>平台会员</item>
+        <item>售后问题</item>
+        <item>提现问题</item>
+        <item>资产问题</item>
+    </string-array>
+    <!-- 君子权记录-->
+    <string-array name="assets_record_tab_txt">
+        <item>全部</item>
+        <item>待付款</item>
+        <item>已付款</item>
+        <item>已完成</item>
+    </string-array>
+    <!--本地生活-->
+    <string-array name="local_life_tab_txt">
+        <item>线下美食</item>
+        <item>线上美食</item>
+    </string-array>
+    <!-- 推广中心-奖励明细 -->
+    <string-array name="award_list_txt">
+        <item>全部</item>
+        <item>待审核</item>
+        <item>待打款</item>
+        <item>已打款</item>
+        <item>无效</item>
+    </string-array>
+
+    <!-- 推广中心-奖励订单（推广订单） -->
+    <string-array name="promotion_order_txt">
+        <item>所有</item>
+        <item>待付款</item>
+        <item>已付款</item>
+        <item>已完成</item>
+    </string-array>
+    <!-- 本地生活  搜索 -->
+    <string-array name="search_hot_keys_tip_txt">
+        <item>历史记录</item>
+        <item>热搜</item>
+    </string-array>
+    <string-array name="search_hot_keys_hot_txt">
+        <item>鱼头泡馍</item>
+        <item>小鸡炖蘑菇</item>
+        <item>麻辣</item>
+        <item>香辣蟹</item>
+        <item>江南小吃</item>
+        <item>麦当劳</item>
+        <item>川菜</item>
+    </string-array>
+    <!-- 本地生活  选择城市 -->
+    <string-array name="search_city_tip_txt">
+        <item>热门城市</item>
+    </string-array>
+    <string-array name="search_hot_city_txt">
+        <item>北京</item>
+        <item>上海</item>
+        <item>广州</item>
+        <item>苏州</item>
+        <item>大连</item>
+        <item>重庆</item>
+        <item>无锡</item>
+        <item>天津</item>
+        <item>佛山</item>
+        <item>宁波</item>
+        <item>南京</item>
+        <item>成都</item>
+        <item>东莞</item>
+        <item>武汉</item>
+        <item>青岛</item>
+        <item>沈阳</item>
+        <item>烟台</item>
+        <item>唐山</item>
+        <item>济南</item>
+        <item>哈尔滨</item>
+        <item>石家庄</item>
+        <item>郑州</item>
+        <item>泉州</item>
+        <item>温州</item>
+        <item>长沙</item>
+        <item>南通</item>
+        <item>长春</item>
+    </string-array>
+    <!-- 签到排行-->
+    <string-array name="sign_ranking_tab_txt">
+        <item>连续签到排行</item>
+        <item>总签到排行</item>
+    </string-array>
+    <!--佣金推广-->
+    <string-array name="commission_withdr_tab_txt">
+        <item>提现申请</item>
+        <item>提现中</item>
+        <item>提现记录</item>
+    </string-array>
+    promot_commission_txt
+    <!--推广佣金-->
+    <string-array name="promot_commission_txt">
+        <item>推广</item>
+        <item>小店</item>
+        <item>团队</item>
+        <item>招商</item>
+    </string-array>
+    <!--chat 热词搜索-->
+    <string-array name="chat_keywords_txt_no_goods">
+        <item>优惠券</item>
+        <item>订单查询</item>
+    </string-array>
+    <string-array name="chat_keywords_txt">
+        <item>优惠券</item>
+        <item>订单查询</item>
+        <item>店铺上新</item>
+    </string-array>
+    <!-- 积分商城 我的 -->
+    <string-array name="credits_tab_txt">
+        <item>兑换记录</item>
+        <item>中奖记录</item>
+    </string-array>
+
+</resources>

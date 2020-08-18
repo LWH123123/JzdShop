@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="creditshopexpressVM"
+            type="com.jzd.jzshop.ui.home.creditsstore.express.CreditShopExpressViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true"
+        android:background="@color/defualt"
+        android:layout_height="match_parent"
+        tools:context="com.jzd.jzshop.ui.order.logistics.LogisticInfoFragment">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{creditshopexpressVM.toolbarViewModel}" />
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:overScrollMode="never"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:background="@color/defualt"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/px16dp"
+                    android:background="@drawable/boder_radius"
+                    android:layout_height="@dimen/px120dp">
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="@dimen/px76dp"
+                        android:layout_height="@dimen/px76dp"
+                        android:scaleType="fitXY"
+                        url="@{creditshopexpressVM.entity.thumb}"
+                        android:layout_marginStart="@dimen/px14dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                        app:layout_constraintHorizontal_bias="0.522"
+                        app:layout_constraintStart_toStartOf="@+id/imageView4" />
+
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/px10dp"
+                        android:text=""
+                        android:visibility="visible"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/px22sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+                    <TextView
+                        android:id="@+id/tv_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/px10dp"
+                        android:textColor="@color/textColor"
+                        android:text="快递公司:"
+                        android:textSize="@dimen/px13sp"
+                        android:layout_marginTop="@dimen/px6dp"
+                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+                    <TextView
+                        android:id="@+id/tv_formcard"
+                        android:layout_width="wrap_content"
+                        android:text="快递单号:"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/px13sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/px10dp"
+                        android:layout_marginTop="@dimen/px3dp"
+                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_profile" />
+
+
+
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="@dimen/px10dp"
+                    android:paddingTop="@dimen/px10dp"
+                    android:background="@drawable/boder_radius"
+                    android:visibility="gone"
+                    android:id="@+id/recycle"
+                    android:paddingBottom="@dimen/px20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

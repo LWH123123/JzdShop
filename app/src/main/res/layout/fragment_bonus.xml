@@ -1,0 +1,359 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+          <import type="com.jzd.jzshop.ui.mine.withdrawals.BonusViewModel"/>
+        <variable
+            name="bonusVM"
+            type="BonusViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarViewModel="@{bonusVM.toolbarViewModel}" />
+
+
+
+
+
+
+<android.support.constraint.ConstraintLayout
+    android:visibility="visible"
+    android:background="@color/defualt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mine.withdrawals.BonusFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView49"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px186dp"
+        android:src="@color/colorred"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView164"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="@string/accumulated"
+        android:layout_marginTop="@dimen/px30dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView165"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text='@{bonusVM.bonus.commission_total,default="0.00"}'
+        android:textColor="@color/white"
+        android:textSize="@dimen/px38sp"
+        app:layout_constraintStart_toStartOf="@+id/textView164"
+        app:layout_constraintTop_toBottomOf="@+id/textView164" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:paddingBottom="@dimen/px20dp"
+        android:background="@drawable/boder_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView165">
+
+
+        <TextView
+            android:id="@+id/textView166"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="14dp"
+            android:text='@{bonusVM.bonus.commission_ok,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView167"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/cashAward"
+            android:textColor="@color/level3text"
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView166" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/px50dp"
+            android:background="@color/textColorHint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView166" />
+
+        <TextView
+            android:id="@+id/textView170"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:text='@{bonusVM.bonus.commission_check,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView171"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/waitRemit"
+            app:layout_constraintEnd_toEndOf="@+id/textView170"
+            app:layout_constraintStart_toStartOf="@+id/textView170"
+            app:layout_constraintTop_toBottomOf="@+id/textView170" />
+
+        <TextView
+            android:id="@+id/textView172"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/awardApplied"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView167" />
+
+        <TextView
+            android:id="@+id/textView173"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px80dp"
+            android:text='@{"¥"+bonusVM.bonus.commission_apply,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toEndOf="@+id/textView172"
+            app:layout_constraintTop_toTopOf="@+id/textView172" />
+
+
+        <View
+            android:layout_width="328dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/defualt"
+            app:layout_constraintEnd_toEndOf="@+id/textView171"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textView172"
+            app:layout_constraintTop_toBottomOf="@+id/textView173" />
+
+        <View
+            android:id="@+id/view19"
+            android:layout_width="328dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            android:background="@color/defualt"
+            app:layout_constraintEnd_toEndOf="@+id/textView171"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textView172"
+            app:layout_constraintTop_toBottomOf="@+id/textView181" />
+
+        <View
+            android:id="@+id/view18"
+            android:layout_width="328dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/defualt"
+            app:layout_constraintEnd_toEndOf="@+id/textView171"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textView172"
+            app:layout_constraintTop_toBottomOf="@+id/textView177" />
+
+        <TextView
+            android:id="@+id/textView174"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/invalidReward"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView172"
+            app:layout_constraintTop_toBottomOf="@+id/textView172" />
+
+        <TextView
+            android:id="@+id/textView175"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"¥"+bonusVM.bonus.commission_fail,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView173"
+            app:layout_constraintTop_toTopOf="@+id/textView174" />
+
+        <TextView
+            android:id="@+id/textView176"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/successfulWithdrawal"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView174"
+            app:layout_constraintTop_toBottomOf="@+id/textView174" />
+
+        <TextView
+            android:id="@+id/textView177"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"¥"+bonusVM.bonus.commission_pay,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView175"
+            app:layout_constraintTop_toTopOf="@+id/textView176" />
+
+        <TextView
+            android:id="@+id/textView180"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/receivingGoods"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView176"
+            app:layout_constraintTop_toBottomOf="@+id/textView176" />
+
+        <TextView
+            android:id="@+id/textView181"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{"¥"+bonusVM.bonus.commission_wait,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView177"
+            app:layout_constraintTop_toTopOf="@+id/textView180" />
+
+        <TextView
+            android:id="@+id/textView182"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/outstandingReward"
+            android:visibility="gone"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView180"
+            app:layout_constraintTop_toBottomOf="@+id/textView180" />
+
+        <TextView
+            android:id="@+id/textView183"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text='@{"¥"+bonusVM.bonus.commission_apply,default="0.00"}'
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintStart_toStartOf="@+id/textView181"
+            app:layout_constraintTop_toTopOf="@+id/textView182" />
+
+        <View
+            android:id="@+id/view17"
+            android:layout_width="328dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/defualt"
+            app:layout_constraintEnd_toEndOf="@+id/textView171"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/textView172"
+            app:layout_constraintTop_toBottomOf="@+id/textView175" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView184"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/level1text"
+        android:textSize="@dimen/px14sp"
+        android:text="@string/userAgreementone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:lineSpacingExtra="@dimen/px6dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/level1text"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView184" />
+
+    <TextView
+        android:id="@+id/textView186"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/px6dp"
+        android:visibility="gone"
+        android:layout_marginTop="6dp"
+        android:text="@string/userAgreementthree"
+        app:layout_constraintStart_toStartOf="@+id/textView184"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc" />
+
+    <TextView
+        android:id="@+id/textView187"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/level5text"
+        android:gravity="center"
+        android:text="@string/myWithdraw"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</layout>

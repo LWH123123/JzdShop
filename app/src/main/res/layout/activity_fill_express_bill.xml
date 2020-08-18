@@ -1,0 +1,150 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="fillExpressBillVM"
+            type="com.jzd.jzshop.ui.order.aftersale.FillExpressBillViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/defualt">
+
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{fillExpressBillVM.toolbarViewModel}" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constrlReturnGoods"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ic_toolbar"
+            android:layout_marginTop="@dimen/px12dp"
+            android:background="@color/white"
+            android:padding="@dimen/px12dp">
+
+            <!--填写快递单号-->
+            <TextView
+                android:id="@+id/tv_fillExpressBillTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="填写快递单号"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px15sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_expressCompanytip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px24dp"
+                android:padding="@dimen/px6dp"
+                android:text="快递公司"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_fillExpressBillTip" />
+
+
+            <TextView
+                android:id="@+id/tv_returnGoodsAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:layout_marginTop="@dimen/px24dp"
+                android:padding="@dimen/px6dp"
+                android:text="@={fillExpressBillVM.uc.expressm}"
+                android:hint="请点选快递公司"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_expressCompanytip"
+                app:layout_constraintTop_toBottomOf="@id/tv_fillExpressBillTip" />
+
+            <View
+                android:id="@+id/view_space1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px1dp"
+                android:layout_marginTop="@dimen/px16dp"
+                android:background="@color/defualt"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_returnGoodsAddress" />
+            <!--快递单号-->
+            <TextView
+                android:id="@+id/tv_expressbillTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px16dp"
+                android:padding="@dimen/px6dp"
+                android:text="快递单号"
+                android:textSize="@dimen/px15sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_space1" />
+
+            <EditText
+                android:id="@+id/tv_expressbill"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px12dp"
+                android:layout_marginTop="@dimen/px16dp"
+                android:background="@color/transparent"
+                android:padding="@dimen/px6dp"
+                android:text="@={fillExpressBillVM.uc.expresssn}"
+                android:textColor="@color/textColor"
+                android:maxLength="17"
+                android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:hint="输入快递单号"
+                android:textSize="@dimen/px14sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/tv_expressbillTip"
+                app:layout_constraintTop_toBottomOf="@id/view_space1" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white">
+            <!--提交快递单号-->
+            <TextView
+                android:id="@+id/tv_submitExpressBill"
+                android:layout_width="@dimen/px100dp"
+                android:layout_height="@dimen/px32dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_btn_radius_border_red"
+                android:gravity="center"
+                android:text="@string/submit_express_bill"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/px14sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tv_goBack"
+                app:layout_constraintTop_toTopOf="parent"
+                app:onClickCommand="@{fillExpressBillVM.submitExpressBillOnClick}" />
+            <!--返回-->
+            <TextView
+                android:id="@+id/tv_goBack"
+                android:layout_width="@dimen/px82dp"
+                android:layout_height="@dimen/px32dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/boder_radius_buttom_hint"
+                android:gravity="center"
+                android:text="@string/go_back"
+                android:textColor="@color/level1text"
+                android:textSize="@dimen/px14sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:onClickCommand="@{fillExpressBillVM.goBackOnClick}" />
+        </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
+
+</layout>

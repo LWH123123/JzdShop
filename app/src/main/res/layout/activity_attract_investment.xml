@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="attractInvestmentVM"
+            type="com.jzd.jzshop.ui.mine.promotion.business.AttractInvestmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{attractInvestmentVM.toolbarViewModel}" />
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/con_money"
+            android:layout_below="@id/ic_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px150dp"
+            >
+
+            <View
+                android:id="@+id/view30"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px66dp"
+                android:background="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px114dp"
+                android:elevation="10dp"
+                android:outlineProvider="bounds"
+                android:translationZ="3dp"
+                android:layout_marginStart="@dimen/px12dp"
+                android:layout_marginEnd="@dimen/px12dp"
+                android:layout_marginTop="@dimen/px18dp"
+                android:background="@drawable/shape_bottom_radius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view30">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/bg_red_gradual"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tv_clearling"
+                    android:layout_marginStart="@dimen/px54dp"
+                    android:textSize="@dimen/px15sp"
+                    android:textColor="@color/textColor"
+                    android:layout_marginTop="@dimen/px30dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/waitclearling"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{attractInvestmentVM.data.wait,default="0.0"}'
+                    android:hint="0.0"
+                    android:textColorHint="@color/textColor"
+                    android:layout_marginTop="@dimen/px4dp"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_clearling"
+                    app:layout_constraintStart_toStartOf="@+id/tv_clearling"
+                    app:layout_constraintTop_toBottomOf="@id/tv_clearling" />
+
+                <View
+                    android:layout_marginTop="@dimen/px30dp"
+                    android:layout_marginBottom="@dimen/px30dp"
+                    android:background="@color/defualt"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="@dimen/px1dp"
+                    android:layout_height="@dimen/px0dp"/>
+
+
+
+                <TextView
+                    android:id="@+id/tv_canwithdraw"
+                    android:layout_marginEnd="@dimen/px54dp"
+                    android:textSize="@dimen/px15sp"
+                    android:textColor="@color/textColor"
+                    android:layout_marginTop="@dimen/px30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/canwithdraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{attractInvestmentVM.data.ok,default="0.0"}'
+                    android:layout_marginTop="@dimen/px4dp"
+                    android:hint="0.0"
+                    android:textColorHint="@color/textColor"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_canwithdraw"
+                    app:layout_constraintStart_toStartOf="@+id/tv_canwithdraw"
+                    app:layout_constraintTop_toBottomOf="@id/tv_canwithdraw" />
+
+
+
+
+
+
+
+
+
+
+            </android.support.constraint.ConstraintLayout>
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/con_money"
+            android:visibility="gone"
+            tools:listitem="@layout/item_rv_promot_commission" />
+
+        <!--空页面提示-->
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_below="@id/ic_toolbar"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="153dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/px200dp"
+                android:background="@mipmap/ic_empty" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/px6dp"
+                android:layout_marginTop="@dimen/px6dp"
+                android:text="@string/empty_text_attrac_inverstment"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

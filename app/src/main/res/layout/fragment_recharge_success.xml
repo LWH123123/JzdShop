@@ -1,0 +1,125 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="rechargesuccessVM"
+            type="com.jzd.jzshop.ui.mine.recharge.RechargeSuccessViewModel" />
+
+
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="727dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:context="com.jzd.jzshop.ui.mine.recharge.RechargeSuccessFragment"
+        tools:layout_editor_absoluteY="1dp">
+
+
+        <ImageView
+            android:id="@+id/imageView41"
+            onClickCommand="@{rechargesuccessVM.onbackClick}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/px6dp"
+            android:padding="@dimen/px8dp"
+            android:src="@mipmap/back_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView42"
+            android:layout_width="@dimen/px66dp"
+            android:layout_height="@dimen/px66dp"
+            android:layout_marginTop="@dimen/px60dp"
+            android:src="@mipmap/paysuccess"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView41" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px40dp"
+            android:text="@string/timeQuantum"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView42" />
+
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px4dp"
+            android:text="本次充值:  100元"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_time"
+            app:layout_constraintStart_toStartOf="@+id/tv_time"
+            app:layout_constraintTop_toBottomOf="@+id/tv_time" />
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px4dp"
+            android:text="充值方式:  微信充值 "
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_money"
+            app:layout_constraintStart_toStartOf="@+id/tv_money"
+            app:layout_constraintTop_toBottomOf="@+id/tv_money" />
+
+
+        <TextView
+            android:id="@+id/textView144"
+            onClickCommand="@{rechargesuccessVM.onBackHomeClick}"
+            android:layout_width="@dimen/px160dp"
+            android:layout_height="@dimen/px46dp"
+            android:layout_marginTop="@dimen/px60dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/boder_red_radius"
+            android:gravity="center"
+            android:text="返回首页"
+            android:textColor="@color/red"
+            android:textSize="@dimen/px16sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_type" />
+
+        <TextView
+            android:id="@+id/textView113"
+            onClickCommand="@{rechargesuccessVM.onClikcRechargeRecord}"
+            android:layout_width="@dimen/px160dp"
+            android:layout_height="@dimen/px46dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="@dimen/px60dp"
+            android:background="@drawable/shape_btn_red_radius"
+            android:gravity="center"
+            android:text="查看充值记录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px16sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tv_type" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

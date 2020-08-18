@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="couponIVM"
+            type="com.jzd.jzshop.entity.GoodsEntity.ResultBean.CouponDataBean" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/px4dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/text_bg"
+            android:gravity="center"
+            android:paddingStart="@dimen/px4dp"
+            android:paddingEnd="@dimen/px4dp"
+            android:text='@{couponIVM.backmoneyText,default="20元"}'
+            android:textColor="@color/colorred"
+            android:textSize="@dimen/px11sp" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

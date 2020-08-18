@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/px12dp"
+    android:background="@color/white">
+    <!--商品小计 tip-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_merch_subtotal_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text="@string/merch_subtota"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_merch_subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text=""
+        tools:text="￥108.00"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px16sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- 数据类型较多，写成recycleview-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_calcData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_merch_subtotal_tip" />
+
+    <!-- 实付费 Real payment-->
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_realpayment_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text="@string/real_payment"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycle_calcData" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_ealpayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text=""
+        tools:text="￥216.00"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/px16sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recycle_calcData" />
+
+    <View
+        android:id="@+id/view_space"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px10dp"
+        android:layout_marginTop="@dimen/px24dp"
+        android:background="@color/defualt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_realpayment_tip"></View>
+    <!-- 订单编号  Order number -->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_order_number_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text="@string/order_number"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_space" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_order_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px8dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:text=""
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_order_number_tip"
+        app:layout_constraintTop_toBottomOf="@id/view_space"
+        tools:text="2019-11-08 09:45:05" />
+    <!--创建时间-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_create_time_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text="@string/order_create_time"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_order_number_tip" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_create_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px8dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:text=""
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_create_time_tip"
+        app:layout_constraintTop_toBottomOf="@id/tv_order_number_tip"
+        tools:text="2019-11-08 09:45:05" />
+    <!--支付时间-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_pay_time_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:text="@string/order_pay_time"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_create_time_tip" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_pay_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px8dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:text=""
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_pay_time_tip"
+        app:layout_constraintTop_toBottomOf="@id/tv_create_time_tip"
+        tools:text="2019-11-08 09:45:05" />
+    <!--发货时间-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_send_time_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:text="@string/order_send_time"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_pay_time_tip" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_send_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px8dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:text=""
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_send_time_tip"
+        app:layout_constraintTop_toBottomOf="@id/tv_pay_time_tip"
+        tools:text="2019-11-08 09:45:05" />
+    <!--完成时间-->
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_finish_time_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/px12dp"
+        android:text="@string/order_finish_time"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_send_time_tip" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_finish_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px8dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:text=""
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_finish_time_tip"
+        app:layout_constraintTop_toBottomOf="@id/tv_send_time_tip"
+        tools:text="2019-11-08 09:45:05" />
+
+    <!--联系商家-->
+    <TextView
+        android:id="@+id/tv_cantactMerchant_new"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/px32dp"
+        android:layout_marginTop="@dimen/px16dp"
+        android:layout_marginBottom="@dimen/px16dp"
+        android:drawableLeft="@mipmap/ic_chat_service"
+        android:drawablePadding="@dimen/px6dp"
+        android:gravity="center"
+        android:text="@string/contactTheSeller"
+        android:textColor="@color/color_chat_service"
+        android:textSize="@dimen/px14sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tv_create_time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="timeselectVM"
+            type="com.jzd.jzshop.ui.mine.creditsign.TimeSelectViewModel" />
+
+    </data>
+
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.jzd.jzshop.ui.mine.creditsign.TimeSelectAty">
+
+        <include
+            android:id="@+id/in_title"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{timeselectVM.toolbarViewModel}" />
+
+
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_marginTop="@dimen/px10dp"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px18sp"
+            android:text="2018年2月19日"
+            android:gravity="center"
+            onClickCommand="@{timeselectVM.onTimeSelectClick}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <DatePicker
+            android:id="@+id/tp_select"
+            android:calendarViewShown="false"
+            android:endYear="2020"
+            android:startYear="2000"
+            android:datePickerMode="spinner"
+            android:padding="@dimen/px10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+</layout>

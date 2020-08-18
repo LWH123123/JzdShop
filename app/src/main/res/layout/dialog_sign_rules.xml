@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/px30dp"
+    android:background="@drawable/bg_radio"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/px16dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/sign_rule"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px16sp" />
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/px250dp"
+        android:layout_below="@id/tv_title"
+        android:layout_marginBottom="@dimen/px12dp"
+        android:background="@color/white"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:padding="@dimen/px12dp"
+        android:scrollbars="none"
+        tools:ignore="WebViewLayout" />
+
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px40dp"
+        android:layout_below="@id/web_view"
+        android:background="@drawable/boder_radius_red"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/txt_i_know"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</RelativeLayout>

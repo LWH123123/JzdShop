@@ -1,0 +1,130 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.mine.address.ReceiptAddressFragment">
+
+    <data>
+
+        <import type="android.support.v7.widget.StaggeredGridLayoutManager" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="receiptAddressVM"
+            type="com.jzd.jzshop.ui.mine.address.ReceiptAddressViewModel" />
+
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_above="@id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarViewModel="@{receiptAddressVM.toolbarViewModel}" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/mall_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px0dp"
+            android:background="@color/defualt"
+            android:layout_below="@id/asc_include_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView27"
+            app:layout_constraintVertical_bias="0.0">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/defualt"
+                android:overScrollMode="never"
+                binding:adapter="@{adapter}"
+                android:paddingBottom="@dimen/px20dp"
+                binding:itemBinding="@{receiptAddressVM.receipt}"
+                binding:items="@{receiptAddressVM.receiptlist}"
+                binding:layoutManager="@{LayoutManagers.linear()}"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_address" />
+
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <ImageView
+            android:id="@+id/imageView27"
+            android:layout_width="@dimen/px140dp"
+            android:layout_height="@dimen/px120dp"
+            android:layout_marginTop="180dp"
+            android:layout_marginEnd="@dimen/px20dp"
+            android:src="@mipmap/noaddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/asc_include_toolbar" />
+
+        <TextView
+            android:id="@+id/textview10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px30dp"
+            android:text="@string/noaddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+
+        <android.support.constraint.Group
+            android:id="@+id/noaddress"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="imageView27,textview10"
+            android:layout_height="wrap_content"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_alignParentBottom="true"
+            android:background="@color/levelred"
+            android:text="@string/add"
+            android:textSize="@dimen/px14sp"
+            onClickCommand="@{receiptAddressVM.onAddClickAddress}"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px44dp"/>
+
+    </RelativeLayout>
+
+</layout>

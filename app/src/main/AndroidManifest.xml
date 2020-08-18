@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jzd.jzshop">
+    <!-- com.slodonapp.ywj_release -->
+    <!-- app 内 permission        start -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" /> <!-- 8.0手机安装软件 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- websocket  im chat   permission    start -->
+    <!-- 解锁屏幕需要的权限 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 申请电源锁需要的权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 震动权限 -->
+    <!-- <uses-permission android:name="android.permission.VIBRATE" /> -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- websocket  im chat   permission    end -->
+    <!-- app 内 permission        end -->
+    <!-- other  三方  permission    start -->
+    <!-- 高德定位  start -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 高德定位  end -->
+    <!-- jpush start -->
+    <permission android:name="${applicationId}.permission.JPUSH_MESSAGE" /> <!-- Required  一些系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" /> <!-- Optional for location -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- jpush  end -->
+    <!-- other  三方   permission    end -->
+    <!-- 允许装载和卸载文件系统权限 -->
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+
+
+    <application
+        android:name=".app.AppApplication"
+        android:allowBackup="true"
+        android:exported="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="UnusedAttribute"
+        tools:replace="android:allowBackup,android:icon">
+
+        <!--9.0 Apache HTTP 客户端弃用 兼容-->
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="368" />
+        <!-- (蘋果分辨率375/(蘋果dpi326/160.0))=368 -->
+        <!-- <meta-data -->
+        <!-- android:name="design_width_in_dp" -->
+        <!-- android:value="184"/> -->
+
+        <!-- Android 8（API级别26）以上设置更高的最大纵横比 2.4 -->
+        <!-- 对于Android 7.1（API级别25）以下需要在配置文件中声明   android:resizeableActivity="false" -->
+        <!-- 全面屏适配 -->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+        <!-- 高德定位  设置key -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="51be6e08e7ec3a2343f5d7db7050e113" />
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService" />
+        <!-- Jpush -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="c5c9cb3c643d792d47d620f4" /> <!-- ===========================APP activiity     start  ======================================== -->
+        <!-- 启动页 -->
+        <activity
+            android:name=".ui.SplashActivity"
+            android:theme="@style/AppTheme.StartingWindowTheme"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden|adjustPan" /> <!-- 新首页 -->
+        <activity
+            android:name=".ui.home.news.HomePageActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".ui.category.CategoryActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.website.WebSiteActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.shoppingcar.ShoppingCarActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.mine.setting.perfectdata.complete.CompleteAty"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.mine.MyActivity"
+            android:launchMode="singleTask" /> <!-- 商品详情 -->
+        <activity
+            android:name=".ui.goods.GoodsActivity"
+            android:launchMode="singleTop" /> <!-- android:hardwareAccelerated="true" -->
+        <!-- 确认订单 -->
+        <activity
+            android:name=".ui.order.firmorder.FirmOrderActivity"
+            android:launchMode="singleTop" />
+        <!-- suppress AndroidDomInspection -->
+        <!-- <activity -->
+        <!-- android:name="com.hongliantian.info.HLTInfo.wxapi.WXEntryActivity" -->
+        <!-- android:exported="true" -->
+        <!-- android:label="@string/app_name" -->
+        <!-- android:launchMode="singleTask" -->
+        <!-- android:taskAffinity="com.hongliantian.info.HLTInfo" -->
+        <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar" /> -->
+        <!-- 验证码登录 -->
+        <activity
+            android:name=".ui.login.LoginVertifyActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.MoreProductJumpLinkAty"
+            android:launchMode="singleTop" /> <!-- 商家入驻 -->
+        <activity
+            android:name=".ui.mine.merch.MerchantEntryAty"
+            android:launchMode="singleTop"
+            android:sharedUserId="android.uid.system" /> <!-- 宝贝评价 -->
+        <activity
+            android:name=".ui.goods.evaluate.GoodsEvaluationAty"
+            android:launchMode="singleTop" /> <!-- QQ客服 -->
+        <activity
+            android:name=".test.QQWebViewActivity"
+            android:launchMode="singleTop" /> <!-- 预览大图 -->
+        <activity
+            android:name=".ui.goods.ImageLookActivity"
+            android:launchMode="singleTop" /> <!-- 邀请好友 -->
+        <activity
+            android:name=".ui.home.invite_friends.InviteFriendsActivity"
+            android:launchMode="singleTop" /> <!-- 订单详情 -->
+        <activity
+            android:name=".ui.order.orderdetail.OrderDetailAty"
+            android:launchMode="singleTop" /> <!-- 申请退款/申请售后 -->
+        <activity
+            android:name=".ui.order.aftersale.ApplyForRefundAty"
+            android:launchMode="singleTop" /> <!-- 申请售后进度 -->
+        <activity
+            android:name=".ui.order.aftersale.SalesApplyProgressAty"
+            android:launchMode="singleTop" /> <!-- 编辑评价 -->
+        <activity
+            android:name=".ui.order.comment.CommentAty"
+            android:launchMode="singleTop" /> <!-- 填写快递单号 -->
+        <activity
+            android:name=".ui.order.aftersale.FillExpressBillAty"
+            android:launchMode="singleTop" /> <!-- 我的页面新 -->
+        <activity
+            android:name=".ui.mine.news.MyPageActivity"
+            android:launchMode="singleTask" /> <!-- 意见反馈 -->
+        <activity
+            android:name=".ui.mine.feedback.FeedBackAty"
+            android:launchMode="singleTop" /> <!-- 充值记录 -->
+        <activity
+            android:name=".ui.mine.recharge.RechargeRecordAty"
+            android:launchMode="singleTop" /> <!-- 提现记录 -->
+        <activity
+            android:name=".ui.mine.withdrawals.WithdrawalsRecordAty"
+            android:launchMode="singleTop" /> <!-- 权资产 -->
+        <activity
+            android:name=".ui.mine.assets.AssetsAty"
+            android:launchMode="singleTop" /> <!-- 君子权记录 -->
+        <activity
+            android:name=".ui.mine.assets.AssetsRecordAty"
+            android:launchMode="singleTop" /> <!-- 本地生活 -->
+        <activity
+            android:name=".ui.home.local_life.LocalLifeAty"
+            android:launchMode="singleTop" /> <!-- 推广中心-奖励明细 -->
+        <activity
+            android:name=".ui.mine.promotion.award_list.AwardListAty"
+            android:launchMode="singleTop" /> <!-- 推广中心-推广订单 -->
+        <activity
+            android:name=".ui.mine.promotion.promotion_order.PromotionOrderAty"
+            android:launchMode="singleTop" /> <!-- 本地生活  关键词搜索 -->
+        <activity
+            android:name=".ui.home.local_life.search.SearchKeyWordAty"
+            android:launchMode="singleTop" /> <!-- 本地生活  选择城市 -->
+        <activity
+            android:name=".ui.home.local_life.location.ChoiceCityAty"
+            android:launchMode="singleTop" /> <!-- 消息中心 -->
+        <activity
+            android:name=".ui.message.MessageCenterActivity"
+            android:launchMode="singleTop" /> <!-- 积分签到 -->
+        <activity
+            android:name=".ui.mine.creditsign.CreditSignNewActivity"
+            android:launchMode="singleTask" />
+        <!-- 签到排行榜 -->
+        <activity
+            android:name=".ui.mine.creditsign.ranking.SignRankingActivity"
+            android:launchMode="singleTask" />
+        <!-- 时间选择 -->
+        <activity
+            android:name=".ui.mine.creditsign.TimeSelectAty"
+            android:launchMode="singleTop" />
+        <!-- 我的小店 -->
+        <activity
+            android:name=".ui.mine.mineshop.MineShopActivity"
+            android:launchMode="singleTask" />
+        <!-- jpush 商户消息详情 -->
+        <activity
+            android:name=".ui.message.MessageMerchListActivity"
+            android:launchMode="singleTop" />
+        <!-- 我的小店首页 -->
+        <activity
+            android:name=".ui.mine.mineshop.shophome.MineShopHomeAty"
+            android:launchMode="singleTask" />
+        <!-- 积分商城  h5-->
+        <activity
+            android:name=".ui.mine.creditsign.shop.CreditShopActivity"
+            android:launchMode="singleTop" /> <!-- 推广佣金 -->
+        <activity
+            android:name=".ui.mine.promotion.PromotCommissionActivity"
+            android:launchMode="singleTop" /> <!-- 佣金提现 -->
+        <activity
+            android:name=".ui.mine.promotion.withdrawal.CommissionWithdrawalActivity"
+            android:launchMode="singleTop" /> <!-- 招商 -->
+        <activity
+            android:name=".ui.mine.promotion.business.AttractInvestmentActivity"
+            android:launchMode="singleTop" /> <!-- 佣金-推广 -->
+        <activity
+            android:name=".ui.mine.promotion.promotion_order.PromotionOrderNewAty"
+            android:launchMode="singleTop" /> <!-- 手机7.0 文件访问 -->
+        <activity
+            android:name=".ui.mine.mineshop.shophome.MineSelectActivity"
+            android:launchMode="singleTop" /> <!-- 我的小店  自选商品 -->
+        <activity
+            android:name=".ui.mine.mineteam.MineTeamActivity"
+            android:launchMode="singleTop" /> <!-- 我的团队 -->
+        <!-- 客服对话 -->
+        <activity
+            android:name=".chat.OpenChatActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden" /> <!-- 积分商城  首页 -->
+        <activity
+            android:name=".ui.home.creditsstore.home.CreditsStoreActivity"
+            android:launchMode="singleTask" /> <!-- 积分商城 全部商品 -->
+        <activity
+            android:name=".ui.home.creditsstore.all_shop.AllCreditGoodsActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="stateHidden|adjustResize" /> <!-- 积分商城 我的 -->
+        <activity
+            android:name=".ui.home.creditsstore.mine.CreditsMineActivity"
+            android:launchMode="singleTask" /> <!-- 积分商城 参与记录 -->
+        <activity
+            android:name=".ui.home.creditsstore.PartakeRecordActivity"
+            android:launchMode="singleTop" /> <!-- 积分商城 订单详情 -->
+        <activity
+            android:name=".ui.home.creditsstore.order_detail.CreditOrderDetailActivity"
+            android:launchMode="singleTop" /> <!-- 积分商城 确认订单 -->
+        <activity
+            android:name=".ui.home.creditsstore.confirm_order.CreditConfirmOrderActivity"
+            android:launchMode="singleTop" /> <!-- 积分商城 订单详情 评价 -->
+        <activity
+            android:name=".ui.home.creditsstore.comment.CreditCommentActivity"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".ui.home.creditsstore.lottery.CreditLotteryAty"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.home.creditsstore.pay.CreditPaySuccessAty"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.home.creditsstore.express.CreditShopExpressAty"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.home.creditsstore.pay.CreditPayActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.home.creditsstore.goods_details.CreditGoodsDetailsActivity"
+            android:launchMode="singleTop" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.jzd.jzshop.img.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <!-- ===========================APP activiity     end  ======================================== -->
+        <!-- ==================对接three party    start ======================== -->
+        <!-- 微信 -->
+        <!-- 直接对接微信平台 授权登录api接口 暂时保留注释，存在token 失效问题 -->
+        <!--
+<activity
+            android:name="com.slodonapp.ywj_release.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        -->
+        <activity
+            android:name="com.slodonapp.ywj_release.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- Jpush   start -->
+        <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="false"
+            android:theme="@style/MyDialogStyle"
+            tools:node="replace">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="cn.jpush.android.ui.PopWinActivity" />
+
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity> <!-- 若您的业务中有使用极光富媒体功能，或者极光早上好功能，需要把此 Activity 的 exported 修改成 true 覆盖 jcenter 上的组件。 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoTitleBar"
+            tools:node="replace">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity> <!-- Required SDK 核心功能 -->
+        <!-- 可配置 android:process 参数将 PushService 放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service> <!-- since 3.1.0 Required SDK 核心功能 -->
+        <provider
+            android:name="cn.jpush.android.service.DownloadProvider"
+            android:authorities="${applicationId}.DownloadProvider"
+            android:exported="true" /> <!-- Required SDK 核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+
+                <category android:name=" ${applicationId}" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver> <!-- since 3.0.9 Required SDK 核心功能 -->
+        <provider
+            android:name="cn.jpush.android.service.DataProvider"
+            android:authorities="${applicationId}.DataProvider"
+            android:exported="true"
+            tools:replace="android:exported" /> <!-- Since JCore2.0.0 Required SDK核心功能 -->
+        <!-- 可配置android:process参数将Service放在其他进程中；android:enabled属性不能是false -->
+        <!-- 这个是自定义Service，要继承极光JCommonService，可以在更多手机平台上使得推送通道保持的更稳定 -->
+        <service
+            android:name=".jpush.PushService"
+            android:process=":pushcore">
+            <intent-filter>
+                <action android:name="cn.jiguang.user.service.action" />
+            </intent-filter>
+        </service> <!-- Required SDK 核心功能 -->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" /> <!-- 3.5.0新增，用于定时展示功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.SchedulerReceiver"
+            android:exported="false" /> <!-- Required SDK核心功能 since 3.3.0 -->
+        <activity
+            android:name="cn.jpush.android.service.JNotifyActivity"
+            android:exported="true"
+            android:taskAffinity="jpush.custom"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.JNotifyActivity" />
+
+                <category android:name="${applicationId}" />
+            </intent-filter>
+        </activity> <!-- User defined.  For test only  用户自定义的广播接收器 -->
+        <receiver
+            android:name=".jpush.MyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.slodonapp.ywj_release" />
+            </intent-filter>
+        </receiver> <!-- User defined.  For test only  用户自定义接收消息器,3.0.7开始支持,目前新tag/alias接口设置结果会在该广播接收器对应的方法中回调 -->
+        <receiver android:name=".jpush.MyJPushMessageReceiver">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.slodonapp.ywj_release" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".jpush.NotifyClickReceiver">
+            <intent-filter>
+                <action android:name="com.jzd.jzshop.RECEIVER.CLICK.NOTIFY" />
+            </intent-filter>
+        </receiver>
+        <!-- ===========================   websocket  im chat     start  ======================================== -->
+        <service
+            android:name=".chat.im.JWebSocketClientService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".chat.im.JWebSocketClientService$GrayInnerService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":gray" />
+    </application>
+
+</manifest>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths >
+    <external-path
+        name="files_root"
+        path="Android/data/com.jzd.jzshop/" />
+    <external-path
+        name="external_storage_root"
+        path="." />
+    <external-path
+        name="apk_download"
+        path="download"/>
+    <external-files-path
+        name="external_files_root"
+        path="." />
+    <files-path
+        name="apk_file"
+        path="download" />
+</paths>

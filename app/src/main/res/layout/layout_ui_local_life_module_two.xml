@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="localLifeVM"
+            type="com.jzd.jzshop.ui.home.local_life.LocalLifeViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/consTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px20dp"
+        android:layout_marginBottom="@dimen/px20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/iv_banner"
+        tools:showIn="@layout/activity_local_life">
+
+        <!--food-->
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardv_one"
+            style="@style/style_local_life_cons_child"
+            android:layout_marginLeft="@dimen/px16dp"
+            android:layout_marginRight="@dimen/px8dp"
+            app:cardCornerRadius="@dimen/px6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/cardv_two"
+            binding:onClickCommand="@{localLifeVM.foodOnClickCommand}">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_food"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_local_life_food"
+                android:paddingLeft="@dimen/px16dp"
+                android:paddingRight="@dimen/px16dp">
+
+                <TextView
+                    android:id="@+id/tv_food"
+                    style="@style/style_local_life_cons_child_txt"
+                    android:text="@string/local_life_food_txt"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_food"
+                    style="@style/style_local_life_cons_child_iv"
+                    android:src="@mipmap/ic_food"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardv_two"
+            style="@style/style_local_life_cons_child"
+            android:layout_marginLeft="@dimen/px8dp"
+            android:layout_marginRight="@dimen/px16dp"
+            app:cardCornerRadius="@dimen/px6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@id/cardv_one"
+            app:layout_constraintRight_toRightOf="parent"
+            binding:onClickCommand="@{localLifeVM.hotelOnClickCommand}">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_hotel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_local_life_hotel"
+                android:paddingLeft="@dimen/px16dp"
+                android:paddingRight="@dimen/px8dp">
+
+                <TextView
+                    android:id="@+id/tv_hotel"
+                    style="@style/style_local_life_cons_child_txt"
+                    android:text="@string/local_life_hotel_txt"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_hotel"
+                    style="@style/style_local_life_cons_child_iv"
+                    android:src="@mipmap/ic_hotel"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+    </android.support.constraint.ConstraintLayout>
+</layout>

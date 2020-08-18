@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cons_two"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    app:layout_constraintTop_toBottomOf="@id/view_line"
+    tools:showIn="@layout/item_rv_award_list_fragm_page">
+
+    <!--child one-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cons_child_one"
+        style="@style/style_assets_record_cons_child"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--time-->
+        <TextView
+            android:id="@+id/tv_times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px16dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/px12dp"
+            tools:text="2020-01-19 13:56" />
+
+        <TextView
+            android:id="@+id/tv_apply_award"
+            android:text="@string/assets_record_apply_award"
+            style="@style/style_assets_record_cons_child_two_txt_tip"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/px12dp"/>
+
+        <!--申请奖励-->
+        <TextView
+            android:id="@+id/tv_apply_award_amount"
+            android:text=""
+            style="@style/style_assets_record_cons_child_two_txt_amount"
+            app:layout_constraintLeft_toRightOf="@id/tv_apply_award"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/colorPrimary"
+            tools:text="90.00"
+            android:layout_marginBottom="@dimen/px12dp"/>
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@mipmap/down"
+            android:layout_marginRight="@dimen/px16dp"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="@dimen/px12dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+    <!--child two-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cons_child_two"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons_child_one"
+        style="@style/style_assets_record_cons_child">
+
+        <!--实际金额-->
+        <TextView
+            android:id="@+id/tv_actual_amount_tip"
+            style="@style/style_assets_record_cons_child_two_txt_tip"
+            android:text="@string/assets_record_actual_amount"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--申请奖励-->
+        <TextView
+            android:id="@+id/tv_apply_actual_amount"
+            android:text=""
+            app:layout_constraintLeft_toRightOf="@id/tv_actual_amount_tip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="90.00"
+            style="@style/style_assets_record_cons_child_two_txt_amount" />
+
+        <View
+            android:id="@+id/line_two"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/style_assets_record_cons_child_line_vertical" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!--child three-->
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cons_child_three"
+        style="@style/style_assets_record_cons_child"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cons_child_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/px24dp">
+
+        <!--实际金额-->
+        <TextView
+            android:id="@+id/tv_fee"
+            style="@style/style_assets_record_cons_child_two_txt_tip"
+            android:text="@string/assets_record_fee_amount"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--申请奖励-->
+        <TextView
+            android:id="@+id/tv_fee_amount"
+            style="@style/style_assets_record_cons_child_two_txt_amount"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_fee"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="90.00" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

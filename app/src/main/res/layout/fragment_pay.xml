@@ -1,0 +1,384 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.jzd.jzshop.ui.pay.PayViewModel" />
+
+        <variable
+            name="payVM"
+            type="com.jzd.jzshop.ui.pay.PayViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/defualt"
+        tools:context="com.jzd.jzshop.ui.pay.PayFragment">
+
+        <View
+            android:id="@+id/view24"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px250dp"
+            android:background="@color/colorred"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/px16dp"
+            onClickCommand="@{payVM.onClickFinsh}"
+            android:src="@mipmap/back_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView213"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cashierDesk"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView61" />
+
+        <TextView
+            android:id="@+id/fp_orderid"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/px34dp"
+            android:layout_marginTop="@dimen/px38dp"
+            android:background="@drawable/boder_radius_order"
+            android:gravity="center"
+            android:paddingLeft="@dimen/px30dp"
+            android:paddingRight="@dimen/px30dp"
+            android:text='@{payVM.entity.order_snText,default="订单号：SH20191120114955342482"}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="@+id/view24"
+            app:layout_constraintTop_toBottomOf="@+id/textView213" />
+
+        <TextView
+            android:id="@+id/fp_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text='@{payVM.entity.order_priceText,default="0.00"}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/px38sp"
+            app:layout_constraintEnd_toEndOf="@+id/fp_orderid"
+            app:layout_constraintStart_toStartOf="@+id/fp_orderid"
+            app:layout_constraintTop_toBottomOf="@+id/fp_orderid" />
+
+        <TextView
+            android:id="@+id/textView219"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/ordermoney"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintEnd_toEndOf="@+id/fp_money"
+            app:layout_constraintStart_toStartOf="@+id/fp_money"
+            app:layout_constraintTop_toBottomOf="@+id/fp_money" />
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@drawable/boder_radius"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView219">
+
+
+            <ImageView
+                android:id="@+id/fp_pay_logo_wx"
+                android:layout_width="@dimen/px52dp"
+                android:layout_height="@dimen/px52dp"
+                android:layout_margin="@dimen/px10dp"
+                android:src="@mipmap/wxpay"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView220"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:text="@string/wxpay"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px16sp"
+                app:layout_constraintStart_toEndOf="@+id/fp_pay_logo_wx"
+                app:layout_constraintTop_toTopOf="@+id/fp_pay_logo_wx" />
+
+            <ImageView
+                android:id="@+id/imageView63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/paydown"
+                app:layout_constraintBottom_toBottomOf="@+id/fp_pay_logo_wx"
+                app:layout_constraintStart_toStartOf="@+id/textView220" />
+
+            <TextView
+                android:id="@+id/textView221"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:text="@string/wxsafepay"
+                android:textColor="@color/level3text"
+                android:textSize="@dimen/px13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView63"
+                app:layout_constraintStart_toEndOf="@+id/imageView63" />
+
+            <CheckBox
+                android:id="@+id/fp_wx_chk"
+                style="@style/CustomCheckboxTheme"
+                onClickCommand="@{payVM.onClickPayWX}"
+                android:checked="@{payVM.payshow.wx==1?true:false}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView221"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView220" />
+
+            <View
+                android:id="@+id/view22"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorhint"
+                app:layout_constraintStart_toStartOf="@+id/imageView63"
+                app:layout_constraintTop_toBottomOf="@+id/textView221" />
+
+            <android.support.constraint.Group
+                android:id="@+id/fp_wx_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="view22,fp_wx_chk,textView221,imageView63,textView220,fp_pay_logo_wx"
+                app:layout_constraintBottom_toBottomOf="@id/view22" />
+
+            <ImageView
+                android:id="@+id/fp_pay_logo_alipay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/px10dp"
+                android:src="@mipmap/zfbpay"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fp_wx_group" />
+
+            <TextView
+                android:id="@+id/textView222"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="@string/zfbpay"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px16sp"
+                app:layout_constraintStart_toEndOf="@id/fp_pay_logo_alipay"
+                app:layout_constraintTop_toTopOf="@+id/fp_pay_logo_alipay" />
+
+            <ImageView
+                android:id="@+id/imageView65"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/paydown"
+                app:layout_constraintBottom_toBottomOf="@+id/fp_pay_logo_alipay"
+                app:layout_constraintStart_toStartOf="@+id/textView222" />
+
+            <TextView
+                android:id="@+id/textView223"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:text="@string/zfbsafepay"
+                android:textColor="@color/level3text"
+                android:textSize="@dimen/px13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView65"
+                app:layout_constraintStart_toEndOf="@+id/imageView65"
+                app:layout_constraintTop_toTopOf="@+id/imageView65" />
+
+            <CheckBox
+                android:id="@+id/fp_zfb_chk"
+                style="@style/CustomCheckboxTheme"
+                onClickCommand="@{payVM.onClickPayAlipay}"
+                android:checked="@{payVM.payshow.zfb==1?true:false}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView223"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView222" />
+
+
+            <View
+                android:id="@+id/view23"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorhint"
+                app:layout_constraintStart_toStartOf="@+id/imageView65"
+                app:layout_constraintTop_toBottomOf="@+id/textView223" />
+
+            <android.support.constraint.Group
+                android:id="@+id/fp_ali_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="view23,fp_zfb_chk,textView223,imageView65,textView222,fp_pay_logo_alipay"
+                app:layout_constraintBottom_toBottomOf="@id/view23" />
+
+            <ImageView
+                android:id="@+id/fp_pay_logo_credit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@mipmap/yepay"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fp_ali_group" />
+
+            <TextView
+                android:id="@+id/textView224"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="@string/yue"
+                android:textColor="@color/textColor"
+
+                android:textSize="@dimen/px16sp"
+                app:layout_constraintStart_toEndOf="@+id/fp_pay_logo_credit"
+                app:layout_constraintTop_toTopOf="@+id/fp_pay_logo_credit" />
+
+            <TextView
+                android:id="@+id/textView225"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nowmoney"
+                android:textColor="@color/level3text"
+                android:textSize="@dimen/px13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fp_pay_logo_credit"
+                app:layout_constraintStart_toStartOf="@+id/textView224" />
+
+            <TextView
+                android:id="@+id/fp_credit_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:text='@{payVM.entity.user_moneyText,default="¥0.00"}'
+
+                android:textColor="@color/red"
+                android:textSize="@dimen/px13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView225"
+                app:layout_constraintStart_toEndOf="@+id/textView225"
+                app:layout_constraintTop_toTopOf="@+id/textView225" />
+
+            <CheckBox
+                android:id="@+id/fp_credit_chk"
+                style="@style/CustomCheckboxTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                onClickCommand="@{payVM.onClickCreditPay}"
+                android:checked="@{payVM.payshow.balance==1?true:false}"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fp_credit_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView224" />
+
+            <View
+                android:id="@+id/view25"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorhint"
+                app:layout_constraintStart_toStartOf="@+id/imageView65"
+                app:layout_constraintTop_toBottomOf="@+id/textView225" />
+
+            <android.support.constraint.Group
+                android:id="@+id/fp_credit_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="view25,fp_credit_chk,fp_credit_tv,textView225,textView224,fp_pay_logo_credit"
+                app:layout_constraintBottom_toBottomOf="@id/view25" />
+
+            <ImageView
+                android:id="@+id/imageView67"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:src="@mipmap/payother"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fp_credit_group" />
+
+            <TextView
+                android:id="@+id/textView227"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+
+                android:text="@string/wxforOther"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/px16sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView67"
+                app:layout_constraintTop_toTopOf="@+id/imageView67" />
+
+            <TextView
+                android:id="@+id/textView228"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="@string/paylove"
+                android:textColor="@color/level3text"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView67"
+                app:layout_constraintStart_toStartOf="@+id/textView227" />
+
+            <CheckBox
+                android:id="@+id/fp_other_chk"
+                style="@style/CustomCheckboxTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:layout_marginRight="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView228"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView227" />
+
+            <android.support.constraint.Group
+                android:id="@+id/fp_other_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="fp_other_chk,textView228,textView227,imageView67"
+                app:layout_constraintBottom_toBottomOf="@id/fp_other_chk" />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

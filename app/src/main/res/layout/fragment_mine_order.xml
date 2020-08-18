@@ -1,0 +1,76 @@
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+        <variable
+            name="mineorderVM"
+            type="com.jzd.jzshop.ui.order.mineorder.MineOrderViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:orientation="vertical"
+    android:layout_width="match_parent"
+        android:background="@color/defualt"
+    android:layout_height="match_parent"
+    tools:context=".ui.order.mineorder.MineOrderFragment">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{mineorderVM.toolbarViewModel}" />
+
+        <android.support.design.widget.TabLayout
+            app:tabTextColor="@color/textColor"
+            android:layout_below="@id/asc_include_toolbar"
+            android:background="@color/white"
+            app:tabSelectedTextColor="@color/red"
+            app:tabBackground="@android:color/transparent"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabIndicatorColor="@color/red"
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:layout_below="@id/tab"
+            android:id="@+id/mall_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/defualt"
+            >
+
+        <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+            android:id="@+id/mall_refresh_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_order"
+            android:layout_marginStart="@dimen/px8dp"
+            android:paddingBottom="@dimen/px10dp"
+            android:layout_marginEnd="@dimen/px8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+</layout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/defualt">
+
+    <TextView
+        android:id="@+id/tv_Tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px10dp"
+        android:layout_marginBottom="@dimen/px1dp"
+        android:background="@color/white"
+        android:padding="@dimen/px12dp"
+        android:text="整单评价"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px15sp" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constrlOne"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_Tip"
+        android:layout_marginBottom="@dimen/px1dp"
+        android:background="@color/white"
+        android:padding="@dimen/px12dp">
+        <!--评分-->
+        <TextView
+            android:id="@+id/tv_handleWayTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="评分"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_ratingStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" *"
+            android:textSize="@dimen/px14sp"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_handleWayTip"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--星级-->
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:id="@+id/ratingbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px8dp"
+            app:srb_fillColor="@color/orange"
+            app:srb_drawBorderEnabled="false"
+            app:srb_numberOfStars="5"
+            app:srb_rating="0"
+            app:srb_starBackgroundColor="#c0c0c0"
+            android:numStars="5"
+            app:srb_starSize="@dimen/px20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_ratingStar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_score_txt"
+            android:layout_width="@dimen/px80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:text="没有评分"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/ratingbar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/px20dp"
+            android:layout_height="@dimen/px20dp"
+            android:layout_marginLeft="@dimen/px16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_score_txt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/back_pop" />
+    </android.support.constraint.ConstraintLayout>
+
+    <!--module two  晒图-->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constrlTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/constrlOne"
+        android:layout_marginBottom="@dimen/px1dp"
+        android:background="@color/white"
+        android:padding="@dimen/px12dp">
+
+        <TextView
+            android:id="@+id/tv_reasonWay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="晒图"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--上传图片-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/iv_upload"
+            android:layout_width="@dimen/px0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_reasonWay"
+            app:layout_constraintStart_toEndOf="@+id/tv_reasonWay"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <!--module three 评论 -->
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constrlThree"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px100dp"
+        android:layout_below="@id/constrlTwo"
+        android:background="@color/white"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:padding="@dimen/px12dp">
+
+        <!--  *-->
+
+        <EditText
+            android:id="@+id/et_commont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="说点什么吧"
+            android:background="@drawable/boder_bg_edittext"
+            android:gravity="left|top"
+            android:lineSpacingExtra="@dimen/px2dp"
+            android:lines="4"
+            android:maxLines="4"
+            android:minLines="6"
+            android:padding="@dimen/px6dp"
+            android:singleLine="false"
+            android:text=""
+            android:textColor="@color/textColor"
+            android:textColorHint="@color/boder"
+            android:textSize="@dimen/px14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="说点什么吧" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/consl_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/defualt"
+    android:paddingTop="@dimen/px8dp"
+    android:paddingBottom="@dimen/px8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/iv_pic"
+        android:layout_width="@dimen/px120dp"
+        android:layout_height="@dimen/px80dp"
+        android:scaleType="centerCrop"
+        android:src="@color/defualt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48" />
+
+    <!--活动类型-->
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="@dimen/px40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px8dp"
+        android:background="@drawable/shape_credits_store_border_red_radius"
+        android:gravity="center"
+        android:padding="@dimen/px3dp"
+        android:lineHeight="@dimen/px14dp"
+        android:text="@string/coupon_exchage"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px10sp"
+        app:layout_constraintLeft_toRightOf="@id/iv_pic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px4dp"
+        android:ellipsize="end"
+        android:lineHeight="@dimen/px18dp"
+        android:maxLines="2"
+        android:text=""
+        android:textColor="@color/textcolor"
+        android:textSize="@dimen/px12sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_state"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="长相思干白葡萄酒 6长相思干白葡萄酒 6长相思干白葡萄酒 6…" />
+
+    <TextView
+        android:id="@+id/tv_credit_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:ellipsize="end"
+        android:gravity="center|left"
+        android:maxWidth="@dimen/px100dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/colorred"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/iv_pic"
+        tools:text="5000" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px4dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:text="+¥5"
+        android:textColor="@color/colorred"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_price_symbol" />
+
+    <TextView
+        android:id="@+id/tv_coupon"
+        android:layout_width="@dimen/px30dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/boder_red_textview"
+        android:gravity="center"
+        android:lineHeight="@dimen/px14dp"
+        android:padding="@dimen/px2dp"
+        android:text="@string/coupon_exchage"
+        android:textColor="@color/colorred"
+        android:textSize="@dimen/px10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_price_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px2dp"
+        android:layout_marginRight="@dimen/px8dp"
+        android:layout_marginBottom="@dimen/px2dp"
+        android:text="积分"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/px10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tv_credit_num" />
+
+</android.support.constraint.ConstraintLayout>

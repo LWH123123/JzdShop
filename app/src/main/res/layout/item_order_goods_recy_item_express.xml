@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrlExpress"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/express_tip"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_express_comp" />
+
+    <TextView
+        android:id="@+id/tv_express_name"
+        android:layout_width="@dimen/px260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:text=""
+        android:minEms="3"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintStart_toEndOf="@+id/express_tip"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="快递公司：" />
+
+    <TextView
+        android:id="@+id/tv_expressCode"
+        android:layout_width="@dimen/px300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:text=""
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_express_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_express_name"
+        tools:text="快递单号：：" />
+
+    <ImageView
+        android:id="@+id/express_arrows"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/arrows_right" />
+
+
+</android.support.constraint.ConstraintLayout>

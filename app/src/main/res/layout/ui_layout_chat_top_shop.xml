@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cons_top_shop"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/px120dp"
+    android:padding="@dimen/px10dp"
+    android:background="@color/white"
+    android:visibility="gone"
+    tools:showIn="@layout/actiivty_open_chat">
+
+    <ImageView
+        android:id="@+id/iv_thumb"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@mipmap/placeholder"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_shop_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text=""
+        tools:text="超火的机车2020流行春款牛仔超短修..."
+        android:textColor="#2C2C2C"
+        android:textSize="15sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/iv_thumb"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px6dp"
+        android:ellipsize="end"
+        android:text=""
+        tools:text="￥199.80"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_shop_title"
+        app:layout_constraintLeft_toRightOf="@id/iv_thumb"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <!--加入购物车-->
+    <TextView
+        android:id="@+id/tv_add_shopcar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_chat_btn_border_add_shopcar"
+        android:layout_marginLeft="@dimen/px12dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginTop="@dimen/px8dp"
+        android:text="@string/chat_txt_add_shopcar"
+        android:textColor="#ffd90804"
+        android:gravity="center"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        app:layout_constraintLeft_toRightOf="@id/iv_thumb"
+        app:layout_constraintRight_toLeftOf="@id/tv_buy_shop"/>
+    <!--立即购买-->
+    <TextView
+        android:id="@+id/tv_buy_shop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_chat_btn_border"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px8dp"
+        android:text="@string/chat_txt_buy_shop"
+        android:textColor="#ffd90804"
+        android:gravity="center"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        app:layout_constraintLeft_toRightOf="@id/tv_add_shopcar"
+        app:layout_constraintRight_toLeftOf="@id/tv_sendshop_link"/>
+    <!--发送链接-->
+    <TextView
+        android:id="@+id/tv_sendshop_link"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_chat_btn_border_solid"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px8dp"
+        android:text="@string/chat_txt_sendshop_link"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        app:layout_constraintLeft_toRightOf="@id/tv_buy_shop"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

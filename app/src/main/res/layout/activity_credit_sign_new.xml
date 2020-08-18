@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="creditsignVM"
+            type="com.jzd.jzshop.ui.mine.creditsign.CreditSignNewViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/in_title"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{creditsignVM.toolbarViewModel}" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/in_title">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/px52dp"
+                android:background="@drawable/shape_giadient_angle"
+                android:scrollbars="none">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!--签到排行-->
+                    <TextView
+                        onClickCommand="@{creditsignVM.onClickSignsignRankingListener}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_cornerright_red_text"
+                        android:paddingStart="@dimen/px14dp"
+                        android:paddingTop="@dimen/px8dp"
+                        android:paddingEnd="@dimen/px10dp"
+                        android:paddingBottom="@dimen/px8dp"
+                        android:text="@string/sign_ranking"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView71"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView71" />
+
+                    <ImageView
+                        android:id="@+id/imageView70"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px310dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/creditsign"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/iv_bg"
+                        android:layout_width="@dimen/px100dp"
+                        android:layout_height="@dimen/px100dp"
+                        android:layout_marginTop="@dimen/px60dp"
+                        android:background="@mipmap/ic_sign_projection"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/imageView71"
+                        android:layout_width="@dimen/px70dp"
+                        android:layout_height="@dimen/px70dp"
+                        android:layout_marginTop="@dimen/px24dp"
+                        android:visibility="visible"
+                        app:cardCornerRadius="35dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.shehuan.niv.NiceImageView
+                            url="@{creditsignVM.signentity.avatar}"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@mipmap/placeholder" />
+                    </android.support.v7.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/textView196"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px6dp"
+                        android:text='@{creditsignVM.signentity.nickname,default="昵称"}'
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView71"
+                        app:layout_constraintStart_toStartOf="@+id/imageView71"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView71" />
+
+
+                    <TextView
+                        android:id="@+id/tv_signListeren"
+                        onClickCommand="@{creditsignVM.onClickSignRecordListener}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_cornerleft_red_text"
+                        android:paddingStart="@dimen/px14dp"
+                        android:paddingTop="@dimen/px8dp"
+                        android:paddingEnd="@dimen/px10dp"
+                        android:paddingBottom="@dimen/px8dp"
+                        android:text="@string/sign_record"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView71"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView71" />
+
+
+                    <TextView
+                        android:id="@+id/textView212"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px3dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text='@{"我的积分: "+creditsignVM.signentity.points+ "积分",default="我的积分: 0"}'
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="@+id/imageView71"
+                        app:layout_constraintStart_toStartOf="@+id/imageView71"
+                        app:layout_constraintTop_toBottomOf="@+id/textView196" />
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/constraintLayout13"
+                        android:layout_width="@dimen/px200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/px12dp"
+                        android:layout_marginTop="@dimen/px56dp"
+                        android:background="@drawable/boder_radius"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView212">
+
+
+                        <TextView
+                            android:id="@+id/textView214"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px4dp"
+                            android:text='@{creditsignVM.signentity.continue_day+"天",default="2天"}'
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/px20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/view34"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px4dp"
+                            android:layout_marginBottom="@dimen/px4dp"
+                            android:text="@string/contiun_sign"
+                            android:textColor="@color/level1text"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/view34"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView214" />
+
+                        <View
+                            android:id="@+id/view34"
+                            android:layout_width="0.5dp"
+                            android:layout_height="0dp"
+                            android:background="@color/level4text"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/textView215"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px4dp"
+                            android:text='@{creditsignVM.signentity.all_day+"天",default="1天"}'
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/px20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/view34"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px4dp"
+                            android:layout_marginBottom="@dimen/px4dp"
+                            android:text="@string/sign_days"
+                            android:textColor="@color/level1text"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/view34"
+                            app:layout_constraintTop_toBottomOf="@+id/textView215" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/tv_timeselect"
+                        onClickCommand="@{creditsignVM.onSelectTimeClick}"
+                        android:layout_width="@dimen/px0dp"
+                        android:layout_height="@dimen/px40dp"
+                        android:layout_marginTop="@dimen/px4dp"
+                        android:layout_marginEnd="@dimen/px12dp"
+                        android:background="@drawable/shape_top_radius_defult"
+                        android:gravity="center"
+                        android:text="2018年10月"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/px16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/constraintLayout13"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout13" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/constraintLayout14"
+                        android:layout_width="@dimen/px0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/px12dp"
+                        android:layout_marginEnd="@dimen/px12dp"
+                        android:background="@drawable/shape_bottom_radius"
+                        android:paddingTop="@dimen/px10dp"
+                        android:paddingBottom="@dimen/px10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_timeselect">
+
+                        <!--签到 日历-->
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recy_calendar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:visibility="visible"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/tv_tip"/>
+
+                        <TextView
+                            android:id="@+id/tv_tip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/px12dp"
+                            android:layout_marginBottom="@dimen/px4dp"
+                            android:paddingTop="@dimen/px4dp"
+                            android:layout_marginTop="@dimen/px10dp"
+                            android:text="@string/sign_repair_message"
+                            android:textColor="@color/level1text"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/recy_calendar"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <!--签到-->
+                    <ImageView
+                        android:id="@+id/iv_sign"
+                        onClickCommand="@{creditsignVM.onSignClickListeren}"
+                        android:layout_width="@dimen/px90dp"
+                        android:layout_height="@dimen/px90dp"
+                        android:layout_marginTop="@dimen/px8dp"
+                        android:layout_marginEnd="@dimen/px20dp"
+                        android:src="@mipmap/chicksign"
+                        app:layout_constraintEnd_toEndOf="@+id/constraintLayout14"
+                        app:layout_constraintTop_toTopOf="@+id/constraintLayout13" />
+                    <!--   android:src="@{creditsignVM.signentity.can_sign==0?@mipmap/chicksign:@mipmap/}"-->
+
+                    <!--连续签到tip-->
+                    <include
+                        android:id="@+id/const_continue_tip"
+                        layout="@layout/ui_sign_contin_rule_header_view" />
+                    <!--连续签到数据包-->
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/cons_continue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/px12dp"
+                        android:layout_marginRight="@dimen/px12dp"
+                        android:layout_marginBottom="@dimen/px12dp"
+                        android:background="@drawable/shape_bottom_radius_white"
+                        android:paddingTop="@dimen/px6dp"
+                        android:paddingBottom="@dimen/px6dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/const_continue_tip">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recy_continue_rule"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!--总签到tip-->
+                        <include
+                            android:id="@+id/const_sign_all_tip"
+                            layout="@layout/ui_sign_all_rule_header_view" />
+                        <!--总签到数据包-->
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recy_all_rule"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/const_sign_all_tip" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <!--底部导航-->
+        <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+            android:id="@+id/pager_bottom_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px52dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            app:elevation="8dp" />
+
+    </RelativeLayout>
+</layout>

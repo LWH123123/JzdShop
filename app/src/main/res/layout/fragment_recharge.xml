@@ -1,0 +1,226 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="rechargeVM"
+            type="com.jzd.jzshop.ui.mine.recharge.RechargeViewModel" />
+
+    </data>
+<android.support.constraint.ConstraintLayout
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jzd.jzshop.ui.mine.recharge.RechargeFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px10dp"
+        android:layout_marginEnd="@dimen/px6dp"
+        onClickCommand="@{rechargeVM.onBackView}"
+        android:padding="@dimen/px8dp"
+        android:src="@mipmap/back_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView67"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recharage"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rechargerecord"
+        android:textColor="@color/white"
+        android:paddingStart="@dimen/px14dp"
+        android:paddingEnd="@dimen/px10dp"
+        android:paddingTop="@dimen/px8dp"
+        android:paddingBottom="@dimen/px8dp"
+        android:background="@drawable/bg_cornerleft_red_text"
+        app:layout_constraintBottom_toBottomOf="@+id/textView67"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView67"
+        binding:onClickCommand="@{rechargeVM.RechargeRecordOnClickCommand}"/>
+
+
+    <TextView
+        android:id="@+id/textView204"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/rechargemoney"
+        android:layout_marginTop="@dimen/px60dp"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView67" />
+
+        <TextView
+            android:id="@+id/textView205"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/dollar"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px30sp"
+            app:layout_constraintStart_toStartOf="@+id/textView204"
+            app:layout_constraintTop_toBottomOf="@+id/textView204" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="@dimen/px0dp"
+        android:layout_height="@dimen/px40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="@dimen/px20dp"
+        android:text="@={rechargeVM.money}"
+        android:inputType="number"
+        android:background="@null"
+        android:hint="@string/importmoney"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView205"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView205"
+        app:layout_constraintTop_toTopOf="@+id/textView205" />
+
+
+    <View
+        android:id="@+id/view21"
+        android:layout_width="@dimen/px0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/px14dp"
+        android:background="@color/level4text"
+        app:layout_constraintEnd_toEndOf="@+id/editText6"
+        app:layout_constraintStart_toStartOf="@+id/textView205"
+        app:layout_constraintTop_toBottomOf="@+id/textView205" />
+
+    <TextView
+        android:id="@+id/textView207"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/selectrecharg"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintStart_toStartOf="@+id/textView204"
+        app:layout_constraintTop_toBottomOf="@+id/view21" />
+
+    <ImageView
+            android:id="@+id/imageView57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px20dp"
+            android:src="@mipmap/wx"
+            app:layout_constraintStart_toStartOf="@+id/textView207"
+            app:layout_constraintTop_toBottomOf="@+id/textView207" />
+
+    <TextView
+        android:id="@+id/textView208"
+        android:layout_width="@dimen/px0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/rechargeWX"
+        onClickCommand="@{rechargeVM.onWxClick}"
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView57"
+        app:layout_constraintEnd_toStartOf="@+id/ch_wx"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView57"
+        app:layout_constraintTop_toTopOf="@+id/imageView57"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+            android:id="@+id/ch_wx"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+        onClickCommand="@{rechargeVM.onWxClick}"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView208"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView208" />
+
+    <ImageView
+        android:id="@+id/imageView60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:src="@mipmap/zfb"
+        app:layout_constraintStart_toStartOf="@+id/imageView57"
+        app:layout_constraintTop_toBottomOf="@+id/imageView57" />
+
+        <TextView
+            android:id="@+id/textView209"
+            android:layout_width="@dimen/px0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/rechargeZFB"
+            onClickCommand="@{rechargeVM.onZfbClick}"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView60"
+            app:layout_constraintEnd_toStartOf="@+id/ch_zfb"
+            app:layout_constraintStart_toEndOf="@+id/imageView60"
+            app:layout_constraintTop_toTopOf="@+id/imageView60" />
+
+        <CheckBox
+            android:id="@+id/ch_zfb"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            onClickCommand="@{rechargeVM.onZfbClick}"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView209"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView209" />
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card"
+        app:cardCornerRadius="@dimen/px24dp"
+        app:cardElevation="@dimen/px0dp"
+        android:layout_marginTop="70dp"
+        android:layout_width="@dimen/px0dp"
+        android:layout_marginStart="@dimen/px20dp"
+        binding:cardBackgroundColor="@color/defaultred"
+        android:layout_marginEnd="@dimen/px20dp"
+        onClickCommand="@{rechargeVM.onRechargeClick}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView209"
+        android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/textView210"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/recharage"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px16sp"
+             />
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+</android.support.constraint.ConstraintLayout>
+</layout>

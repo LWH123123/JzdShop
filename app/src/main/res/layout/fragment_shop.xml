@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.support.v7.widget.StaggeredGridLayoutManager" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="com.jzd.jzshop.ui.merch_alliance.ShopViewModel" />
+
+        <variable
+            name="shopVM"
+            type="ShopViewModel" />
+
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/asc_include_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{shopVM.toolbarViewModel}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/atsv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                    <com.stx.xhb.xbanner.XBanner
+                        android:id="@+id/xbanner"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:background="@color/defualt"
+                        app:AutoPlayTime="3000"
+                        app:isAutoPlay="true" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/xbanner"
+                        android:background="@color/defualt"
+                        android:paddingBottom="@dimen/px30dp"
+                        binding:adapter="@{adapter}"
+                        binding:itemBinding="@{shopVM.shopitem}"
+                        binding:items="@{shopVM.shoplist}"
+                        binding:layoutManager="@{LayoutManagers.grid(2)}"
+                        tools:listitem="@layout/item_home_shop" />
+
+                    <!--空页面-->
+                    <LinearLayout
+                        android:id="@+id/empty_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/xbanner"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/image"
+                            android:layout_width="153dp"
+                            android:layout_height="120dp"
+                            android:background="@mipmap/ic_empty" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            style="@style/TextAppearance.AppCompat.Body1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px6dp"
+                            android:text="@string/empty_text_shope"
+                            android:textColor="@android:color/darker_gray"
+                            app:layout_constraintBottom_toBottomOf="@id/image" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </android.support.v4.widget.NestedScrollView>
+
+            <!--自定义搜索框 需求变动暂时去掉-->
+            <RelativeLayout
+                android:id="@+id/rl_search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px32dp"
+                android:layout_marginLeft="@dimen/px24dp"
+                android:layout_marginTop="@dimen/px12dp"
+                android:layout_marginRight="@dimen/px24dp"
+                android:background="@drawable/search_shop"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px16dp"
+                    android:src="@mipmap/ic_search_shop" />
+
+                <EditText
+                    android:id="@+id/et_search_shop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/px22dp"
+                    android:layout_toRightOf="@id/iv_search"
+                    android:background="@null"
+                    android:gravity="center_vertical|left"
+                    android:hint="@string/search"
+                    android:imeOptions="actionSearch"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/px4dp"
+                    android:singleLine="true"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</layout>

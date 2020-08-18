@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="adapter"
+            type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <variable
+            name="specVM"
+            type="com.jzd.jzshop.chat.OpenChatViewModel" />
+
+        <variable
+            name="specEntity"
+            type="com.jzd.jzshop.entity.GoodsSpecEntity.ResultBean" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:id="@+id/ps_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ps_spec_recycler"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/afo_goods_image_0"
+                android:layout_width="@dimen/px114dp"
+                android:layout_height="@dimen/px114dp"
+                android:layout_marginTop="-22dp"
+                android:layout_marginBottom="@dimen/px20dp"
+                android:layout_marginLeft="@dimen/px8dp"
+                android:scaleType="fitXY"
+                isRounded="@{true}"
+                binding:url="@{specVM.entity.url}"
+                />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/pg_constraint"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/px10dp"
+                android:layout_marginBottom="@dimen/px6dp"
+                tools:ignore="ExtraText,MissingConstraints">
+
+                <TextView
+                    android:id="@+id/pg_goods_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text='@{"¥"+specVM.entity.price,default="¥300"}'
+                    android:textColor="@color/colorred"
+                    android:textSize="@dimen/px20sp"
+                    android:textStyle="normal"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/pg_goods_stock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/px18dp"
+                    android:layout_marginTop="@dimen/px6dp"
+                    android:text='@{"库存"+specVM.entity.total+"件",default="库存200件"}'
+                    android:textSize="@dimen/px13sp"
+                    app:layout_constraintTop_toBottomOf="@id/pg_goods_price" />
+                <!--android:visibility='@{specEntity.show_total==0?View.INVISIBLE:View.VISIBLE}'-->
+
+                <!--                android:text='@{""+goodsVM.goodsNum,default=1}'-->
+
+                <ImageView
+                    android:id="@+id/pg_subtract"
+                    android:layout_width="@dimen/px16dp"
+                    android:layout_height="@dimen/px16dp"
+                    android:layout_marginTop="@dimen/px8dp"
+                    android:src="@mipmap/subtract"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pg_goods_stock"
+                    app:layout_constraintVertical_bias="0.428"
+                    binding:isThrottleFirst="@{true}"
+                    binding:onClickCommand="@{specVM.onClickSubtrect}" />
+
+                <TextView
+                    android:id="@+id/pg_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:text='@{specVM.entity.total.equals("0")?"0":String.valueOf(specVM.myTotal),default="1"}'
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/px17sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pg_subtract"
+                    app:layout_constraintEnd_toStartOf="@id/pg_add"
+                    app:layout_constraintStart_toEndOf="@id/pg_subtract"
+                    app:layout_constraintTop_toTopOf="@+id/pg_subtract" />
+
+                <ImageView
+                    android:id="@+id/pg_add"
+                    android:layout_width="@dimen/px16dp"
+                    android:layout_height="@dimen/px16dp"
+                    android:layout_marginStart="14dp"
+                    android:src="@mipmap/add"
+                    android:layout_marginTop="@dimen/px8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/pg_total"
+                    app:layout_constraintTop_toBottomOf="@+id/pg_goods_stock"
+                    binding:isThrottleFirst="@{true}"
+                    binding:onClickCommand="@{specVM.onClickAdd}" />
+
+                <!-- <View
+                     android:id="@+id/pg_divider_1"
+                     android:layout_width="match_parent"
+                     android:layout_height="@dimen/px2dp"
+                     android:layout_marginTop="@dimen/px8dp"
+                     android:background="?android:attr/listDivider" />-->
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/ps_spec_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px250dp"
+            android:layout_above="@id/ps_bottom_layout"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/px30dp"
+            app:adapter="@{adapter}"
+            app:itemBinding="@{specVM.pg_spec_ib}"
+            app:items="@{specVM.pg_spec_ob}"
+            app:layoutManager="@{LayoutManagers.linear()}"
+            />
+
+        <ImageButton
+            android:id="@+id/pg_close_popwindow"
+            android:layout_width="@dimen/px26dp"
+            android:layout_height="@dimen/px26dp"
+            android:layout_alignTop="@id/ps_linear"
+            android:layout_alignRight="@id/ps_linear"
+            android:layout_marginTop="@dimen/px8dp"
+            android:layout_marginRight="@dimen/px8dp"
+            android:background="@mipmap/back_pop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/ps_bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px50dp"
+            android:layout_alignParentBottom="true"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/ps_add_shoppingcar"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px0dp"
+                android:background="@color/orange"
+                android:gravity="center"
+                android:text="加入购物车"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ps_buynow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:onClickCommand="@{specVM.onClickPopAddShoppingCar}"
+                />
+
+            <TextView
+                android:id="@+id/ps_buynow"
+                android:layout_width="@dimen/px0dp"
+                android:layout_height="@dimen/px0dp"
+                android:background="@color/red"
+                android:gravity="center"
+                android:text="立刻购买"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ps_add_shoppingcar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:onClickCommand="@{specVM.onClickPopBuynow}" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </RelativeLayout>
+
+</layout>

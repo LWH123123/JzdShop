@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TwinklingRefreshLayout">
+        <attr name="tr_wave_height" format="dimension" />
+        <attr name="tr_head_height" format="dimension" />
+        <attr name="tr_bottom_height" format="dimension" />
+        <attr name="tr_overscroll_height" format="dimension" />
+        <attr name="tr_enable_loadmore" format="boolean" />
+        <attr name="tr_pureScrollMode_on" format="boolean" />
+        <attr name="tr_show_overlay_refreshview" format="boolean" />
+        <attr name="tr_headerView" format="dimension" />
+        <attr name="tr_bottomView" format="dimension" />
+        <attr name="onRefreshCommand" format="reference" />
+        <attr name="onLoadMoreCommand" format="reference" />
+    </declare-styleable>
+
+    <!--沉浸式状态栏-->
+    <declare-styleable name="StatusBarHeightView">
+        <attr name="use_type" format="integer">
+            <enum name="use_height" value="0" />
+            <enum name="use_padding_top" value="1" />
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="MessageImportView">
+        <attr name="titletext" format="string" /><!--左边的文字-->
+        <attr name="xingvisible" format="integer">
+            <enum name="visible" value="0" />
+            <!-- Not displayed, but taken into account during layout (space is left for it). -->
+            <enum name="invisible" value="1" />
+            <!-- Completely hidden, as if the view had not been added. -->
+            <enum name="gone" value="2" />
+        </attr><!--*是否显示-->
+        <attr name="importtype" format="integer">
+            <enum name="text" value="0x00000001" />
+            <enum name="phone" value="0x00000003" />
+            <enum name="number" value="0x00000002" />
+            <enum name="textpassword" value="0x00000080" />
+        </attr>
+        <attr name="titleheright" format="integer" /><!---->
+        <attr name="hinttext" format="string" /><!--输入框，默认文字-->
+        <attr name="text" format="string" /><!--输入框文字监听-->
+    </declare-styleable>
+
+    <declare-styleable name="MzRatingBar">
+        <attr name="mcStarColors" format="reference" />
+        <attr name="mcStarDrawable" format="reference" />
+    </declare-styleable>
+
+    <!-- SearchHistoryFlowLayout-->
+    <declare-styleable name="FlowLayout">
+        <attr name="lineSpacing" format="dimension" />
+        <attr name="maxLine" format="integer" />
+    </declare-styleable>
+
+
+</resources>

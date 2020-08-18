@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="adapter"
+            type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <variable
+            name="firmOrderIVM"
+            type="com.jzd.jzshop.ui.order.firmorder.FirmOrderItemViewModle" />
+    </data>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:background="@drawable/boder_top_radius"
+            android:layout_marginLeft="@dimen/px10dp"
+            android:layout_marginRight="@dimen/px10dp"
+            android:layout_width="match_parent"
+            onClickCommand="@{firmOrderIVM.onClickStore}"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/px14dp"
+            android:paddingBottom="@dimen/px6dp"
+            android:paddingLeft="@dimen/px14dp"
+
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/ifo_location_iv"
+                android:layout_width="@dimen/px14dp"
+                android:layout_height="@dimen/px14dp"
+                android:src="@mipmap/carstore"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <ImageView
+                android:id="@+id/ifo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px8dp"
+                android:visibility='@{firmOrderIVM.entitys.merch_id.equals("")?View.VISIBLE:View.GONE}'
+                android:src="@mipmap/ziying"
+                app:layout_constraintBottom_toBottomOf="@id/ifo_location_iv"
+                app:layout_constraintStart_toEndOf="@id/ifo_location_iv"
+                app:layout_constraintTop_toTopOf="@id/ifo_location_iv" />
+
+            <TextView
+                android:id="@+id/ifo_store_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px8dp"
+                android:text='@{firmOrderIVM.entitys.merch_name,default="美术店"}'
+                android:textSize="@dimen/px14sp"
+                android:textStyle="bold"
+                android:textColor="@color/textColor"
+                app:layout_constraintBottom_toBottomOf="@id/ifo_location_iv"
+                app:layout_constraintEnd_toStartOf="@id/ifo_arrow"
+                app:layout_constraintStart_toEndOf="@id/ifo_name"
+                app:layout_constraintTop_toTopOf="@id/ifo_location_iv" />
+
+            <ImageView
+                android:id="@+id/ifo_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px8dp"
+                android:src="@mipmap/point_right"
+                app:layout_constraintBottom_toBottomOf="@id/ifo_location_iv"
+                app:layout_constraintStart_toEndOf="@id/ifo_store_name"
+                app:layout_constraintTop_toTopOf="@id/ifo_location_iv" />
+
+            <!--<android.support.v7.widget.RecyclerView
+                android:id="@+id/ifo_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:adapter="@{adapter}"
+                app:itemBinding="@{firmOrderIVM.afo_goods_ib}"
+                app:items="@{firmOrderIVM.afo_goods_ob}"
+                app:layoutManager="@{LayoutManagers.linear()}"
+                app:layout_constraintTop_toBottomOf="@id/ifo_arrow" />-->
+
+ <!--                       <View
+                            android:id="@+id/ifo_view1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px1dp"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:background="@color/boder"
+                            app:layout_constraintTop_toBottomOf="@id/ifo_recycler" />
+
+                      <TextView
+                            android:id="@+id/ifo_goupon_lable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:text="优惠券"
+                            app:layout_constraintTop_toBottomOf="@id/ifo_view1" />
+
+                        <TextView
+                            android:id="@+id/ifo_goupon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:drawableRight="@mipmap/point_right"
+                            android:text="优惠券"
+                            app:layout_constraintBaseline_toBaselineOf="@id/ifo_goupon_lable"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            onClickCommand="@{firmOrderIVM.onClick}"/>
+
+                        <View
+                            android:id="@+id/ifo_view2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px1dp"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:background="@color/boder"
+                            app:layout_constraintTop_toBottomOf="@id/ifo_goupon" />
+
+                        <TextView
+                            android:id="@+id/ifo_dispatch_lable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:text="运费"
+                            app:layout_constraintTop_toBottomOf="@id/ifo_view2" />
+
+                        <TextView
+                            android:id="@+id/ifo_dispatch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:text='@{firmOrderIVM.entity.dispatchText,default="+ $ 10.00"}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/ifo_dispatch_lable"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <TextView
+                            android:id="@+id/ifo_goupon_text_lable"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:text="优惠"
+                            app:layout_constraintTop_toBottomOf="@id/ifo_dispatch" />
+
+                        <TextView
+                            android:id="@+id/ifo_goupon_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:text='@{firmOrderIVM.subCouponText,default="+ $ 10.00"}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/ifo_goupon_text_lable"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <TextView
+                            android:id="@+id/ifo_subtotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/px14dp"
+                            android:text='@{firmOrderIVM.subtotalText,default="共2件 小计：$ 100.00"}'
+                            android:textColor="@color/colorred"
+                            android:textSize="@dimen/px13sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/ifo_goupon_text" />-->
+        </android.support.constraint.ConstraintLayout>
+
+</layout>

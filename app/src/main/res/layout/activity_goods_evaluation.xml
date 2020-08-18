@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="goodsEvaluationVM"
+            type="com.jzd.jzshop.ui.goods.evaluate.GoodsEvaluationViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/titlebar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{goodsEvaluationVM.toolbarViewModel}" />
+
+        <!-- 评价类型 列表-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titlebar"
+            tools:listitem="@layout/item_rv_goods_type" />
+        <!--view  space-->
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px1dp"
+            android:background="@color/picture_color_f2"
+            android:layout_below="@id/rv_type"/>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/mall_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/view_line">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!--  筛选评价列表-->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_srceen_out"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdge="none"
+                android:overScrollMode="never"
+                tools:listitem="@layout/item_rv_goods_evaluation" />
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        <!--空页面-->
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rv_type"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="153dp"
+                android:layout_height="120dp"
+                android:background="@mipmap/ic_empty" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px6dp"
+                android:text="@string/empty_text_evaluation"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintBottom_toBottomOf="@id/image" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

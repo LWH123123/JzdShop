@@ -1,0 +1,35 @@
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.jzd.jzshop.ui.mine.merch.MerchViewModel"/>
+        <variable
+            name="merchVM"
+            type="com.jzd.jzshop.ui.mine.merch.MerchViewModel" />
+
+    </data>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jzd.jzshop.ui.mine.merch.MerchFragment">
+
+    <include
+        android:id="@+id/asc_include_toolbar"
+        layout="@layout/layout_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:toolbarViewModel="@{merchVM.toolbarViewModel}" />
+
+<WebView
+    android:id="@+id/web"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
+</LinearLayout>
+
+
+</layout>

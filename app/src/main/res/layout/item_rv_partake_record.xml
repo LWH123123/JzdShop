@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_tip"
+        android:layout_width="@dimen/px68dp"
+        android:layout_height="@dimen/px68dp"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px16dp"
+        android:layout_marginBottom="@dimen/px16dp"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/placeholder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="@dimen/px68dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px12dp"
+        android:layout_marginBottom="@dimen/px16dp"
+        android:background="@drawable/shape_txt_bg_half_trans"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/textbody"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="抽奖" />
+
+    <!--state-->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="@dimen/px180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px26dp"
+        android:ellipsize="end"
+        android:gravity="center|left"
+        android:lines="1"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintLeft_toRightOf="@id/iv_tip"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="度士旗新款日系大码运动男短..." />
+
+    <!--time-->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginBottom="@dimen/px20dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/picture_color_light_grey"
+        android:textSize="@dimen/px13sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/iv_tip"
+        tools:text="时间：2019.01.23  20: 36: 35" />
+
+    <TextView
+        android:id="@+id/tv_credits_num"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px26dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:ellipsize="end"
+        android:gravity="center|right"
+        android:lines="1"
+        android:text=""
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="-1058积分" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="@dimen/px80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px4dp"
+        android:layout_marginRight="@dimen/px2dp"
+        android:layout_marginBottom="@dimen/px26dp"
+        android:ellipsize="end"
+        android:gravity="center|right"
+        android:lines="1"
+        android:maxEms="4"
+        android:singleLine="true"
+        android:text="+¥5222"
+        android:textColor="@color/colorred"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintRight_toLeftOf="@id/tv_status"
+        app:layout_constraintTop_toBottomOf="@id/tv_credits_num" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/px4dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:layout_marginBottom="@dimen/px26dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/px14sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_credits_num"
+        tools:text="已兑换" />
+
+    <!--space-->
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/px1dp"
+        android:layout_marginLeft="@dimen/px6dp"
+        android:layout_marginTop="@dimen/px16dp"
+        android:background="@color/defualt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/iv_tip"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_tip" />
+
+</android.support.constraint.ConstraintLayout>

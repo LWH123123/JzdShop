@@ -1,0 +1,245 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+    appKey "2cfacedbd44cb"
+    appSecret "664bb960fafe059cf399435b79e9c401"
+    ShareSDK {
+        //平台配置信息
+        devInfo {
+            Wechat {
+                id 1
+                sortId 1
+                appId "wxddfa4f6910baa8eb"
+                appSecret "f9edf2aad600cf43a09bf8ce3ea701e9"
+                bypassApproval false
+                enable true
+            }
+            WechatMoments {
+                id 2
+                sortId 2
+                appId "wxddfa4f6910baa8eb"
+                appSecret "f9edf2aad600cf43a09bf8ce3ea701e9"
+                bypassApproval false
+                enable true
+            }
+//            WechatFavorite {
+//                id 3
+//                sortId 3
+//                appId "wx5a70d8955fc79813"
+//                appSecret "4c2606d94e9e640830d72d50ffa138aa"
+//                bypassApproval false
+//                 enable true
+//            }
+//            QQ {
+//                id 4
+//                sortId 4
+//                appId "1109797020"
+//                appKey "mEo6n5jyjiRSrVyQ"
+//                shareByAppClient true
+//                bypassApproval false
+//                enable true
+//            }
+        }
+    }
+}
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        //jpush
+        ndk {
+            //cpu 架构 so库文件兼容
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+        }
+        //Manifest配置动态替换
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: rootProject.ext.android.applicationId,
+                JPUSH_APPKEY : "c5c9cb3c643d792d47d620f4", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+        packagingOptions {
+            doNotStrip '*/mips/*.so'
+            doNotStrip '*/mips64/*.so'
+        }
+
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'dayumall1'
+            keyPassword '111111'
+            storeFile file('dayumall.keystore')
+            storePassword '111111'
+        }
+        debug {
+            keyAlias 'dayumall1'
+            keyPassword '111111'
+            storeFile file('dayumall.keystore')
+            storePassword '111111'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 自定义输出配置
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "krsc_v${variant.versionName}_${variant.name}.apk"
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
+
+    }
+
+    dataBinding {
+        enabled true
+    }
+    //签名打包错误config
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    dexOptions {
+        jumboMode true
+    }
+
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/address'] } }
+}
+
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:+'
+    implementation 'com.android.support:support-v4:28.0.0'
+
+    implementation rootProject.ext.support["design"]
+    implementation project(':Module_MVVMHabit')
+
+    //下拉刷新,上拉加载
+    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+
+    //下拉刷新,上拉加载
+
+
+    //底部tabBar
+    implementation('me.majiajie:pager-bottom-tab-strip:2.2.5') {
+        exclude group: 'com.android.support'
+    }
+
+    //内存泄漏测试
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+
+    //65535
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //屏幕適配
+    implementation 'me.jessyan:autosize:1.1.2'
+
+    // 支付宝 SDK AAR 包所需的配置
+    implementation(name: 'alipaySdk-15.6.8-20191021122514', ext: 'aar')
+
+    //微信授权登录/分享
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.4.0'
+    implementation 'tech.jianyue.auth:auth:1.5.0'
+    implementation 'tech.jianyue.auth:auth_weixin:1.5.0'
+
+    //友盟统计
+    implementation 'com.umeng.umsdk:analytics:8.0.0'
+    implementation 'com.umeng.umsdk:common:2.0.0'
+
+    //SmartTablayout
+    implementation 'com.ogaclejapan.smarttablayout:library:1.6.0@aar'
+
+    //implementation 'com.github.xiaohaibin:XBanner:1.6.1'
+    implementation project(':Module_Xbanner')
+
+    //flow
+    implementation 'com.hyman:flowlayout-lib:1.1.2'
+
+    //时间选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
+
+    //搜索框
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+
+    //=======================new add config =================================
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+    implementation 'com.github.SheHuan:NiceImageView:1.0.5'
+    implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
+    implementation 'com.github.SheHuan:NiceDialog:1.1.1'
+    implementation 'com.just.agentweb:agentweb:4.0.2'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.1.9'
+    implementation 'org.byteam.superadapter:superadapter:3.6.8'
+
+    //处理多图片上传 图片参数加密上传失败问题
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation 'pub.devrel:easypermissions:2.0.1'
+    implementation 'com.ycjiang:imgepreviewlibrary:1.1.3'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //    implementation 'com.github.giswangsj:AndRatingBar:v1.0.1'
+
+    //=====================test 多图片上传 ===============
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'io.reactivex:rxandroid:1.1.0'
+    implementation 'io.reactivex:rxjava:1.1.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+
+    //=====================test 多图片上传===============
+
+    //EventBus传递参数
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    /*星星  */
+    implementation 'com.iarcuschin:simpleratingbar:0.1.5'
+    //定位
+    implementation files('libs/AMap_Location_V4.8.0_20191210.jar')
+    //bugly
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    //noice
+    implementation 'com.sunfusheng:MarqueeView:1.4.1'
+    //Jpush
+    implementation 'cn.jiguang.sdk:jpush:3.5.6'
+    implementation 'cn.jiguang.sdk:jcore:2.2.8'
+    //badgeview
+    implementation 'q.rorbin:badgeview:1.1.3'
+    implementation 'com.github.gittjy:LoadingDialog:1.0.2'
+    //chat im
+    implementation "org.java-websocket:Java-WebSocket:1.4.0"
+
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="@dimen/px6dp">
+
+    <!--君子权 广告位-->
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/iv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/px16dp"
+        android:background="@color/defualt"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="@dimen/px8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--滚动文字-->
+    <com.sunfusheng.marqueeview.MarqueeView
+        android:id="@+id/hotNotice"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginRight="@dimen/px12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/iv_tip"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:mvAnimDuration="2000"
+        app:mvDirection="bottom_to_top"
+        app:mvGravity="left"
+        app:mvInterval="3000"
+        app:mvSingleLine="true"
+        app:mvTextColor="@color/textColor"
+        app:mvTextSize="@dimen/px13sp"
+        tools:ignore="MissingConstraints"
+        tools:text="购物尚品，就在跨融商城！" />
+    <!--权数-->
+
+    <TextView
+        android:id="@+id/tv_junzhiNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px12dp"
+        android:layout_marginTop="@dimen/px8dp"
+        android:layout_marginRight="@dimen/px12dp"
+        android:gravity="center"
+        android:paddingLeft="@dimen/px6dp"
+        android:paddingRight="@dimen/px6dp"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/textColor"
+        android:textSize="@dimen/px15sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="购物尚品，就在跨融商城！" />
+</android.support.constraint.ConstraintLayout>

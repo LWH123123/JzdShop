@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="openChatVM"
+            type="com.jzd.jzshop.chat.OpenChatViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/ic_toolbar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{openChatVM.toolbarViewModel}" />
+
+        <!--会话断开，重连提示-->
+        <include layout="@layout/ui_chat_disconnection_tip" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/constrl_disconnection"
+            android:layout_marginBottom="@dimen/px60dp"
+            android:visibility="visible">
+
+            <com.jzd.jzshop.utils.widget.CustomClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/defualt"
+                android:visibility="visible">
+
+                <!--顶部悬浮商品UI-->
+                <include layout="@layout/ui_layout_chat_top_shop" />
+
+                <!--                       <ListView
+                                           android:id="@+id/listView"
+                                           android:layout_width="match_parent"
+                                           android:layout_height="wrap_content"
+                                           android:layout_weight="1"
+                                           android:background="@color/defualt"
+                                           android:divider="@null" />-->
+
+                <!--  android:layout_marginBottom="@dimen/px60dp"-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/cons_top_shop"
+                    android:background="@color/defualt"
+                    android:visibility="visible"
+                    tools:listitem="@layout/item_chat_receive_text" />
+
+                <!-- hot_keyword 列表-->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_hot_keyword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:visibility="gone"
+                    tools:listitem="@layout/item_rv_chat_hot_keywords" />
+            </RelativeLayout>
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <!-- 底部输入框-->
+        <!--    <include layout="@layout/view_keyboard_xhs" />-->
+        <!-- 底部输入框-->
+        <LinearLayout
+            android:id="@+id/lin_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_edit_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px60dp"
+                android:background="@color/white"
+                android:visibility="visible">
+
+                <EditText
+                    android:id="@+id/et_content"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/px32dp"
+                    android:layout_marginLeft="@dimen/px16dp"
+                    android:background="@drawable/search_shop"
+                    android:gravity="center_vertical|left"
+                    android:hint="@string/client_chat_tip"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/px16dp"
+                    android:singleLine="true"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="#999999"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/iv_upload"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_emoji"
+                    android:layout_width="@dimen/px30dp"
+                    android:layout_height="@dimen/px30dp"
+                    android:layout_marginLeft="@dimen/px16dp"
+                    android:layout_marginRight="@dimen/px70dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_face_nomal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/et_content"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/iv_upload"
+                    android:layout_width="@dimen/px30dp"
+                    android:layout_height="@dimen/px30dp"
+                    android:layout_marginRight="@dimen/px16dp"
+                    android:layout_marginLeft="@dimen/px16dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/btn_multi_bg"
+                    app:layout_constraintLeft_toRightOf="@id/et_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--发送-->
+                <Button
+                    android:id="@+id/btn_send"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="@dimen/px16dp"
+                    android:layout_marginLeft="@dimen/px16dp"
+                    android:background="@drawable/btn_send_bg_disable"
+                    android:text="@string/chat_im_btn_send"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toRightOf="@id/et_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+            <!--相机/相册-->
+            <RelativeLayout
+                android:id="@+id/rl_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px160dp"
+                android:layout_below="@id/cons_edit_layout"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/px30dp"
+                android:background="@color/white"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/px30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_chat_camera" />
+
+                <TextView
+                    android:id="@+id/tv_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_camera"
+                    android:layout_marginTop="@dimen/px10dp"
+                    android:singleLine="true"
+                    android:text="@string/chat_txt_camera"
+                    android:textSize="14sp"
+                    android:visibility="visible" />
+
+                <!--相册-->
+                <ImageView
+                    android:id="@+id/iv_album"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:layout_toRightOf="@id/iv_camera"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_chat_album" />
+
+                <TextView
+                    android:id="@+id/tv_album"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_album"
+                    android:layout_marginLeft="@dimen/px30dp"
+                    android:layout_marginTop="@dimen/px10dp"
+                    android:layout_toRightOf="@id/iv_camera"
+                    android:singleLine="true"
+                    android:text="@string/chat_txt__ablum"
+                    android:textSize="14sp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</layout>

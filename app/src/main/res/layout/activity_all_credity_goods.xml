@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="allCreditGoodsVM"
+            type="com.jzd.jzshop.ui.home.creditsstore.all_shop.AllCreditGoodsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <!--        <include
+                    android:id="@+id/ic_toolbar"
+                    layout="@layout/layout_toolbar"
+                    app:toolbarViewModel="@{allCreditGoodsVM.toolbarViewModel}" />-->
+
+        <!-- 特殊状态栏-->
+        <RelativeLayout
+            android:id="@+id/ic_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px46dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/px38dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="?selectableItemBackground"
+                android:padding="15dp"
+                android:src="@mipmap/back"
+                binding:onClickCommand="@{allCreditGoodsVM.backOnClickCommand}" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxEms="12"
+                android:singleLine="true"
+                android:text="全部商品"
+                android:textSize="@dimen/px16sp" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cons_arrows"
+                android:layout_width="@dimen/px26dp"
+                android:layout_height="@dimen/px46dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/tv_title">
+
+                <ImageView
+                    android:id="@+id/iv_arrows_down"
+                    android:layout_width="10.23dp"
+                    android:layout_height="5.98dp"
+                    android:background="@mipmap/ic_arrows_menu_up"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+        </RelativeLayout>
+
+        <!--自定义搜索框-->
+        <RelativeLayout
+            android:id="@+id/rl_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px32dp"
+            android:layout_below="@id/ic_toolbar"
+            android:layout_marginLeft="@dimen/px12dp"
+            android:layout_marginTop="@dimen/px10dp"
+            android:layout_marginRight="@dimen/px12dp"
+            android:layout_marginBottom="@dimen/px10dp"
+            android:background="@drawable/search_shop"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px24dp"
+                android:src="@mipmap/ic_search_shop" />
+
+            <EditText
+                android:id="@+id/et_search_shop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px22dp"
+                android:layout_toRightOf="@id/iv_search"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint="@string/search"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/px4dp"
+                android:singleLine="true"
+                android:textColor="@color/textColor"
+                android:textColorHint="#999999"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/mall_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_search"
+            android:layout_marginBottom="@dimen/px52dp"
+            android:background="@color/defualt">
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:id="@+id/mall_refresh_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/defualt"
+                android:paddingBottom="@dimen/px10dp"
+                android:visibility="visible" />
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:id="@+id/mall_refresh_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <!--空数据提示-->
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rl_search"
+            android:layout_marginBottom="@dimen/px52dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="153dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/px150dp"
+                android:background="@mipmap/ic_empty" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/px6dp"
+                android:layout_marginTop="@dimen/px6dp"
+                android:text="@string/empty_text_credit_goods_search"
+                android:textColor="@android:color/darker_gray" />
+        </LinearLayout>
+        <!--pull menu layout-->
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cons_pull_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ic_toolbar"
+            android:background="@color/picture_color_half_grey"
+            android:visibility="gone">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recy_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:visibility="visible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!-- empty layout-->
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_menu_empty_txt"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/px120dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/credit_empty_txt_filter_menu"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <!--一键置顶-->
+        <ImageView
+            android:id="@+id/iv_goTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="70dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_one_touch_top"
+            android:visibility="gone"
+            app:elevation="@dimen/px8dp"
+            app:onClickCommand="@{allCreditGoodsVM.onClickGoTop}"/>
+
+
+        <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+            android:id="@+id/pager_bottom_tab"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px52dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:visibility="visible"
+            app:elevation="8dp" />
+
+    </RelativeLayout>
+</layout>

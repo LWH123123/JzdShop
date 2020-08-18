@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+<variable
+    name="flowIVM"
+    type="com.jzd.jzshop.entity.GoodsSpecEntity.ResultBean.ListBean.ItemsBean" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/pisf_root_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/px5dp"
+        android:layout_marginTop="@dimen/px10dp"
+        android:layout_marginRight="@dimen/px5dp"
+        app:cardBackgroundColor="@color/spec_text_color"
+        android:padding="@dimen/px2dp"
+        app:cardCornerRadius="@dimen/px8dp"
+        app:cardElevation="@dimen/px0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="@dimen/px4dp"
+            android:paddingBottom="@dimen/px4dp"
+            tools:ignore="MissingConstraints">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cd_icon"
+                android:layout_width="@dimen/px24dp"
+                android:layout_height="@dimen/px24dp"
+                android:layout_marginStart="4dp"
+                android:visibility="@{TextUtils.isEmpty(flowIVM.thumb)?View.GONE:View.VISIBLE}"
+                app:cardCornerRadius="@dimen/px12dp"
+                app:cardElevation="@dimen/px0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/pisf_img_iv"
+                    android:layout_width="@dimen/px24dp"
+                    android:layout_height="@dimen/px24dp"
+                    app:isCircle="@{true}"
+                    app:url="@{flowIVM.thumb}" />
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/pisf_title_tv"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/px6dp"
+                android:textColor="@color/textColor"
+                android:paddingStart="@dimen/px4dp"
+                android:paddingEnd="@dimen/px4dp"
+                android:singleLine="false"
+                android:maxEms="12"
+                android:text='@{flowIVM.title,default=title}'
+                android:textSize="@dimen/px13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cd_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cd_icon"
+                app:layout_constraintTop_toTopOf="@+id/cd_icon" />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v7.widget.CardView>
+</layout>

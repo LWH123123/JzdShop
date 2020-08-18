@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+
+        <import type="com.jzd.jzshop.ui.shoppingcar.ShoppingCarViewModel"/>
+        <variable
+            name="shopcarVM"
+            type="com.jzd.jzshop.ui.shoppingcar.ShoppingCarViewModel" />
+    </data>
+
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jzd.jzshop.ui.shoppingcar.ShoppingCarActivity">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/constrain"
+            android:layout_alignParentTop="true"
+            android:background="@color/defualts">
+
+
+            <View
+                android:id="@+id/textView122"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px100dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                binding:layout_constraintHorizontal_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/backleft"
+                android:layout_width="@dimen/px18dp"
+                android:layout_height="@dimen/px18dp"
+                android:layout_marginStart="11dp"
+                android:visibility="gone"
+                app:srcCompat="@mipmap/white_back"
+                binding:layout_constraintBottom_toBottomOf="@+id/shopcar"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toTopOf="@+id/shopcar"
+                binding:layout_constraintVertical_bias="0.625" />
+
+
+            <TextView
+                android:id="@+id/shopcar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="34dp"
+                android:lineHeight="@dimen/px18dp"
+                android:text="@string/shoppingcar"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px19sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/backleft"
+                app:layout_constraintTop_toTopOf="parent"
+                binding:layout_constraintStart_toEndOf="@+id/backleft" />
+
+            <TextView
+                android:id="@+id/manage"
+                onClickCommand="@{shopcarVM.OnManageClick}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/px38dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginRight="11dp"
+                android:lineHeight="@dimen/px18dp"
+                android:text="@string/manage"
+                android:textColor="@color/white"
+                android:textSize="@dimen/px16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/mall_refresh_layout"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px0dp"
+                android:layout_marginTop="@dimen/px16dp"
+                binding:layout_constraintBottom_toBottomOf="parent"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/shopcar">
+
+                <com.scwang.smartrefresh.layout.header.FalsifyHeader
+                    android:background="@color/red"
+                    android:id="@+id/mall_refresh_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <!--app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shopcar"-->
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/shopdata"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginEnd="11dp"
+                    binding:adapter="@{adapter}"
+                    binding:itemBinding="@{shopcarVM.itembind}"
+                    binding:items="@{shopcarVM.shopCarList}"
+                    binding:layoutManager="@{LayoutManagers.linear()}"
+                     />
+
+
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+            <ImageView
+                android:id="@+id/imageView26"
+                android:layout_width="@dimen/px200dp"
+                android:layout_height="@dimen/px170dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="@dimen/px20dp"
+                android:src="@mipmap/noshop"
+                android:visibility="gone"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintHorizontal_bias="0.539"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/textView122" />
+
+            <TextView
+                android:id="@+id/text45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shopnodata"
+                android:textColor="@color/level1text"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/px6dp"
+                android:textSize="@dimen/px15sp"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:layout_constraintTop_toBottomOf="@+id/imageView26" />
+
+
+            <TextView
+                android:id="@+id/goshop"
+                android:layout_width="@dimen/px74dp"
+                android:layout_height="@dimen/px34dp"
+                android:visibility="gone"
+                android:background="@drawable/boder_nowork_radio"
+                android:gravity="center"
+                onClickCommand="@{shopcarVM.onClickGoShop}"
+                android:layout_marginTop="@dimen/px24dp"
+                android:text="@string/goshop"
+                android:textColor="@color/red"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text45" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constrain"
+        android:layout_above="@id/pager_bottom_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px50dp"
+        android:background="@color/level7text"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/check_style"
+            android:button="@null"
+            android:checked="@{shopcarVM.entrys,default=false}"
+            android:padding="@dimen/px2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            binding:checkClick="@{shopcarVM.onAllSelectClick}" />
+
+        <TextView
+            android:id="@+id/textView50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="5dp"
+            android:lineHeight="@dimen/px12dp"
+            android:text="@string/checkAll"
+            android:textColor="@color/level1text"
+            android:textSize="@dimen/px12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBox"
+            app:layout_constraintStart_toEndOf="@+id/checkBox"
+            app:layout_constraintTop_toTopOf="@+id/checkBox"
+            app:layout_constraintVertical_bias="0.545" />
+
+
+        <TextView
+            android:id="@+id/totalmoney"
+            onClickCommand="@{shopcarVM.onClickCompute}"
+            android:layout_width="@dimen/px70dp"
+            android:layout_height="@dimen/px32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/text_bg_strtle"
+            android:gravity="center"
+            android:lineHeight="@dimen/px16dp"
+            android:text='@{"结算("+shopcarVM.number+")",default="结算(0)"}'
+            android:textColor="@color/white"
+            android:textSize="@dimen/px13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/delete"
+            onClickCommand="@{shopcarVM.OnClickDelete}"
+            android:layout_width="@dimen/px60dp"
+            android:layout_height="@dimen/px30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/boder_red_radius"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/delete"
+            android:textColor="@color/levelred"
+            android:textSize="@dimen/px14sp"
+            binding:layout_constraintBottom_toBottomOf="parent"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="合计:"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/px14sp"
+            binding:layout_constraintBottom_toBottomOf="@+id/dolley"
+            binding:layout_constraintEnd_toStartOf="@+id/dolley"
+            binding:layout_constraintTop_toTopOf="@+id/dolley" />
+
+        <TextView
+            android:id="@+id/dolley"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text='@{"¥"+shopcarVM.moneyShow,default="¥0.00"}'
+            android:textColor="@color/red"
+            android:textSize="@dimen/px13sp"
+            binding:layout_constraintBottom_toBottomOf="@+id/totalmoney"
+            binding:layout_constraintEnd_toStartOf="@+id/totalmoney"
+            binding:layout_constraintTop_toTopOf="@+id/totalmoney"
+            binding:layout_constraintVertical_bias="0.529" />
+        <android.support.constraint.Group
+            android:id="@+id/nodata"
+            android:visibility="visible"
+            binding:constraint_referenced_ids="textView6,dolley"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </android.support.constraint.ConstraintLayout>
+    <me.majiajie.pagerbottomtabstrip.PageBottomTabLayout
+        android:background="@color/white"
+        android:id="@+id/pager_bottom_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px52dp"
+        android:layout_alignParentBottom="true"
+        app:elevation="8dp" />
+
+
+</RelativeLayout>
+</layout>

@@ -1,0 +1,187 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="merchnextVM"
+            type="com.jzd.jzshop.ui.mine.merch.MerchNextViewModel" />
+
+
+    </data>
+
+    <RelativeLayout
+        android:background="@color/red"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/titlebar"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarViewModel="@{merchnextVM.toolbarViewModel}" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_below="@id/titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/titlebar"
+                android:paddingBottom="@dimen/px50dp"
+                android:background="@color/red">
+
+
+                <ImageView
+                    android:id="@+id/imageView29"
+                    android:layout_width="match_parent"
+                    android:layout_height="270dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/bg_shopenter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView35"
+                    android:layout_width="@dimen/px260dp"
+                    android:layout_height="@dimen/px44dp"
+                    android:layout_marginTop="@dimen/px40dp"
+                    android:src="@mipmap/shopenterflow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageView29" />
+
+
+                <ImageView
+                    android:id="@+id/imageView36"
+                    android:layout_width="@dimen/px90dp"
+                    android:layout_height="@dimen/px24dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@mipmap/unbasics"
+                    app:layout_constraintStart_toStartOf="@+id/imageView35"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+
+                <ImageView
+                    android:id="@+id/imageView62"
+                    android:layout_width="@dimen/px90dp"
+                    android:layout_height="@dimen/px24dp"
+                    android:layout_marginStart="84dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@mipmap/business"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView36"
+                    app:layout_constraintStart_toStartOf="@+id/imageView36"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView35"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/imageView48"
+                    android:layout_width="@dimen/px90dp"
+                    android:layout_height="@dimen/px24dp"
+                    android:layout_marginStart="@dimen/px80dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@mipmap/storeinfotion"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView35"
+                    app:layout_constraintStart_toEndOf="@+id/imageView36"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/constraintLayout12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/px16dp"
+                    android:layout_marginTop="@dimen/px10dp"
+                    android:background="@drawable/boder_radius"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView62"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <!--   <com.jzd.jzshop.utils.widget.MessageImportView
+                        android:id="@+id/messageImportView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px46dp"
+                        android:layout_marginStart="@dimen/px20dp"
+                        android:layout_marginTop="@dimen/px20dp"
+                        android:layout_marginEnd="@dimen/px20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:titletext="@string/merchname"
+                        app:xingvisible="visible" />
+
+
+                    <com.jzd.jzshop.utils.widget.MessageImportView
+                        android:id="@+id/messageImportView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px46dp"
+                        android:layout_marginStart="@dimen/px20dp"
+                        android:layout_marginEnd="@dimen/px20dp"
+                        android:layout_marginTop="@dimen/px16dp"
+                        app:hinttext="@string/projectexample"
+                        app:layout_constraintTop_toBottomOf="@+id/messageImportView2"
+                        app:titletext="@string/mainproject"
+                        app:xingvisible="visible"
+                        tools:layout_editor_absoluteX="16dp" />
+
+
+                    <com.jzd.jzshop.utils.widget.MessageImportView
+                        android:id="@+id/messageImportView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px46dp"
+                        app:xingvisible="invisible"
+                        app:hinttext="@string/introduce"
+                        android:layout_marginStart="@dimen/px20dp"
+                        android:layout_marginEnd="@dimen/px20dp"
+                        android:layout_marginTop="@dimen/px16dp"
+                        app:layout_constraintTop_toBottomOf="@+id/messageImportView3"
+                        app:titletext="@string/shopintroduced"
+                        tools:layout_editor_absoluteX="20dp" />-->
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="@dimen/px0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px16dp"
+                        android:layout_marginBottom="@dimen/px16dp"
+                        android:layout_marginStart="@dimen/px10dp"
+                        android:layout_marginEnd="@dimen/px10dp"
+                        android:background="@drawable/boder_radius"
+                        android:focusable="false"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <Button
+                    onClickCommand="@{merchnextVM.onClickNextListeren}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/px16dp"
+                    android:layout_marginTop="@dimen/px30dp"
+                    android:layout_marginEnd="@dimen/px16dp"
+                    android:background="@drawable/btn_radius"
+                    android:text="@string/next"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/px16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout12" />
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+</layout>

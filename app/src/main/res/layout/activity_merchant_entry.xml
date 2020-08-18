@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="merchantVM"
+            type="com.jzd.jzshop.ui.mine.merch.MerchantEntryViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:visibility="gone"
+            android:id="@+id/titlebar"
+            layout="@layout/layout_toolbar"
+            app:toolbarViewModel="@{merchantVM.toolbarViewModel}" />
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/titlebar" />
+
+        <WebView
+            android:visibility="gone"
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/progressBar1"
+             />
+        <include
+            android:visibility="visible"
+            android:id="@+id/titleba"
+            layout="@layout/layout_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:toolbarViewModel="@{merchantVM.toolbarViewModel}" />
+        <android.support.v4.widget.NestedScrollView
+            android:visibility="visible"
+            android:overScrollMode="never"
+            android:layout_width="match_parent"
+            android:background="@color/colorred"
+            android:layout_height="match_parent">
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="@dimen/px50dp"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/imageView29"
+                        android:layout_width="match_parent"
+                        android:layout_height="270dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/bg_shopenter"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView35"
+                    android:layout_width="@dimen/px260dp"
+                    android:layout_height="@dimen/px44dp"
+                    android:layout_marginTop="@dimen/px40dp"
+                    android:src="@mipmap/shopenterflow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageView29" />
+
+
+                <ImageView
+                    android:id="@+id/imageView36"
+                    android:layout_width="@dimen/px90dp"
+                    android:layout_height="@dimen/px24dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@mipmap/basics"
+                    app:layout_constraintStart_toStartOf="@+id/imageView35"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+
+                <ImageView
+                    android:id="@+id/imageView62"
+                    android:layout_width="@dimen/px90dp"
+                    android:layout_height="@dimen/px24dp"
+                    android:layout_marginStart="84dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@mipmap/unbusiness"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView36"
+                    app:layout_constraintStart_toStartOf="@+id/imageView36"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView35"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <ImageView
+                    android:id="@+id/imageView48"
+                    android:layout_width="@dimen/px90dp"
+                    android:layout_height="@dimen/px24dp"
+                    android:layout_marginStart="@dimen/px80dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@mipmap/storeinfotion"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView35"
+                    app:layout_constraintStart_toEndOf="@+id/imageView36"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView35" />
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:id="@+id/constraintLayout10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginStart="@dimen/px20dp"
+                        android:layout_marginEnd="@dimen/px20dp"
+                        android:background="@drawable/boder_radius"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView62"
+                        tools:layout_editor_absoluteX="16dp">
+
+                        <com.jzd.jzshop.utils.widget.MessageImportView
+                            android:id="@+id/mi_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px46dp"
+                            android:layout_marginStart="@dimen/px20dp"
+                            android:layout_marginTop="@dimen/px20dp"
+                            android:layout_marginEnd="@dimen/px20dp"
+                            app:hinttext="@string/importyouname"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:titletext="@string/linkman"
+                            app:xingvisible="visible"
+                            tools:layout_editor_absoluteX="20dp" />
+
+
+                        <com.jzd.jzshop.utils.widget.MessageImportView
+                            android:id="@+id/mi_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px46dp"
+                            android:layout_marginStart="@dimen/px20dp"
+                            android:layout_marginTop="@dimen/px16dp"
+                            android:layout_marginEnd="@dimen/px20dp"
+                            app:importtype="phone"
+                            app:hinttext="@string/importyouipone"
+                            app:layout_constraintTop_toBottomOf="@+id/mi_name"
+                            app:titletext="@string/iphones"
+                            tools:layout_editor_absoluteX="28dp" />
+
+                        <TextView
+                            android:id="@+id/textView145"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/hinttextone"
+                            android:textSize="@dimen/px12sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.503"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/mi_phone" />
+
+                        <com.jzd.jzshop.utils.widget.MessageImportView
+                            android:id="@+id/mi_storename"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px46dp"
+                            android:layout_marginStart="@dimen/px20dp"
+                            android:layout_marginTop="@dimen/px16dp"
+                            android:layout_marginEnd="@dimen/px20dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView145"
+                            app:titletext="@string/merchname"
+                            app:xingvisible="visible" />
+
+
+                        <com.jzd.jzshop.utils.widget.MessageImportView
+                            android:id="@+id/mi_salecate"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px46dp"
+                            android:layout_marginStart="@dimen/px20dp"
+                            android:layout_marginTop="@dimen/px16dp"
+                            android:layout_marginEnd="@dimen/px20dp"
+                            app:hinttext="@string/projectexample"
+                            app:layout_constraintTop_toBottomOf="@+id/mi_storename"
+                            app:titletext="@string/mainproject"
+                            app:xingvisible="visible"
+                            tools:layout_editor_absoluteX="16dp" />
+
+
+                        <com.jzd.jzshop.utils.widget.MessageImportView
+                            android:id="@+id/mi_desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px46dp"
+                            android:layout_marginStart="@dimen/px20dp"
+                            android:layout_marginTop="@dimen/px16dp"
+                            android:layout_marginEnd="@dimen/px20dp"
+                            android:layout_marginBottom="@dimen/px20dp"
+                            app:hinttext="@string/introduce"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/mi_salecate"
+                            app:titletext="@string/shopintroduced"
+                            app:xingvisible="invisible"
+                            tools:layout_editor_absoluteX="20dp" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_radius"
+                        android:text="@string/next"
+                        onClickCommand="@{merchantVM.onClickMerchantListeren}"
+                        android:layout_marginTop="@dimen/px60dp"
+                        android:layout_marginStart="@dimen/px20dp"
+                        android:layout_marginEnd="@dimen/px20dp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout10" />
+
+                </android.support.constraint.ConstraintLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+
+
+
+</layout>
